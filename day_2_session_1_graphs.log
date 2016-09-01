@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.3.9)  1 SEP 2016 11:26
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.3.9)  1 SEP 2016 11:40
 entering extended mode
 **day_2_session_1_graphs.tex
 
@@ -1302,7 +1302,25 @@ shop2016/day_2_graphs_scatplot_example.png>] [5
 
 ] [6
 
-] [7
+]
+LaTeX Font Info:    Try loading font information for U+msa on input line 146.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 146.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Try loading font information for OT1+mathkerncmss on input 
+line 146.
+
+(C:\Users\brianw26\AppData\Roaming\MiKTeX\2.9\tex\latex\sansmathaccent\ot1mathk
+erncmss.fd
+File: ot1mathkerncmss.fd 2013/03/27 Fontinst v1.933 font definitions for OT1/ma
+thkerncmss.
+) [7
 
 ] [8
 
@@ -1310,8 +1328,7 @@ shop2016/day_2_graphs_scatplot_example.png>] [5
 
 ] [10
 
-]
-[11
+] [11
 
 ] [12
 
@@ -1333,13 +1350,13 @@ shop2016/day_2_graphs_scatplot_example.png>] [5
 \tf@nav=\write6
 \tf@toc=\write7
 \tf@snm=\write8
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 164.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 164.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 206.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 206.
 
 (P:\Epi-Biost-Workshop2016-master\Epi-Biost-Workshop2016-master\Epi-Biost-Works
 hop2016\day_2_session_1_graphs.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 164.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 164.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 206.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 206.
 Package rerunfilecheck Info: File `day_2_session_1_graphs.out' has not changed.
 
 (rerunfilecheck)             Checksum: F1F8582E966647D08941B7551EBF0D8C;197.
@@ -1351,24 +1368,26 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 164.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 206.
  ) 
 Here is how much of TeX's memory you used:
- 31341 strings out of 493921
- 758970 string characters out of 3147274
- 958120 words of memory out of 3000000
- 33996 multiletter control sequences out of 15000+200000
- 6318 words of font info for 23 fonts, out of 3000000 for 9000
+ 31419 strings out of 493921
+ 760782 string characters out of 3147274
+ 960120 words of memory out of 3000000
+ 34051 multiletter control sequences out of 15000+200000
+ 12649 words of font info for 46 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  64i,14n,98p,738b,609s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss12.pfb><C:/Program Fi
 les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss17.pfb><C:/Program Files/MiKT
 eX 2.9/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Program Files/MiKTeX 2.9/fo
-nts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on day_2_session_1_graphs.pdf (19 pages, 83104 bytes).
+nts/type1/public/amsfonts/cm/cmssi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
+e1/public/amsfonts/cm/cmssi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
+ic/amsfonts/cm/cmsy10.pfb>
+Output written on day_2_session_1_graphs.pdf (19 pages, 103194 bytes).
 PDF statistics:
- 168 PDF objects out of 1000 (max. 8388607)
+ 176 PDF objects out of 1000 (max. 8388607)
  43 named destinations out of 1000 (max. 500000)
  90 words of extra memory for PDF output out of 10000 (max. 10000000)
 
