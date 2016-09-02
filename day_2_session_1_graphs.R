@@ -46,7 +46,7 @@ sub.2 <- subset(leprosy, leprosy$trt == 2)
 sub.3 <- subset(leprosy, leprosy$trt == 3)
 
 png("day_2_graphs_scatplot_example.png", width = 400, height = 300)
-par(mar=c(5.1, 4.1, 4.1, 0.1), cex.lab = 1.5)
+par(mar = c(5.1, 4.1, 4.1, 0.1), cex.lab = 1.5)
 plot(sub.1$count1, sub.1$count2, main = "", ylab = "Count of bacilli at time 1", xlab = "Baseline count of bacilli",
      col = "black", pch = 19, xlim = c(min(leprosy$count1), max(leprosy$count1)),
      ylim = c(min(leprosy$count2), max(leprosy$count2)))
@@ -57,4 +57,20 @@ legend(2.5, 23, legend = c("Treatment 1", "Treatment 2", "Treatment 3"), col = c
 lines(sub.1$count1, fitted(lm(sub.1$count2 ~ sub.1$count1)))
 lines(sub.2$count1, fitted(lm(sub.2$count2 ~ sub.2$count1)), col = "blue")
 lines(sub.3$count1, fitted(lm(sub.3$count2 ~ sub.3$count1)), col = "red")
+dev.off()
+
+######################################################################
+##
+## Plots for point and slope determining a line
+##
+######################################################################
+
+## plot a point only
+png("line_example_point_only.png")
+plot(0, 1, main = "", ylim = c(-4, 4), xlim = c(-4, 4), pch = 19, xlab = "x", ylab = "y", axes = FALSE,
+     cex.lab = 1.5)
+abline(h = 0)
+abline(v = 0)
+axis(side = 2, at = seq(-4, 4, by = 1))
+axis(side = 1, at = seq(-4, 4, by = 1))
 dev.off()
