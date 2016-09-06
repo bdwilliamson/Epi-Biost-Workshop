@@ -157,17 +157,139 @@
 \end{frame}
 
 \myframe{Exercise: exponents and the exponential function}
-
+\begin{enumerate}
+\item What is the result of $x^2$ multiplied by $x^3$?
+\item[]
+\item $(x^{-2})^4 = $?
+\item[]
+\item $\exp(x - y) = $?
+\end{enumerate}
 \end{frame}
 
 \myframe{Solutions: exponents and the exponential function}
-
+\begin{enumerate}
+\item $x^2 \times x^3 = x^5$, since we add the exponents when we multiply
+\item[]
+\item $(x^{-2})^4 = x^{-2 \times 4} = x^{-8}$
+\item[]
+\item $\exp(x - y) = e^{x - y} = e^x \times e^{-y} = e^x/e^y = \exp(x)/\exp(y)$
+\end{enumerate}
 \end{frame}
 
 \section{Logs}
 \myframe{Logarithms}
 \begin{itemize}
 \item Exponents correspond to multiplication
+\item[]
+\item Addition is easier than multiplication
+\item[]
+\item Logarithms (logs) transform multiplication into addition!
+\end{itemize}
+\end{frame}
+
+\myframe{Logs: definition}
+\begin{itemize}
+\item Defined as the inverse operation of exponentiation
+\item[]
+\item Takes a base $b$ and a number $x$
+\item[]
+\item The log of $x$ to base $b$ is the number $y$ such that $b^y = x$
+\item[]
+\item Written as $\log_b(x) = y$
+\item[]
+\item Natural log: $\log_e(x)$, commonly written $\log(x)$
+\end{itemize}
+\end{frame}
+
+\myframe{Logs: definition}
+\begin{itemize}
+\item Undefined for $x \leq 0$
+\item[]
+\item Log is an increasing function: as $x$ increases, $\log_b(x)$  increases
+\item[]
+\item $\log_b(b) = 1$
+\end{itemize}
+\end{frame}
+
+\myframe{Logs: identities}
+\begin{itemize}
+\item Multiplication: $\log_b(xy) = \log_b(x) + \log_b(y)$
+\item[]
+\item Division: for $y \neq 0$, $\log_b(x/y) = \log_b(x) - \log_b(y)$
+\item[]
+\item Powers: $\log_b(x^p) = p \log_b(x)$
+\item[]
+\item Roots: for $p \neq 0$, $\log_b(x^{1/p}) = \log_b(x)/p$
+\item[]
+\item Inverse function: $\log_b(b^x) = x\log_b(b) = x$
+\end{itemize}
+\end{frame}
+
+\myframe{Example: log identities}
+\begin{itemize}
+\item Multiplication: $\log (2 \times 3) = \log (2) + \log (3) = \log (6)$
+\item[]
+\item Logs of numbers $< 1$ are negative: $\log (2/3) = \log (2) - \log (3) < 0$
+\item[]
+\item Power: $\log (x^2) = 2\log (x)$
+\end{itemize}
+\end{frame}
+
+\myframe{Common bases, changing base}
+\begin{itemize}
+\item The three most common bases: $e$, $10$, and $2$
+\item[]
+\item $e$ --- common in mathematics
+\item[]
+\item 10 --- common for calculating numbers in the decimal system
+\item[]
+\item 2 --- common in computer science
+\item[]
+\item Changing between bases: $\log_b(x) = \dfrac{\log_k(x)}{\log_k(b)}$
+\end{itemize}
+\end{frame}
+
+\myframe{$\exp(\cdot)$ and $\log(\cdot)$}
+\begin{itemize}
+\item Recall $\exp(x) = e^x$
+\item[]
+\item Natural log: $\log (x) = \log_e(x)$
+\item[]
+\item So $x = \log [\exp(x)]$! And $x = \exp[\log(x)]$!
+\end{itemize}
+\end{frame}
+
+\myframe{Exercise: logarithms}
+\begin{enumerate}
+\item $\log(xy) = $?
+\item[]
+\item $\log(x/y) = $?
+\item[]
+\item $\log[\exp(2x)] = $?
+\item[]
+\item $\exp[\log(x^2)] = $?
+\end{enumerate}
+\end{frame}
+
+\myframe{Solutions: logarithms}
+\begin{enumerate}
+\item $\log(xy) = \log(x) + \log(y)$
+\item[]
+\item $\log(x/y) = \log(x) - \log(y)$
+\item[]
+\item $\log[\exp(2x)] = 2x$
+\item[]
+\item $\exp[\log(x^2)] = \exp[2\log(x)] = \exp(2)\exp[\log(x)] = x\exp(2)$
+\end{enumerate}
+\end{frame}
+
+\myframe{Uses of logarithms in statistics}
+\begin{itemize}
+\item Transformation of the data --- look at a multiplicative relationship rather than an additive relationship
+\item[]
+\item Logistic regression, Poisson regression
+\item[]
+\item For more, see BIOST 512/513!
 \end{itemize}
 \end{frame}
 \end{document}
