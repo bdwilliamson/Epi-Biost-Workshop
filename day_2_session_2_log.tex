@@ -1,0 +1,173 @@
+\documentclass[12pt]{beamer}
+\usetheme{default} 
+
+\setbeamertemplate{navigation symbols}{} %gets rid of navigation symbols
+\setbeamertemplate{footline}{} %gets rid of bottom navigation bars
+\setbeamertemplate{footline}[page number]{} %use this for page numbers
+
+\setbeamertemplate{footline}{%
+  \raisebox{5pt}{\makebox[\paperwidth]{\hfill\makebox[10pt]{\scriptsize\insertframenumber~~}}}}
+
+\setbeamertemplate{itemize items}[circle] %round bullet points
+\setlength\parskip{10pt} % white space between paragraphs
+
+\usepackage{wrapfig}
+\usepackage{subfig}
+\usepackage{setspace}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[UKenglish]{isodate}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{natbib}
+\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;} 
+
+% allow drawing arrows
+\usetikzlibrary{arrows}
+\tikzstyle{arrow}=[draw, -latex] 
+
+% skips
+\setlength{\abovecaptionskip}{15pt plus 3pt minus 2pt}
+\setlength{\belowcaptionskip}{5pt plus 3pt minus 2pt}
+% bracketing shortcuts
+\newcommand{\paren}[1]{\left(#1\right)}
+\newcommand{\sqbracket}[1]{\left[#1\right]}
+\newcommand{\cbracket}[1]{\left\{#1\right\}}
+\newcommand{\abs}[1]{\left\lvert#1\right\rvert}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+% set up the argmin operator, argmax
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+\newcommand{\myframe}[1]{\begin{frame} \frametitle{#1}}
+% the preamble
+\title{Day 2, Session 2: Logs/Exponentiation}
+\author{Brian Williamson}
+\institute{EPI/BIOST Bootcamp 2016}
+\date{26 September 2016}
+
+% Start the document
+\begin{document}
+% The title page
+\begin{frame}
+\titlepage
+\end{frame}
+
+\section{Exponentiation}
+\myframe{Exponentiation}
+\begin{itemize}
+\item A mathematical operation corresponding to repeated multiplication
+\item[]
+\item The second in the order of operations! (P{\textbf E}MDAS)
+\item[]
+\item Composed of two numbers: a base, $b$, and an exponent, $n$
+\item[]
+\item $b^n = \underbrace{b\times b \times \cdots \times b}_\text{$n$ times}$
+\end{itemize}
+\end{frame}
+
+\myframe{Positive vs negative exponents}
+\begin{itemize}
+\item Exponents correspond to multiplication
+\item[]
+\item Positive exponent: multiplication, e.g. $2^2 = 2\times 2$
+\item[]
+\item Negative exponent: multiplication of reciprocals, i.e. $2^{-2} = \frac{1}{2}\times \frac{1}{2}$
+\end{itemize}
+\end{frame}
+
+\myframe{Properties of exponents}
+\begin{itemize}
+\item For any base $b$ and any $n$ an integer:
+\begin{itemize}
+\item $b^0 = 1$
+\item[]
+\item $b^1 = b$
+\item[]
+\item $b^{n+1} = b^n \times b$
+\end{itemize}
+\item[]
+\item For $b \neq 0$ and any $n$ an integer:
+\begin{itemize}
+\item $b^n = b^{n+1}/b$
+\item[]
+\item $b^{-n} = 1/b^n$
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\myframe{Exponent identities}
+\begin{itemize}
+\item For all $b,c \neq 0$:
+\begin{itemize}
+\item $b^{m+n} = b^m \times b^n$
+\item[]
+\item $b^{m \times n} = (b^m)^n$
+\item[]
+\item $(b\times c)^n = b^n \times c^n$
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\myframe{Example: integer exponent properties and identities}
+\begin{itemize}
+\item Take $b = 2$
+\item[]
+\item $2^0 = 1$
+\item[]
+\item $2^1 = 2$
+\item[]
+\item $2^2 = 2 \times 2$
+\item[]
+\item $2^3 = 2^2 \times 2 = 8$
+\item[]
+\item $(2 \times 3)^2 = 2^2 \times 3^2 = 4 \times 9 = 36$ (check: $2 \times 3 = 6, 6^2 = 36$)
+\end{itemize}
+\end{frame}
+
+\myframe{Rational exponents (roots)}
+\begin{itemize}
+\item $n$th root of $b$: the number $x$ such that $x^n = b$ 
+\item[]
+\item Written as $b^{1/n}$ or $\sqrt[n]{b}$
+\item[]
+\item Some identities (for $b$ positive):
+\begin{itemize}
+\item $b = (b^n)^{1/n}$
+\item[]
+\item $b^{m/n} = (b^m)^{1/n} = \sqrt[n]{b^m}$
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\myframe{Exponential function}
+\begin{itemize}
+\item An important constant: $e$, approximately $2.718$
+\item[]
+\item Useful as a base for powers
+\item[]
+\item Define $\exp(x) = e^x$
+\item[]
+\item Useful identity: $\exp(x+y) = e^{x+y} =  \exp(x)\times \exp(y)$
+\end{itemize}
+\end{frame}
+
+\myframe{Exercise: exponents and the exponential function}
+
+\end{frame}
+
+\myframe{Solutions: exponents and the exponential function}
+
+\end{frame}
+
+\section{Logs}
+\myframe{Logarithms}
+\begin{itemize}
+\item Exponents correspond to multiplication
+\end{itemize}
+\end{frame}
+\end{document}
