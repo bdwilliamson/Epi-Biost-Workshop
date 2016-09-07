@@ -1,5 +1,0 @@
-\beamer@endinputifotherversion {3.36pt}
-\beamer@sectionintoc {1}{Types of graphs}{2}{0}{1}
-\beamer@sectionintoc {2}{Linear trends}{6}{0}{2}
-\beamer@sectionintoc {3}{Quadratics}{25}{0}{3}
-\beamer@sectionintoc {4}{Transformations}{31}{0}{4}

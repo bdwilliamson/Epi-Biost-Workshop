@@ -1,0 +1,26 @@
+---
+title: "Day 3: uwIntroStats introduction"
+subtitle: "EPI/BIOST Bootcamp 2016"
+author: "Brian Williamson"
+date: "27 September, 2016"
+output: slidy_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## uwIntroStats
+
+- uwIntroStats is an R package developed by: Scott Emerson, M.D. Ph.D.; Andrew J. Spieker, Ph.D.; myself (Brian D. Williamson); and Travis Hee Wai
+
+- The package aims to make adopting R easier by streamlining presentation of output and making functions easier to work with
+
+## Why uwIntroStats?
+
+- Prints output in a more intuitive manner than base R
+- Prints output that *we* think is important
+- Wide array of functions for descriptive statistics
+- Uses robust standard error estimates in all calculations
+
+## Table of useful functions
