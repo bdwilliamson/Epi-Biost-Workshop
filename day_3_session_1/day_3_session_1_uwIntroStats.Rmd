@@ -23,4 +23,76 @@ knitr::opts_chunk$set(echo = FALSE)
 - Wide array of functions for descriptive statistics
 - Uses robust standard error estimates in all calculations
 
-## Table of useful functions
+## Some useful functions
+|Desired output       | STATA                 | R (base)              | R (`uwIntroStats`)
+| --- | --- | --- | --- |
+| read in data (.txt file) | `infile` | `read.table()` |
+| read in data (.csv file) | `infile` | `read.csv()` | 
+| mean | `summarize` | `summary()` | `descrip()` 
+| | `mean()` | |
+| std dev | `summarize` | `summary()` | `descrip()` 
+|         |             | `sd()` | 
+| variance | `summarize` | `var()` | `descrip()` 
+| chi-square | `tabulate` | `chisq.test()` | `tabulate()` 
+
+                         
+## Some useful functions (continued)
+|Desired output       | STATA                 | R (base)              | R (`uwIntroStats`)|
+| --- | --- | --- | --- |
+|boxplot              | `graph box`           | `boxplot()`           | `bplot()`         |
+|histogram            | `histogram`           | `hist()`              |                   |
+|density curve        | `kdensity`            | `plot(density())`     |                   |
+|scatter plot         | `scatter`             | `plot()`              | `scatter()`       |
+|correlation          | `correlate`           | `cor()` (correlation) | `correlate`       |
+|                     |                       | `cov()` (covariance)  |                   |
+|probability          | `display normprob(1)` | `1 - pnorm(1)`        |                   |
+|(normal, z-score 1)  |                       |                       |                   |
+|t-test               | `ttest`               | `t.test()`            | `ttest()`         |
+|linear regression    | `regress`             | `lm()`                | `regress()`       |
+
+## Example: `mri` data
+- First, set your working directory. In RStudio, go to the pane with "Files", "Plots", etc. Then click "More", then "Set as working directory". Your console should print something like `setwd("~/Workshop2016-master/day_3_session_1")`
+- Load the `mri` data:
+```{r, echo = TRUE}
+## load the package
+library(uwIntroStats)
+
+## load the data
+data(mri)
+```
+
+## Example: `mri` data
+- We can get descriptive statistics for the whole dataset using `descrip()`...
+```{r, echo = TRUE}
+descrip(mri)
+```
+
+## Example: `mri` data
+- ... but this is unwieldy
+- Easier to look at each variable individually, or a couple at a time
+```{r, echo = TRUE}
+descrip(mri$age)
+```
+- We can also look within strata
+```{r, echo = TRUE}
+descrip(mri$age, strata = mri$male)
+```
+
+## Example: `mri` data
+- Scatterplots help get a look at trends in the data
+
+```{r, echo = TRUE}
+scatter(mri$atrophy, mri$age, main = "Cerebral Atrophy vs Age", ylab = "Cerebral Atrophy", xlab = "Age (years)")
+```
+
+- Can stratify, e.g. based on sex
+
+```{r, echo = TRUE}
+scatter(mri$atrophy, mri$age, strata = mri$male, main = "Cerebral Atrophy vs Age, by Sex", ylab = "Cerebral Atrophy", xlab = "Age (years)")
+
+```
+
+## Summary
+- uwIntroStats is an R package designed to make using R easier
+- Provides flexible functions for descriptive statistics
+- Many parallels with base R and with STATA
