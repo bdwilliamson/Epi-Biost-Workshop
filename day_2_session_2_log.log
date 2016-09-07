@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.7.25)  6 SEP 2016 12:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.7.25)  7 SEP 2016 09:43
 entering extended mode
 **./day_2_session_2_log.tex
 (day_2_session_2_log.tex
@@ -1343,10 +1343,10 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 295.
  ) 
 Here is how much of TeX's memory you used:
- 31606 strings out of 493605
- 762400 string characters out of 3135279
+ 31608 strings out of 493605
+ 762416 string characters out of 3135279
  963358 words of memory out of 3000000
- 34367 multiletter control sequences out of 15000+200000
+ 34369 multiletter control sequences out of 15000+200000
  16440 words of font info for 60 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
  64i,14n,98p,737b,609s stack positions out of 5000i,500n,10000p,200000b,50000s
