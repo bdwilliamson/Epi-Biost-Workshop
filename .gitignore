@@ -17,6 +17,7 @@
 *.fot
 *.cb
 *.cb2
+*.nav
 
 ## Intermediate documents:
 *.dvi
