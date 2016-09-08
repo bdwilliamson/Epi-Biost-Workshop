@@ -120,6 +120,17 @@ sum(is.na(mri$age))
     2. ("A" == "A") & (1 == 1)
 3. What does `is.na(1)` return?
 
+## Solution: data types
+1. Solutions are:
+    1. Numeric, integer, `int`
+    2. Numeric, double, `num`
+    3. Logical, `logi`
+    4. Character, `chr`
+2. Solutions:
+    1. `FALSE`
+    2. `TRUE`
+3. `FALSE`
+
 ## Data structures
 - Equally important to what type of data we have is how it is stored
 - *Data structures* are the various ways that R stores data
@@ -128,5 +139,97 @@ sum(is.na(mri$age))
     - Vectors
     - Matrices
     - Arrays
-    - Lists
     - Data frames
+    - Lists
+
+## Vectors
+- Store any number of individual values
+- All values must be the same data type
+    - If not, R will force all values to be the same type (with perhaps varying results)
+- Create vectors with `c()`
+- Examples:
+    - vector of strings: `c("Mary", "had", "a", "little", "lamb")`
+    - vector of integers: `c(1, 2, 3, 4, 5)`
+    
+```{r, echo = TRUE}
+## same string as before
+c("Mary", "had", "a", "little", "lamb")
+
+## trying two data types
+c("Hello", "number", 1)
+c(1, "2", 3)
+```
+
+## Matrices
+- Tables, or two-dimensional vectors
+- All values must be the same data type
+- Must be rectangular: number of rows in each column is equal, and number of columns in each row is equal 
+- Create matrices with `matrix(vector, nrow, ncol, byrow, dimnames)`
+    1. Create a vector inside this call with `c()`
+    2. Specify how many rows (`nrow`) and/or columns (`ncol`)
+    3. Specify whether to read in values across rows (`byrow = TRUE`) or down columns (`FALSE`)
+    4. (optional) Specify the names of the dimensions, in a list
+
+## Matrices: examples
+```{r, echo = TRUE}
+## create a matrix from a vector of numbers
+matrix(c(1, 0, 0, 1), nrow = 2, ncol = 2, byrow = TRUE)
+
+## matrix from a vector of words (matrices can be non-square)
+matrix(c("This", "is", "a", "matrix"), nrow = 1, byrow = TRUE)
+```
+
+## Arrays
+- Higher-order matrices (a matrix is also a 2-D array)
+- All values must be the same data type
+- Must be rectangular, like matrices
+- Create with `array(vector, dim)`
+    1. Create a vector with `c()`
+    2. Use `dim` to specify an integer vector with the maximum number of indices in each dimension
+    3. (optional) Specify the names of the dimensions, in a list
+
+## Arrays: examples
+```{r, echo = TRUE}
+## 1-D array, or vector
+array(c(1, 2, 3, 4), dim = 4)
+
+## 2-D array, or matrix
+array(c(1, 0, 0, 1), dim = c(2, 2))
+
+## 3-D array (an array with two 2-D sub-arrays)
+array(c(1, 0, 0, 1, 1, 0, 0, 1), dim = c(2, 2, 2))
+```
+
+## Data frames
+- A table, like a matrix
+- Columns may have different data types
+    - For this reason, data frames are a common storage mode in R
+- Each column must have the same number of rows
+- Create with `data.frame(..., row.names, stringsAsFactors)`
+    1. `...` is a special object, meaning that we can put anything here: a comma separated list of vectors, matrices etc., or many other objects
+    2. (optional) Specify the names of the columns using `=`, with the name on the left and the object on the right
+    3. (optional) Specify the names of the rows using `row.names`
+    4. (optional) Convert strings to factors if possible (`stringsAsFactors = TRUE`)
+
+## Data frames: examples
+```{r, echo = TRUE}
+data.frame(c(1,2,3), c("UW", "is", "awesome")) ## data frame with no column names
+data.frame(nums = c(1,2,3), words = c("UW", "is", "awesome")) ## data frame with column names
+data.frame(nums = c(1,2,3), words = c("UW", "is", "awesome"), mat = matrix(c(1, 0, 0, 0, 0, 1), nrow = 3)) ## input vectors and matrices
+```
+
+## Lists
+- An ordered collection of objects
+- Each object can have a different data type, or can be any data structure
+- Created by `list(...)`
+    - Again the `...`! So lots of things can go here!
+    - We can also name objects using `=`, like in `data.frame()`
+    
+## Lists: examples
+```{r, echo = TRUE}
+list(1, "UW", 2, "is", 3, "awesome") ## list with single characters and strings
+list(df = data.frame(nums = c(1,2,3), words = c("UW", "is", "awesome")), mat = matrix(c(1, 0, 0, 0, 0, 1), nrow = 3)) ## list with named data frame and matrix
+```
+
+## Exercise: data structures
+1. 

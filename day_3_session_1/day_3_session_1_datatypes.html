@@ -228,6 +228,24 @@ Brian D. Williamson
 <li>What does <code>is.na(1)</code> return?</li>
 </ol>
 </div>
+<div id="solution-data-types" class="slide section level2">
+<h1>Solution: data types</h1>
+<ol style="list-style-type: decimal">
+<li>Solutions are:
+<ol style="list-style-type: decimal">
+<li>Numeric, integer, <code>int</code></li>
+<li>Numeric, double, <code>num</code></li>
+<li>Logical, <code>logi</code></li>
+<li>Character, <code>chr</code></li>
+</ol></li>
+<li>Solutions:
+<ol style="list-style-type: decimal">
+<li><code>FALSE</code></li>
+<li><code>TRUE</code></li>
+</ol></li>
+<li><code>FALSE</code></li>
+</ol>
+</div>
 <div id="data-structures" class="slide section level2">
 <h1>Data structures</h1>
 <ul>
@@ -239,10 +257,186 @@ Brian D. Williamson
 <li>Vectors</li>
 <li>Matrices</li>
 <li>Arrays</li>
-<li>Lists</li>
 <li>Data frames</li>
+<li>Lists</li>
 </ul></li>
 </ul>
+</div>
+<div id="vectors" class="slide section level2">
+<h1>Vectors</h1>
+<ul>
+<li>Store any number of individual values</li>
+<li>All values must be the same data type
+<ul>
+<li>If not, R will force all values to be the same type (with perhaps varying results)</li>
+</ul></li>
+<li>Create vectors with <code>c()</code></li>
+<li>Examples:
+<ul>
+<li>vector of strings: <code>c(&quot;Mary&quot;, &quot;had&quot;, &quot;a&quot;, &quot;little&quot;, &quot;lamb&quot;)</code></li>
+<li>vector of integers: <code>c(1, 2, 3, 4, 5)</code></li>
+</ul></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## same string as before
+<span class="kw">c</span>(<span class="st">&quot;Mary&quot;</span>, <span class="st">&quot;had&quot;</span>, <span class="st">&quot;a&quot;</span>, <span class="st">&quot;little&quot;</span>, <span class="st">&quot;lamb&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;Mary&quot;   &quot;had&quot;    &quot;a&quot;      &quot;little&quot; &quot;lamb&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## trying two data types
+<span class="kw">c</span>(<span class="st">&quot;Hello&quot;</span>, <span class="st">&quot;number&quot;</span>, <span class="dv">1</span>)</code></pre></div>
+<pre><code>## [1] &quot;Hello&quot;  &quot;number&quot; &quot;1&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">1</span>, <span class="st">&quot;2&quot;</span>, <span class="dv">3</span>)</code></pre></div>
+<pre><code>## [1] &quot;1&quot; &quot;2&quot; &quot;3&quot;</code></pre>
+</div>
+<div id="matrices" class="slide section level2">
+<h1>Matrices</h1>
+<ul>
+<li>Tables, or two-dimensional vectors</li>
+<li>All values must be the same data type</li>
+<li>Must be rectangular: number of rows in each column is equal, and number of columns in each row is equal</li>
+<li>Create matrices with <code>matrix(vector, nrow, ncol, byrow, dimnames)</code>
+<ol style="list-style-type: decimal">
+<li>Create a vector inside this call with <code>c()</code></li>
+<li>Specify how many rows (<code>nrow</code>) and/or columns (<code>ncol</code>)</li>
+<li>Specify whether to read in values across rows (<code>byrow = TRUE</code>) or down columns (<code>FALSE</code>)</li>
+<li>(optional) Specify the names of the dimensions, in a list</li>
+</ol></li>
+</ul>
+</div>
+<div id="matrices-examples" class="slide section level2">
+<h1>Matrices: examples</h1>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## create a matrix from a vector of numbers
+<span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>), <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">byrow =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]    1    0
+## [2,]    0    1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## matrix from a vector of words (matrices can be non-square)
+<span class="kw">matrix</span>(<span class="kw">c</span>(<span class="st">&quot;This&quot;</span>, <span class="st">&quot;is&quot;</span>, <span class="st">&quot;a&quot;</span>, <span class="st">&quot;matrix&quot;</span>), <span class="dt">nrow =</span> <span class="dv">1</span>, <span class="dt">byrow =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>##      [,1]   [,2] [,3] [,4]    
+## [1,] &quot;This&quot; &quot;is&quot; &quot;a&quot;  &quot;matrix&quot;</code></pre>
+</div>
+<div id="arrays" class="slide section level2">
+<h1>Arrays</h1>
+<ul>
+<li>Higher-order matrices (a matrix is also a 2-D array)</li>
+<li>All values must be the same data type</li>
+<li>Must be rectangular, like matrices</li>
+<li>Create with <code>array(vector, dim)</code>
+<ol style="list-style-type: decimal">
+<li>Create a vector with <code>c()</code></li>
+<li>Use <code>dim</code> to specify an integer vector with the maximum number of indices in each dimension</li>
+<li>(optional) Specify the names of the dimensions, in a list</li>
+</ol></li>
+</ul>
+</div>
+<div id="arrays-examples" class="slide section level2">
+<h1>Arrays: examples</h1>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## 1-D array, or vector
+<span class="kw">array</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>), <span class="dt">dim =</span> <span class="dv">4</span>)</code></pre></div>
+<pre><code>## [1] 1 2 3 4</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## 2-D array, or matrix
+<span class="kw">array</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>), <span class="dt">dim =</span> <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))</code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]    1    0
+## [2,]    0    1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## 3-D array (an array with two 2-D sub-arrays)
+<span class="kw">array</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>), <span class="dt">dim =</span> <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>))</code></pre></div>
+<pre><code>## , , 1
+## 
+##      [,1] [,2]
+## [1,]    1    0
+## [2,]    0    1
+## 
+## , , 2
+## 
+##      [,1] [,2]
+## [1,]    1    0
+## [2,]    0    1</code></pre>
+</div>
+<div id="data-frames" class="slide section level2">
+<h1>Data frames</h1>
+<ul>
+<li>A table, like a matrix</li>
+<li>Columns may have different data types
+<ul>
+<li>For this reason, data frames are a common storage mode in R</li>
+</ul></li>
+<li>Each column must have the same number of rows</li>
+<li>Create with <code>data.frame(..., row.names, stringsAsFactors)</code>
+<ol style="list-style-type: decimal">
+<li><code>...</code> is a special object, meaning that we can put anything here: a comma separated list of vectors, matrices etc., or many other objects</li>
+<li>(optional) Specify the names of the columns using <code>=</code>, with the name on the left and the object on the right</li>
+<li>(optional) Specify the names of the rows using <code>row.names</code></li>
+<li>(optional) Convert strings to factors if possible (<code>stringsAsFactors = TRUE</code>)</li>
+</ol></li>
+</ul>
+</div>
+<div id="data-frames-examples" class="slide section level2">
+<h1>Data frames: examples</h1>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data.frame</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>), <span class="kw">c</span>(<span class="st">&quot;UW&quot;</span>, <span class="st">&quot;is&quot;</span>, <span class="st">&quot;awesome&quot;</span>)) ## data frame with no column names</code></pre></div>
+<pre><code>##   c.1..2..3. c..UW....is....awesome..
+## 1          1                       UW
+## 2          2                       is
+## 3          3                  awesome</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data.frame</span>(<span class="dt">nums =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>), <span class="dt">words =</span> <span class="kw">c</span>(<span class="st">&quot;UW&quot;</span>, <span class="st">&quot;is&quot;</span>, <span class="st">&quot;awesome&quot;</span>)) ## data frame with column names</code></pre></div>
+<pre><code>##   nums   words
+## 1    1      UW
+## 2    2      is
+## 3    3 awesome</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data.frame</span>(<span class="dt">nums =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>), <span class="dt">words =</span> <span class="kw">c</span>(<span class="st">&quot;UW&quot;</span>, <span class="st">&quot;is&quot;</span>, <span class="st">&quot;awesome&quot;</span>), <span class="dt">mat =</span> <span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>), <span class="dt">nrow =</span> <span class="dv">3</span>)) ## input vectors and matrices</code></pre></div>
+<pre><code>##   nums   words mat.1 mat.2
+## 1    1      UW     1     0
+## 2    2      is     0     0
+## 3    3 awesome     0     1</code></pre>
+</div>
+<div id="lists" class="slide section level2">
+<h1>Lists</h1>
+<ul>
+<li>An ordered collection of objects</li>
+<li>Each object can have a different data type, or can be any data structure</li>
+<li>Created by <code>list(...)</code>
+<ul>
+<li>Again the <code>...</code>! So lots of things can go here!</li>
+<li>We can also name objects using <code>=</code>, like in <code>data.frame()</code></li>
+</ul></li>
+</ul>
+</div>
+<div id="lists-examples" class="slide section level2">
+<h1>Lists: examples</h1>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">list</span>(<span class="dv">1</span>, <span class="st">&quot;UW&quot;</span>, <span class="dv">2</span>, <span class="st">&quot;is&quot;</span>, <span class="dv">3</span>, <span class="st">&quot;awesome&quot;</span>) ## list with single characters and strings</code></pre></div>
+<pre><code>## [[1]]
+## [1] 1
+## 
+## [[2]]
+## [1] &quot;UW&quot;
+## 
+## [[3]]
+## [1] 2
+## 
+## [[4]]
+## [1] &quot;is&quot;
+## 
+## [[5]]
+## [1] 3
+## 
+## [[6]]
+## [1] &quot;awesome&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">list</span>(<span class="dt">df =</span> <span class="kw">data.frame</span>(<span class="dt">nums =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>), <span class="dt">words =</span> <span class="kw">c</span>(<span class="st">&quot;UW&quot;</span>, <span class="st">&quot;is&quot;</span>, <span class="st">&quot;awesome&quot;</span>)), <span class="dt">mat =</span> <span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>), <span class="dt">nrow =</span> <span class="dv">3</span>)) ## list with named data frame and matrix</code></pre></div>
+<pre><code>## $df
+##   nums   words
+## 1    1      UW
+## 2    2      is
+## 3    3 awesome
+## 
+## $mat
+##      [,1] [,2]
+## [1,]    1    0
+## [2,]    0    0
+## [3,]    0    1</code></pre>
+</div>
+<div id="exercise-data-structures" class="slide section level2">
+<h1>Exercise: data structures</h1>
+<ol style="list-style-type: decimal">
+<li></li>
+</ol>
 </div>
 
   <!-- dynamically load mathjax for compatibility with self-contained -->
