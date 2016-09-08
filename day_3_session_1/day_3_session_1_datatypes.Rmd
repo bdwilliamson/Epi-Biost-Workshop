@@ -232,4 +232,27 @@ list(df = data.frame(nums = c(1,2,3), words = c("UW", "is", "awesome")), mat = m
 ```
 
 ## Exercise: data structures
-1. 
+1. How does one create a vector?
+2. What will happen when we enter `c(1, 2, 3, 4, "a")`?
+3. Create the matrix
+
+```{r}
+matrix(c(1, 2, 3, 4, 5, 6), nrow = 2, byrow = TRUE)
+```
+
+4. Can each column have a different data type in a data frame?
+
+## Solution: data structures
+1. `c()` creates a vector
+2. The numeric values will be coerced into character values, yielding 
+
+```{r, echo = TRUE}
+c(1, 2, 3, 4, "a")
+```
+
+3. 
+```{r, echo = TRUE}
+matrix(c(1, 2, 3, 4, 5, 6), nrow = 2, byrow = TRUE) # this is one way, specifying ncol = 3 works too
+```
+
+4. Yes!!

@@ -435,7 +435,34 @@ Brian D. Williamson
 <div id="exercise-data-structures" class="slide section level2">
 <h1>Exercise: data structures</h1>
 <ol style="list-style-type: decimal">
+<li>How does one create a vector?</li>
+<li>What will happen when we enter <code>c(1, 2, 3, 4, &quot;a&quot;)</code>?</li>
+<li>Create the matrix</li>
+</ol>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    2    3
+## [2,]    4    5    6</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>Can each column have a different data type in a data frame?</li>
+</ol>
+</div>
+<div id="solution-data-structures" class="slide section level2">
+<h1>Solution: data structures</h1>
+<ol style="list-style-type: decimal">
+<li><code>c()</code> creates a vector</li>
+<li>The numeric values will be coerced into character values, yielding</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="st">&quot;a&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;1&quot; &quot;2&quot; &quot;3&quot; &quot;4&quot; &quot;a&quot;</code></pre>
+<ol start="3" style="list-style-type: decimal">
 <li></li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>), <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">byrow =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    2    3
+## [2,]    4    5    6</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>Yes!!</li>
 </ol>
 </div>
 
