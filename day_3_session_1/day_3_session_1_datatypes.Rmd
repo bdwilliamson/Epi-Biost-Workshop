@@ -1,0 +1,12 @@
+---
+title: 'Day 3: Data types and data structures'
+author: "Brian Williamson"
+date: "27 September, 2016"
+output: slidy_presentation
+---
+
+```{r setup, include=FALSE}
+#knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Data types
