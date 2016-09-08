@@ -1,7 +1,7 @@
 ---
-title: "Day 3: uwIntroStats introduction"
+title: "Day 3: `uwIntroStats` introduction"
 subtitle: "EPI/BIOST Bootcamp 2016"
-author: "Brian Williamson"
+author: "Brian D. Williamson"
 date: "27 September, 2016"
 output: slidy_presentation
 ---
@@ -10,13 +10,13 @@ output: slidy_presentation
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-## uwIntroStats
+## `uwIntroStats`
 
-- uwIntroStats is an R package developed by: Scott Emerson, M.D. Ph.D.; Andrew J. Spieker, Ph.D.; myself (Brian D. Williamson); and Travis Hee Wai
+- `uwIntroStats` is an R package developed by: Scott Emerson, M.D. Ph.D.; Andrew J. Spieker, Ph.D.; myself (Brian D. Williamson); and Travis Hee Wai
 
 - The package aims to make adopting R easier by streamlining presentation of output and making functions easier to work with
 
-## Why uwIntroStats?
+## Why `uwIntroStats`?
 
 - Prints output in a more intuitive manner than base R
 - Prints output that *we* think is important
@@ -69,7 +69,7 @@ descrip(mri)
 
 ## Example: `mri` data
 - ... but this is unwieldy
-- Easier to look at each variable individually, or a couple at a time
+- Easier to look at each variable individually, or a couple at a time (we will cover how to access single variables later)
 ```{r, echo = TRUE}
 descrip(mri$age)
 ```
@@ -85,6 +85,7 @@ descrip(mri$age, strata = mri$male)
 scatter(mri$atrophy, mri$age, main = "Cerebral Atrophy vs Age", ylab = "Cerebral Atrophy", xlab = "Age (years)")
 ```
 
+## Example: `mri` data
 - Can stratify, e.g. based on sex
 
 ```{r, echo = TRUE}
@@ -93,6 +94,6 @@ scatter(mri$atrophy, mri$age, strata = mri$male, main = "Cerebral Atrophy vs Age
 ```
 
 ## Summary
-- uwIntroStats is an R package designed to make using R easier
+- `uwIntroStats` is an R package designed to make using R easier
 - Provides flexible functions for descriptive statistics
 - Many parallels with base R and with STATA

@@ -1,12 +1,132 @@
 ---
 title: 'Day 3: Data types and data structures'
-author: "Brian Williamson"
+subtitle: "EPI/BIOST Bootcamp 2016"
+author: "Brian D. Williamson"
 date: "27 September, 2016"
 output: slidy_presentation
 ---
 
 ```{r setup, include=FALSE}
-#knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = FALSE)
 ```
 
 ## Data types
+- How is data stored? What type of data are we working with?
+- A *data type* is a basic building block, and tells us how the data is stored
+- R has three basic data types: numeric, character, and logical
+- R also has two more complex data types: special numerics and logicals, and factors
+
+## Numeric
+- Decimal numbers
+- Two types: 
+    - Integers - whole numbers, e.g. 1
+    - Doubles - real numbers (a whole number plus a fractional part), e.g. 1.5
+- R designates these two as `int` and `num`
+- Example: `age` variable in the `mri` data from the `uwIntroStats` package
+```{r, message = FALSE, warning = FALSE}
+## load the uwIntroStats package
+library(uwIntroStats)
+
+## load the mri data
+data(mri)
+
+## check the storage type of age
+str(mri$age)
+```
+- Example: `weight` variable in the `mri` data from the `uwIntroStats` package
+```{r}
+str(mri$weight)
+```
+
+## Character
+- Strings: words and letters, e.g. "Hello World!"
+- R designates these as `chr`
+- Example: "Mary had a little lamb" 
+```{r}
+str("Mary had a little lamb")
+```
+- Example: "A", "B", "C", "D", "E"
+```{r}
+str(c("A", "B", "C", "D", "E"))
+```
+
+## Logical
+- `TRUE` or `FALSE`
+- R designates these as `logi`
+- `TRUE` corresponds to 1, `FALSE` to 0
+- Produced by comparisons - the standard operators are:
+
+Operator | Meaning | Return
+:---:|:---:|---:
+\| | or | `TRUE` if any argument is `TRUE`
+& | and | `TRUE` only if all arguments are `TRUE`
+! | negation | `FALSE` if argument returns `TRUE`, `TRUE` else
+== | equals | `TRUE` if the two arguments are equal
+
+- Examples:
+    - Test if 1 equals 2: 1 == 2
+    - Test if 1 equals 2 or 2 equals 2: (1 == 2) | (2 == 2)
+    - Opposite of 1 equals 2: !(1 == 2)
+    - Test equality of strings: "A" == "B"
+    
+## Special numeric
+- R's way to handle invalid mathematical operations
+- Two special numerics:
+    - `Inf`: infinity. Defined as any nonzero number divided by zero 
+        - one way this can occur is division by a very small number that R rounds to zero!
+    - `NaN`: not a number. Defined as 0/0
+
+## Special logical
+- R's way to handle missing data
+- `NA`: missing data
+- R is essentially saying "I don't know what is supposed to go here"
+
+## The null object
+- `NULL`: the null object
+- Improperly defined functions or expressions can sometimes return `NULL`
+
+## Factors
+- Store character strings (names) and numerical values
+- Sometimes useful for keeping data organized
+- Example: `male`, coded as 1 for female and 2 for male
+    - a factor has these numeric values assigned to "Female" and "Male", or "F" and "M"
+    
+## Functions to check data types
+- The `str` function returns the data type of a variable
+- Example: `age` from the `mri` data
+```{r, echo = TRUE}
+str(mri$age)
+```
+- The class of `is.` functions perform logical comparisons
+    - `is.numeric()` tests whether the variable is numeric or not
+    - `is.character()` tests whether the variable is a character or not
+    - `is.logical()` tests whether the variable is logical or not
+    - `is.finite()` and `is.infinite()` test whether each value is finite or infinite
+    - `is.na()` tests whether each value is `NA` or not
+- Example: `age` from the `mri` data
+```{r, echo = TRUE}
+is.numeric(mri$age)
+sum(is.na(mri$age))
+```
+
+## Exercise: data types
+1. What is the data type of:
+    1. 1?
+    2. 2.5?
+    3. `TRUE`
+    4. "Seattle"
+2. What do the following comparisons return?
+    1. "A" == "B"
+    2. ("A" == "A") & (1 == 1)
+3. What does `is.na(1)` return?
+
+## Data structures
+- Equally important to what type of data we have is how it is stored
+- *Data structures* are the various ways that R stores data
+- We have been working with data structures implicitly already - each variable is part of a data structure
+- Five basic data structures in R:
+    - Vectors
+    - Matrices
+    - Arrays
+    - Lists
+    - Data frames
