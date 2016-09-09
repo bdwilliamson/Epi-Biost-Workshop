@@ -216,6 +216,7 @@ array(c(1, 0, 0, 1, 1, 0, 0, 1), dim = c(2, 2, 2))
     2. (optional) Specify the names of the columns using `=`, with the name on the left and the object on the right
     3. (optional) Specify the names of the rows using `row.names`
     4. (optional) Convert strings to factors if possible (`stringsAsFactors = TRUE`)
+- The `names()` function returns all variable names
 
 ## Data frames: examples
 ```{r, echo = TRUE}
@@ -298,7 +299,102 @@ mat[1, ] ## all columns of the first row of mat
 ```
 
 ## The `$` operator
+- Allows us to extract columns from a data frame
+- Once we extract a column, we can access values using `[]`
+- Examples:
+```{r, echo = TRUE}
+df <- data.frame(nums = c(1,2,3), words = c("UW", "is", "awesome")) ## create a data frame with two columns
+df$nums[1] ## access the first value in the "nums" column
+df[1, "nums"] ## another way to get the first value in the "nums" column
+df[1, 1] ## another way to get the first value in the "nums" column
+df$words[3] ## access the third value in the "words" column
+```
 
 ## Indexing values in a data structure
+- Accessing more than one value is often useful
+- As easy as accessing a single value!
 
+## The `[]` operator: revisited
+- Returning multiple elements from a vector: give `[]` a vector of indices to return, e.g. `vec[2:4]`
+- Returning multiple elements from a matrix:
+    - For entire rows, give a vector of row indices with no column indices, e.g. `mat[1, ]`
+    - For entire columns, give a vector of column indices with no row indices, e.g. `mat[, 1]`
+    - Only selecting one row or column from a matrix returns a vector by default (there are ways around this)
+- Examples:
+```{r, echo = TRUE}
+mat.2 <- matrix(c(1, 2, 3, 4, 5, 6), nrow = 2, byrow = TRUE)
+mat.2[1, ] ## return the first row from mat.2
+mat.2[, c(2,3)] ## return the second and third columns from mat
+```
+
+## The `$` operator: revisited
+- `$` works with data frames and lists
+- Data frames: 
+    - We can only access one variable at a time using `$`
+    - However, we can access multiple values within each variable (or column) using vectors of indices
+- Lists:
+    - `$` returns one object from the list, as long as that object is named
+    - We can then access multiple values using the rules for that object
+- Examples:
+```{r, echo = TRUE}
+df$nums ## access all values from the "nums" column of df
+lst <- list(df = data.frame(nums = c(1,2,3), words = c("UW", "is", "awesome")), mat = matrix(c(1, 0, 0, 0, 0, 1), nrow = 3)) ## list with named data frame and matrix
+lst$df ## return the data frame from lst
+lst$df[1, 1] ## first element from df
+lst$df$nums ## "nums" variable from df
+```
+
+## The `[[]]` operator
+- Access objects in a list
+- Use `[[#]]` to extract the \# th object
+- Examples:
+```{r, echo = TRUE}
+lst[[1]] ## first object in lst
+lst[[2]][1, ] ## first row from the second object in lst
+```
 ## Advanced indexing
+- So far we have only indexed using vectors or single indices
+- Other types of indexing:
+    - Negative numbers or vectors of indices: exclude elements
+    - Logicals: include only elements for which the expression is `TRUE`
+- Examples:
+```{r, echo = TRUE}
+vec[-1] ## all elements from vec except the first
+mat[-1, ] ## all elements except the first row of mat
+df[-c(1, 2), ] ## all elements except the first and second rows of df
+df[df$nums == 1, ] ## all rows from df where df$nums equals 1
+```
+
+## Exercise: accessing values and indexing
+For these exercises, load the `mri` data from `uwIntroStats` using `data(mri)`
+
+1. Return the `age` variable from this dataset
+2. Return the first five values from the `age` variable
+3. Count the number of people greater than 75 years old (Hint: use logicals)
+4. For those people less than 75 years old, return their height, weight, and sex
+
+## Solution: accessing values and indexing
+```{r, echo = TRUE}
+## load the data
+data(mri)
+
+## 1. Return the age variable. Note: I am using head() to display only the first 6 values to save space
+head(mri$age) ## alternatively, could use mri[, "age"] or mri[, 3]
+
+## 2. first five values from age
+mri$age[1:5]
+
+## 3. Number of people > 75 years old
+sum(mri$age > 75) ## alternatively, could use dim(mri[mri$age > 75, ])
+
+## 4. Return height, weight, sex for those > 75 (again using head() to save space)
+head(mri[mri$age > 75, c("height", "weight", "male")])
+```
+
+## Summary
+- R has five data types: numeric, character, logical, factor, special numerics and logicals
+- Each data type stores different information
+- R has five basic data structures: vector, matrix, array, data frame, list
+- Some of these can only contain one data type, others can contain multiple
+- We can access data using vectors of indices, logicals, or both
+- The operator we use depends on the data structure (`[]`, `$`, or `[[]]`)

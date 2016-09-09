@@ -376,6 +376,7 @@ Brian D. Williamson
 <li>(optional) Specify the names of the rows using <code>row.names</code></li>
 <li>(optional) Convert strings to factors if possible (<code>stringsAsFactors = TRUE</code>)</li>
 </ol></li>
+<li>The <code>names()</code> function returns all variable names</li>
 </ul>
 </div>
 <div id="data-frames-examples" class="slide section level2">
@@ -525,12 +526,159 @@ junk ## prints out the value of junk</code></pre></div>
 </div>
 <div id="the-operator-1" class="slide section level2">
 <h1>The <code>$</code> operator</h1>
+<ul>
+<li>Allows us to extract columns from a data frame</li>
+<li>Once we extract a column, we can access values using <code>[]</code></li>
+<li>Examples:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">nums =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>), <span class="dt">words =</span> <span class="kw">c</span>(<span class="st">&quot;UW&quot;</span>, <span class="st">&quot;is&quot;</span>, <span class="st">&quot;awesome&quot;</span>)) ## create a data frame with two columns
+df$nums[<span class="dv">1</span>] ## access the first value in the &quot;nums&quot; column</code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df[<span class="dv">1</span>, <span class="st">&quot;nums&quot;</span>] ## another way to get the first value in the &quot;nums&quot; column</code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df[<span class="dv">1</span>, <span class="dv">1</span>] ## another way to get the first value in the &quot;nums&quot; column</code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df$words[<span class="dv">3</span>] ## access the third value in the &quot;words&quot; column</code></pre></div>
+<pre><code>## [1] awesome
+## Levels: awesome is UW</code></pre>
 </div>
 <div id="indexing-values-in-a-data-structure" class="slide section level2">
 <h1>Indexing values in a data structure</h1>
+<ul>
+<li>Accessing more than one value is often useful</li>
+<li>As easy as accessing a single value!</li>
+</ul>
+</div>
+<div id="the-operator-revisited" class="slide section level2">
+<h1>The <code>[]</code> operator: revisited</h1>
+<ul>
+<li>Returning multiple elements from a vector: give <code>[]</code> a vector of indices to return, e.g. <code>vec[2:4]</code></li>
+<li>Returning multiple elements from a matrix:
+<ul>
+<li>For entire rows, give a vector of row indices with no column indices, e.g. <code>mat[1, ]</code></li>
+<li>For entire columns, give a vector of column indices with no row indices, e.g. <code>mat[, 1]</code></li>
+<li>Only selecting one row or column from a matrix returns a vector by default (there are ways around this)</li>
+</ul></li>
+<li>Examples:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mat<span class="fl">.2</span> &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>), <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">byrow =</span> <span class="ot">TRUE</span>)
+mat<span class="fl">.2</span>[<span class="dv">1</span>, ] ## return the first row from mat.2</code></pre></div>
+<pre><code>## [1] 1 2 3</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mat<span class="fl">.2</span>[, <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>)] ## return the second and third columns from mat</code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]    2    3
+## [2,]    5    6</code></pre>
+</div>
+<div id="the-operator-revisited-1" class="slide section level2">
+<h1>The <code>$</code> operator: revisited</h1>
+<ul>
+<li><code>$</code> works with data frames and lists</li>
+<li>Data frames:
+<ul>
+<li>We can only access one variable at a time using <code>$</code></li>
+<li>However, we can access multiple values within each variable (or column) using vectors of indices</li>
+</ul></li>
+<li>Lists:
+<ul>
+<li><code>$</code> returns one object from the list, as long as that object is named</li>
+<li>We can then access multiple values using the rules for that object</li>
+</ul></li>
+<li>Examples:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df$nums ## access all values from the &quot;nums&quot; column of df</code></pre></div>
+<pre><code>## [1] 1 2 3</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lst &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">df =</span> <span class="kw">data.frame</span>(<span class="dt">nums =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>), <span class="dt">words =</span> <span class="kw">c</span>(<span class="st">&quot;UW&quot;</span>, <span class="st">&quot;is&quot;</span>, <span class="st">&quot;awesome&quot;</span>)), <span class="dt">mat =</span> <span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>), <span class="dt">nrow =</span> <span class="dv">3</span>)) ## list with named data frame and matrix
+lst$df ## return the data frame from lst</code></pre></div>
+<pre><code>##   nums   words
+## 1    1      UW
+## 2    2      is
+## 3    3 awesome</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lst$df[<span class="dv">1</span>, <span class="dv">1</span>] ## first element from df</code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lst$df$nums ## &quot;nums&quot; variable from df</code></pre></div>
+<pre><code>## [1] 1 2 3</code></pre>
+</div>
+<div id="the-operator-2" class="slide section level2">
+<h1>The <code>[[]]</code> operator</h1>
+<ul>
+<li>Access objects in a list</li>
+<li>Use <code>[[#]]</code> to extract the # th object</li>
+<li>Examples:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lst[[<span class="dv">1</span>]] ## first object in lst</code></pre></div>
+<pre><code>##   nums   words
+## 1    1      UW
+## 2    2      is
+## 3    3 awesome</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lst[[<span class="dv">2</span>]][<span class="dv">1</span>, ] ## first row from the second object in lst</code></pre></div>
+<pre><code>## [1] 1 0</code></pre>
 </div>
 <div id="advanced-indexing" class="slide section level2">
 <h1>Advanced indexing</h1>
+<ul>
+<li>So far we have only indexed using vectors or single indices</li>
+<li>Other types of indexing:
+<ul>
+<li>Negative numbers or vectors of indices: exclude elements</li>
+<li>Logicals: include only elements for which the expression is <code>TRUE</code></li>
+</ul></li>
+<li>Examples:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vec[-<span class="dv">1</span>] ## all elements from vec except the first</code></pre></div>
+<pre><code>## [1] 2 3 4 5</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mat[-<span class="dv">1</span>, ] ## all elements except the first row of mat</code></pre></div>
+<pre><code>## [1] 0 1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df[-<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), ] ## all elements except the first and second rows of df</code></pre></div>
+<pre><code>##   nums   words
+## 3    3 awesome</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df[df$nums ==<span class="st"> </span><span class="dv">1</span>, ] ## all rows from df where df$nums equals 1</code></pre></div>
+<pre><code>##   nums words
+## 1    1    UW</code></pre>
+</div>
+<div id="exercise-accessing-values-and-indexing" class="slide section level2">
+<h1>Exercise: accessing values and indexing</h1>
+<p>For these exercises, load the <code>mri</code> data from <code>uwIntroStats</code> using <code>data(mri)</code></p>
+<ol style="list-style-type: decimal">
+<li>Return the <code>age</code> variable from this dataset</li>
+<li>Return the first five values from the <code>age</code> variable</li>
+<li>Count the number of people greater than 75 years old (Hint: use logicals)</li>
+<li>For those people less than 75 years old, return their height, weight, and sex</li>
+</ol>
+</div>
+<div id="solution-accessing-values-and-indexing" class="slide section level2">
+<h1>Solution: accessing values and indexing</h1>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## load the data
+<span class="kw">data</span>(mri)
+
+## 1. Return the age variable. Note: I am using head() to display only the first 6 values to save space
+<span class="kw">head</span>(mri$age) ## alternatively, could use mri[, &quot;age&quot;] or mri[, 3]</code></pre></div>
+<pre><code>## [1] 72 81 90 72 70 72</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## 2. first five values from age
+mri$age[<span class="dv">1</span>:<span class="dv">5</span>]</code></pre></div>
+<pre><code>## [1] 72 81 90 72 70</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## 3. Number of people &gt; 75 years old
+<span class="kw">sum</span>(mri$age &gt;<span class="st"> </span><span class="dv">75</span>) ## alternatively, could use dim(mri[mri$age &gt; 75, ])</code></pre></div>
+<pre><code>## [1] 260</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## 4. Return height, weight, sex for those &gt; 75 (again using head() to save space)
+<span class="kw">head</span>(mri[mri$age &gt;<span class="st"> </span><span class="dv">75</span>, <span class="kw">c</span>(<span class="st">&quot;height&quot;</span>, <span class="st">&quot;weight&quot;</span>, <span class="st">&quot;male&quot;</span>)])</code></pre></div>
+<pre><code>##    height weight male
+## 2   170.0  139.0    0
+## 3   170.0  145.0    1
+## 11  150.0  139.0    0
+## 15  172.0  181.0    1
+## 17  177.5  151.5    1
+## 21  171.0  154.0    1</code></pre>
+</div>
+<div id="summary" class="slide section level2">
+<h1>Summary</h1>
+<ul>
+<li>R has five data types: numeric, character, logical, factor, special numerics and logicals</li>
+<li>Each data type stores different information</li>
+<li>R has five basic data structures: vector, matrix, array, data frame, list</li>
+<li>Some of these can only contain one data type, others can contain multiple</li>
+<li>We can access data using vectors of indices, logicals, or both</li>
+<li>The operator we use depends on the data structure (<code>[]</code>, <code>$</code>, or <code>[[]]</code>)</li>
+</ul>
 </div>
 
   <!-- dynamically load mathjax for compatibility with self-contained -->
