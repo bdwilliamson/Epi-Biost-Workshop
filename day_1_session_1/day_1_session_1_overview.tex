@@ -1,0 +1,132 @@
+\documentclass[12pt]{beamer}
+\usetheme{default} 
+
+\setbeamertemplate{navigation symbols}{} %gets rid of navigation symbols
+\setbeamertemplate{footline}{} %gets rid of bottom navigation bars
+\setbeamertemplate{footline}[page number]{} %use this for page numbers
+
+\setbeamertemplate{footline}{%
+  \raisebox{5pt}{\makebox[\paperwidth]{\hfill\makebox[10pt]{\scriptsize\insertframenumber~~}}}}
+
+\setbeamertemplate{itemize items}[circle] %round bullet points
+\setlength\parskip{10pt} % white space between paragraphs
+
+\usepackage{wrapfig}
+\usepackage{subfig}
+\usepackage{setspace}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[UKenglish]{isodate}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{natbib}
+\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;} 
+
+% allow drawing arrows
+\usetikzlibrary{arrows}
+\tikzstyle{arrow}=[draw, -latex] 
+
+% bracketing shortcuts
+\newcommand{\paren}[1]{\left(#1\right)}
+\newcommand{\sqbracket}[1]{\left[#1\right]}
+\newcommand{\cbracket}[1]{\left\{#1\right\}}
+\newcommand{\abs}[1]{\left\lvert#1\right\rvert}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+% set up the argmin operator, argmax
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+\newcommand{\myframe}[1]{\begin{frame} \frametitle{#1}}
+% the preamble
+\title{Day 1, Session 1: Overview}
+\author{Gillian Tarr and Brian D. Williamson}
+\institute{EPI/BIOST Bootcamp 2016}
+\date{23 September 2016}
+
+% Start the document
+\begin{document}
+% The title page
+\begin{frame}
+\titlepage
+\end{frame}
+
+\myframe{Welcome!}
+\begin{itemize}
+\item Welcome to the first EPI/BIOST Bootcamp!
+\item[]
+\item For today:
+\begin{itemize}
+\item Our backgrounds
+\item[]
+\item Introduction to course content for EPI 511 and BIOST 511
+\item[]
+\item Overview of this course
+\item[]
+\item Some skills and resources for success in graduate school
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\myframe{Our backgrounds: Gillian}
+
+\end{frame}
+
+\myframe{Our backgrounds: Brian}
+\centering
+\includegraphics[width = .25\textwidth]{yellowstone-min.jpg}
+\begin{itemize}
+\item Third year PhD student, Biostatistics
+\item[]
+\item Past TA for R in BIOST 511, 512, 517, 518
+\item[]
+\item 
+\end{itemize}
+\end{frame}
+
+\myframe{Intro to course content: EPI 511}
+
+\end{frame}
+
+\myframe{Intro to course content: BIOST 511}
+\begin{itemize}
+\item Objective: provide students with an understanding of basic concepts and methods of statistical inference in the health sciences
+\item[]
+\item Some major topics:
+\begin{itemize}
+\item Data description, exploratory data analysis
+\item[]
+\item Basic issues in study design
+\item[]
+\item Probability concepts and models
+\item[]
+\item Statistical inference - estimation and hypothesis testing
+\item[]
+\item Categorical data analysis
+\item[]
+\item Introduction to regression analysis
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\myframe{Intro to course content: BIOST 511}
+\begin{itemize}
+\item Only pre-requisite is basic algebra
+\item[]
+\item However, R will be used to teach some of the concepts and analyze data
+\item[]
+\item 
+\end{itemize}
+\end{frame}
+
+\myframe{Overview of the bootcamp}
+
+\end{frame}
+
+\myframe{Skills for success}
+
+\end{frame}
+\end{document}
