@@ -10,6 +10,12 @@ output: slidy_presentation
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
+## Outline
+- Data types
+- Data structures
+- Assigning values to variables
+- Returning values from data structures
+
 ## Data types
 - How is data stored? What type of data are we working with?
 - A *data type* is a basic building block, and tells us how the data is stored
@@ -256,3 +262,43 @@ matrix(c(1, 2, 3, 4, 5, 6), nrow = 2, byrow = TRUE) # this is one way, specifyin
 ```
 
 4. Yes!!
+
+## Assigning values to variables
+- So far, we have not been saving values - we have just been looking at them in the console
+- Saving values makes manipulation easier
+- The assignment operator, `<-`, allows us to save values to objects/variables
+- Choosing names that we describe what the object is will save us time later on!
+- Examples:
+```{r, echo = TRUE}
+junk <- 1 ## create an object called "junk", assign it value of 1
+vec <- c(1, 2, 3, 4, 5) ## create a vector called "vec", assign it the vector 1-5
+mat <- matrix(c(1, 0, 0, 1), ncol = 2, byrow = TRUE) ## matrix called "mat"
+
+junk ## prints out the value of junk
+vec ## prints out the value of vec
+mat ## prints out the value of mat
+```
+
+## Returning a single value from a data structure
+- Three main ways to access data
+- These deal with data in vector or matrix form, list form, and data frame form
+- Accessing data in vectors, matrices, and data frames is most simple
+
+## The `[]` operator
+- Allows us to access values in vectors, matrices, or data frames; use depends on the data structure
+- For vectors, we access one or multiple values using a single index or a vector of indices, e.g. `c(1, 2, 3)`
+- For matrices or data frames, we can access values in rows or columns, using `[row indices, col indices]`
+- Examples:
+```{r, echo = TRUE}
+vec[1] ## get the first element from vec
+vec[c(1, 3, 5)] ## get the first, third, and fifth elements from vec
+vec[2:4] ## shortcut to get the second, third, and fourth elements from vec
+mat[1, 1] ## the element in the first row and first column of mat
+mat[1, ] ## all columns of the first row of mat
+```
+
+## The `$` operator
+
+## Indexing values in a data structure
+
+## Advanced indexing
