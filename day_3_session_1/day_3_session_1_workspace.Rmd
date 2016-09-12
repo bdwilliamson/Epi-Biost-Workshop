@@ -33,9 +33,30 @@ Function | Purpose
 `q()` | quit R
 
 ## Saving and loading the workspace
+- RStudio should ask to save the workspace when you exit the program
+- Whether to save or not depends on how large your files are
+- Also depends on whether you need all of your objects
+- Can get around this by using scripts, and saving individual objects
 
 ## Saving and loading data
+- Smaller file size than saving the entire workspace
+- Faster to both save and load
+- Save: `save(myobj, file = "myobjfile")`
+- Load: `load(file = "myobjfile")`
 
 ## Projects
+- RStudio opens in a default "project"
+- Organize work on specific projects/assignments/tasks using projects
+- To create a new project:
+    - Go to "File", "New Project"
+    - Choose where to place the project. "New working directory" creates a new folder, "Existing working directory" places the object in an existing folder, "Version control" allows you to use git/Github
+    - Name the project
+- Projects save some aspects of the workspace by default, like which scripts are open
+- Automatically associated with a specific working directory
 
 ## Running scripts
+- Scripts help to organize commands
+- You can also write programs in scripts
+- Two options to run a script:
+    1. Click "Source" when the script is open
+    2. Run `source("myscript")` from the console or another script

@@ -92,15 +92,48 @@ Brian Williamson
 </div>
 <div id="saving-and-loading-the-workspace" class="slide section level2">
 <h1>Saving and loading the workspace</h1>
+<ul>
+<li>RStudio should ask to save the workspace when you exit the program</li>
+<li>Whether to save or not depends on how large your files are</li>
+<li>Also depends on whether you need all of your objects</li>
+<li>Can get around this by using scripts, and saving individual objects</li>
+</ul>
 </div>
 <div id="saving-and-loading-data" class="slide section level2">
 <h1>Saving and loading data</h1>
+<ul>
+<li>Smaller file size than saving the entire workspace</li>
+<li>Faster to both save and load</li>
+<li>Save: <code>save(myobj, file = &quot;myobjfile&quot;)</code></li>
+<li>Load: <code>load(file = &quot;myobjfile&quot;)</code></li>
+</ul>
 </div>
 <div id="projects" class="slide section level2">
 <h1>Projects</h1>
+<ul>
+<li>RStudio opens in a default “project”</li>
+<li>Organize work on specific projects/assignments/tasks using projects</li>
+<li>To create a new project:
+<ul>
+<li>Go to “File”, “New Project”</li>
+<li>Choose where to place the project. “New working directory” creates a new folder, “Existing working directory” places the object in an existing folder, “Version control” allows you to use git/Github</li>
+<li>Name the project</li>
+</ul></li>
+<li>Projects save some aspects of the workspace by default, like which scripts are open</li>
+<li>Automatically associated with a specific working directory</li>
+</ul>
 </div>
 <div id="running-scripts" class="slide section level2">
 <h1>Running scripts</h1>
+<ul>
+<li>Scripts help to organize commands</li>
+<li>You can also write programs in scripts</li>
+<li>Two options to run a script:
+<ol style="list-style-type: decimal">
+<li>Click “Source” when the script is open</li>
+<li>Run <code>source(&quot;myscript&quot;)</code> from the console or another script</li>
+</ol></li>
+</ul>
 </div>
 
   <!-- dynamically load mathjax for compatibility with self-contained -->
