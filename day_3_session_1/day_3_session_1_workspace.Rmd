@@ -1,0 +1,41 @@
+---
+title: "Using and managing the workspace"
+subtitle: "EPI/BIOST Bootcamp 2016"
+author: "Brian Williamson"
+date: "27 September, 2016"
+output: slidy_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## What is the workspace?
+- The workspace holds all data, functions, and objects created in a specific R session
+- Can be saved as a `.Rdata` file upon quitting R
+- Can be loaded at the start of a new R session
+
+## Managing the workspace
+Function | Purpose
+|---|---|
+`getwd()` | print the current working directory
+`ls()` | list the objects in the current workspace
+`setwd(mydir)` | change working directory to `mydir`
+`history()` | display the last 25 commands used in the console
+
+
+## Managing the workspace
+Function | Purpose
+|---|---|
+`savehistory(file = "myfile")` | save command history to file `"myfile"` in the current working directory
+`loadhistory(file = "myfile")` | load previous history
+`save.image()` | save workspace to a `.Rdata` file
+`q()` | quit R
+
+## Saving and loading the workspace
+
+## Saving and loading data
+
+## Projects
+
+## Running scripts
