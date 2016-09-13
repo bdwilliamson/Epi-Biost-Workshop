@@ -1,5 +1,5 @@
 ---
-title: "Using and managing the workspace"
+title: "Day 3: Using and managing the workspace"
 subtitle: "EPI/BIOST Bootcamp 2016"
 author: "Brian Williamson"
 date: "27 September, 2016"
@@ -60,3 +60,8 @@ Function | Purpose
 - Two options to run a script:
     1. Click "Source" when the script is open
     2. Run `source("myscript")` from the console or another script
+    
+## Summary
+- The workspace holds all objects and functions for a given session
+- Projects each have their own workspace, and can help to organize different tasks
+- Scripts help organize commands for specific tasks
