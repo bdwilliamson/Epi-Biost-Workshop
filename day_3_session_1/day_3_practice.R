@@ -90,6 +90,7 @@ analysis <- na.omit(mri)
 
 ## save in the folder!
 save(analysis, file = "analysis_data.Rdata")
+## stop the walkthrough here
 
 ## describe the whole data (note that we would have to clean this up for a paper/homework)
 descrip(mri)
