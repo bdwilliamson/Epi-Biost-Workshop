@@ -1,0 +1,24 @@
+---
+title: 'Day 3: Practice'
+subtitle: "EPI/BIOST Bootcamp 2016"
+author: "Brian D. Williamson"
+date: "27 September 2016"
+output: slidy_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Putting it all together
+- So far we have learned a bit of what R can accomplish
+- Now it's time to try it out!
+
+## The task
+- Taking another look at the `mri` data
+- Want to do the following
+    1. Create a new variable, BMI, and add it to the `mri` dataset
+    2. Take a quick look for any missing values, describe the people missing data
+    3. Create some descriptive tables and plots
+- Remember that BMI is mass (kg) divided by squared height in meters
+    - We will have to do some conversions!

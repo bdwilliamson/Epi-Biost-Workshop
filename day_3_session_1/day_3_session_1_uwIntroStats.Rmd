@@ -2,7 +2,7 @@
 title: "Day 3: `uwIntroStats` introduction"
 subtitle: "EPI/BIOST Bootcamp 2016"
 author: "Brian D. Williamson"
-date: "27 September, 2016"
+date: "27 September 2016"
 output: slidy_presentation
 ---
 
