@@ -99,6 +99,7 @@ Operator | Meaning | Return
     
 ## Functions to check data types
 - The `str` function returns the data type of a variable
+- The "Environment" tab has information like data type and size of arrays/matrices
 - Example: `age` from the `mri` data
 ```{r, echo = TRUE}
 str(mri$age)
@@ -185,6 +186,12 @@ matrix(c(1, 0, 0, 1), nrow = 2, ncol = 2, byrow = TRUE)
 matrix(c("This", "is", "a", "matrix"), nrow = 1, byrow = TRUE)
 ```
 
+## Matrices: when might we use them?
+- Storing data of one type (like all numerics)
+- Tables of output
+- Some functions only take matrices as input (see documentation)
+- My default data structure
+
 ## Arrays
 - Higher-order matrices (a matrix is also a 2-D array)
 - All values must be the same data type
@@ -206,6 +213,9 @@ array(c(1, 0, 0, 1), dim = c(2, 2))
 array(c(1, 0, 0, 1, 1, 0, 0, 1), dim = c(2, 2, 2))
 ```
 
+## Arrays: when might we use them?
+- High dimensional tables (stratification on multiple variables)
+
 ## Data frames
 - A table, like a matrix
 - Columns may have different data types
@@ -225,6 +235,11 @@ data.frame(nums = c(1,2,3), words = c("UW", "is", "awesome")) ## data frame with
 data.frame(nums = c(1,2,3), words = c("UW", "is", "awesome"), mat = matrix(c(1, 0, 0, 0, 0, 1), nrow = 3)) ## input vectors and matrices
 ```
 
+## Data frames: when might we use them?
+- Storing multiple data types in one object
+- Some functions only take data frames as input (like `lm()`; see documentation for others)
+- Want to name the columns and reference them using `$`
+
 ## Lists
 - An ordered collection of objects
 - Each object can have a different data type, or can be any data structure
@@ -237,6 +252,11 @@ data.frame(nums = c(1,2,3), words = c("UW", "is", "awesome"), mat = matrix(c(1, 
 list(1, "UW", 2, "is", 3, "awesome") ## list with single characters and strings
 list(df = data.frame(nums = c(1,2,3), words = c("UW", "is", "awesome")), mat = matrix(c(1, 0, 0, 0, 0, 1), nrow = 3)) ## list with named data frame and matrix
 ```
+
+## Lists: when might we use them?
+- Store many different data types or structures in one object
+- Name each object and reference it easily
+- Honestly my least often used data structure
 
 ## Exercise: data structures
 1. How does one create a vector?

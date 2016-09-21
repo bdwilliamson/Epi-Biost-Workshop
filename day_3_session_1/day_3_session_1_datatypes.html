@@ -199,6 +199,7 @@ Brian D. Williamson
 <h1>Functions to check data types</h1>
 <ul>
 <li>The <code>str</code> function returns the data type of a variable</li>
+<li>The “Environment” tab has information like data type and size of arrays/matrices</li>
 <li>Example: <code>age</code> from the <code>mri</code> data</li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(mri$age)</code></pre></div>
@@ -322,6 +323,15 @@ Brian D. Williamson
 <pre><code>##      [,1]   [,2] [,3] [,4]    
 ## [1,] &quot;This&quot; &quot;is&quot; &quot;a&quot;  &quot;matrix&quot;</code></pre>
 </div>
+<div id="matrices-when-might-we-use-them" class="slide section level2">
+<h1>Matrices: when might we use them?</h1>
+<ul>
+<li>Storing data of one type (like all numerics)</li>
+<li>Tables of output</li>
+<li>Some functions only take matrices as input (see documentation)</li>
+<li>My default data structure</li>
+</ul>
+</div>
 <div id="arrays" class="slide section level2">
 <h1>Arrays</h1>
 <ul>
@@ -360,6 +370,12 @@ Brian D. Williamson
 ## [1,]    1    0
 ## [2,]    0    1</code></pre>
 </div>
+<div id="arrays-when-might-we-use-them" class="slide section level2">
+<h1>Arrays: when might we use them?</h1>
+<ul>
+<li>High dimensional tables (stratification on multiple variables)</li>
+</ul>
+</div>
 <div id="data-frames" class="slide section level2">
 <h1>Data frames</h1>
 <ul>
@@ -396,6 +412,14 @@ Brian D. Williamson
 ## 1    1      UW     1     0
 ## 2    2      is     0     0
 ## 3    3 awesome     0     1</code></pre>
+</div>
+<div id="data-frames-when-might-we-use-them" class="slide section level2">
+<h1>Data frames: when might we use them?</h1>
+<ul>
+<li>Storing multiple data types in one object</li>
+<li>Some functions only take data frames as input (like <code>lm()</code>; see documentation for others)</li>
+<li>Want to name the columns and reference them using <code>$</code></li>
+</ul>
 </div>
 <div id="lists" class="slide section level2">
 <h1>Lists</h1>
@@ -441,6 +465,14 @@ Brian D. Williamson
 ## [1,]    1    0
 ## [2,]    0    0
 ## [3,]    0    1</code></pre>
+</div>
+<div id="lists-when-might-we-use-them" class="slide section level2">
+<h1>Lists: when might we use them?</h1>
+<ul>
+<li>Store many different data types or structures in one object</li>
+<li>Name each object and reference it easily</li>
+<li>Honestly my least often used data structure</li>
+</ul>
 </div>
 <div id="exercise-data-structures" class="slide section level2">
 <h1>Exercise: data structures</h1>
