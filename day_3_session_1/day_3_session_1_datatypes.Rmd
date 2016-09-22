@@ -209,8 +209,15 @@ array(c(1, 2, 3, 4), dim = 4)
 ## 2-D array, or matrix
 array(c(1, 0, 0, 1), dim = c(2, 2))
 
-## 3-D array (an array with two 2-D sub-arrays)
-array(c(1, 0, 0, 1, 1, 0, 0, 1), dim = c(2, 2, 2))
+## 3-D array 
+## first create sex variable, repeating 1/2 for M/F
+sex <- factor(rep(c(1, 2), 20), levels = c(1, 2), labels = c("Male", "Female"))
+## create race variable, 1-4 representing white, black, asian, other
+race <- factor(rep(c(1, 2, 3, 4), 10), levels = c(1, 2, 3, 4), labels = c("white", "black", "asian", "other"))
+## create indicator of whether the participant has diabetes or not
+diabetes <- rep(c(0,1), 20)
+
+table(sex, race, diabetes)
 ```
 
 ## Arrays: when might we use them?
@@ -287,7 +294,7 @@ matrix(c(1, 2, 3, 4, 5, 6), nrow = 2, byrow = TRUE) # this is one way, specifyin
 ## Assigning values to variables
 - So far, we have not been saving values - we have just been looking at them in the console
 - Saving values makes manipulation easier
-- The assignment operator, `<-`, allows us to save values to objects/variables
+- The assignment operator, `<-`, allows us to save values to objects/variables (Note: `=` works as well)
 - Choosing names that we describe what the object is will save us time later on!
 - Examples:
 ```{r, echo = TRUE}
@@ -372,18 +379,23 @@ lst$df$nums ## "nums" variable from df
 lst[[1]] ## first object in lst
 lst[[2]][1, ] ## first row from the second object in lst
 ```
-## Advanced indexing
+
+## Advanced indexing and subsetting
 - So far we have only indexed using vectors or single indices
 - Other types of indexing:
     - Negative numbers or vectors of indices: exclude elements
     - Logicals: include only elements for which the expression is `TRUE`
+- Subsetting: using logicals to return subsets of a dataset
+    - Can use indexing operators or the `subset()` function
 - Examples:
 ```{r, echo = TRUE}
 vec[-1] ## all elements from vec except the first
 mat[-1, ] ## all elements except the first row of mat
 df[-c(1, 2), ] ## all elements except the first and second rows of df
 df[df$nums == 1, ] ## all rows from df where df$nums equals 1
+subset(df, df$nums == 1) ## same as previous command
 ```
+
 
 ## Exercise: accessing values and indexing
 For these exercises, load the `mri` data from `uwIntroStats` using `data(mri)`

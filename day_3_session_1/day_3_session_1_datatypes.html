@@ -357,19 +357,28 @@ Brian D. Williamson
 <pre><code>##      [,1] [,2]
 ## [1,]    1    0
 ## [2,]    0    1</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## 3-D array (an array with two 2-D sub-arrays)
-<span class="kw">array</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>), <span class="dt">dim =</span> <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>))</code></pre></div>
-<pre><code>## , , 1
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## 3-D array 
+## first create sex variable, repeating 1/2 for M/F
+sex &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">rep</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="dv">20</span>), <span class="dt">levels =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;Male&quot;</span>, <span class="st">&quot;Female&quot;</span>))
+## create race variable, 1-4 representing white, black, asian, other
+race &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">rep</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>), <span class="dv">10</span>), <span class="dt">levels =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>), <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;white&quot;</span>, <span class="st">&quot;black&quot;</span>, <span class="st">&quot;asian&quot;</span>, <span class="st">&quot;other&quot;</span>))
+## create indicator of whether the participant has diabetes or not
+diabetes &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="dv">20</span>)
+
+<span class="kw">table</span>(sex, race, diabetes)</code></pre></div>
+<pre><code>## , , diabetes = 0
 ## 
-##      [,1] [,2]
-## [1,]    1    0
-## [2,]    0    1
+##         race
+## sex      white black asian other
+##   Male      10     0    10     0
+##   Female     0     0     0     0
 ## 
-## , , 2
+## , , diabetes = 1
 ## 
-##      [,1] [,2]
-## [1,]    1    0
-## [2,]    0    1</code></pre>
+##         race
+## sex      white black asian other
+##   Male       0     0     0     0
+##   Female     0    10     0    10</code></pre>
 </div>
 <div id="arrays-when-might-we-use-them" class="slide section level2">
 <h1>Arrays: when might we use them?</h1>
@@ -513,7 +522,7 @@ Brian D. Williamson
 <ul>
 <li>So far, we have not been saving values - we have just been looking at them in the console</li>
 <li>Saving values makes manipulation easier</li>
-<li>The assignment operator, <code>&lt;-</code>, allows us to save values to objects/variables</li>
+<li>The assignment operator, <code>&lt;-</code>, allows us to save values to objects/variables (Note: <code>=</code> works as well)</li>
 <li>Choosing names that we describe what the object is will save us time later on!</li>
 <li>Examples:</li>
 </ul>
@@ -646,14 +655,18 @@ lst$df ## return the data frame from lst</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lst[[<span class="dv">2</span>]][<span class="dv">1</span>, ] ## first row from the second object in lst</code></pre></div>
 <pre><code>## [1] 1 0</code></pre>
 </div>
-<div id="advanced-indexing" class="slide section level2">
-<h1>Advanced indexing</h1>
+<div id="advanced-indexing-and-subsetting" class="slide section level2">
+<h1>Advanced indexing and subsetting</h1>
 <ul>
 <li>So far we have only indexed using vectors or single indices</li>
 <li>Other types of indexing:
 <ul>
 <li>Negative numbers or vectors of indices: exclude elements</li>
 <li>Logicals: include only elements for which the expression is <code>TRUE</code></li>
+</ul></li>
+<li>Subsetting: using logicals to return subsets of a dataset
+<ul>
+<li>Can use indexing operators or the <code>subset()</code> function</li>
 </ul></li>
 <li>Examples:</li>
 </ul>
@@ -665,6 +678,9 @@ lst$df ## return the data frame from lst</code></pre></div>
 <pre><code>##   nums   words
 ## 3    3 awesome</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df[df$nums ==<span class="st"> </span><span class="dv">1</span>, ] ## all rows from df where df$nums equals 1</code></pre></div>
+<pre><code>##   nums words
+## 1    1    UW</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">subset</span>(df, df$nums ==<span class="st"> </span><span class="dv">1</span>) ## same as previous command</code></pre></div>
 <pre><code>##   nums words
 ## 1    1    UW</code></pre>
 </div>

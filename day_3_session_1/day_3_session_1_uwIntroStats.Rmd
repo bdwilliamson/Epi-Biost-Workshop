@@ -12,7 +12,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## `uwIntroStats`
 
-- `uwIntroStats` is an R package developed by: Scott Emerson, M.D. Ph.D.; Andrew J. Spieker, Ph.D.; myself (Brian D. Williamson); and Travis Hee Wai
+- `uwIntroStats` is an R package developed by: Scott Emerson, M.D. Ph.D.; Andrew J. Spieker, Ph.D.; myself (Brian D. Williamson); Travis Hee Wai; and Solomon Lim
 
 - The package aims to make adopting R easier by streamlining presentation of output and making functions easier to work with
 
