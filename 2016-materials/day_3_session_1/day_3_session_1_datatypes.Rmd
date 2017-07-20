@@ -1,0 +1,432 @@
+---
+title: 'Day 3: Data types and data structures'
+subtitle: "EPI/BIOST Bootcamp 2016"
+author: "Brian D. Williamson"
+date: "27 September 2016"
+output: slidy_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Outline
+- Data types
+- Data structures
+- Assigning values to variables
+- Returning values from data structures
+
+## Data types
+- How is data stored? What type of data are we working with?
+- A *data type* is a basic building block, and tells us how the data is stored
+- R has three basic data types: numeric, character, and logical
+- R also has two more complex data types: special numerics and logicals, and factors
+
+## Numeric
+- Decimal numbers
+- Two types: 
+    - Integers - whole numbers, e.g. 1
+    - Doubles - real numbers (a whole number plus a fractional part), e.g. 1.5
+- R designates these two as `int` and `num`
+- Example: `age` variable in the `mri` data from the `uwIntroStats` package
+```{r, message = FALSE, warning = FALSE}
+## load the uwIntroStats package
+library(uwIntroStats)
+
+## load the mri data
+data(mri)
+
+## check the storage type of age
+str(mri$age)
+```
+- Example: `weight` variable in the `mri` data from the `uwIntroStats` package
+```{r}
+str(mri$weight)
+```
+
+## Character
+- Strings: words and letters, e.g. "Hello World!"
+- R designates these as `chr`
+- Example: "Mary had a little lamb" 
+```{r}
+str("Mary had a little lamb")
+```
+- Example: "A", "B", "C", "D", "E"
+```{r}
+str(c("A", "B", "C", "D", "E"))
+```
+
+## Logical
+- `TRUE` or `FALSE`
+- R designates these as `logi`
+- `TRUE` corresponds to 1, `FALSE` to 0
+- Produced by comparisons - the standard operators are:
+
+Operator | Meaning | Return
+:---:|:---:|---:
+\| | or | `TRUE` if any argument is `TRUE`
+& | and | `TRUE` only if all arguments are `TRUE`
+! | negation | `FALSE` if argument returns `TRUE`, `TRUE` else
+== | equals | `TRUE` if the two arguments are equal
+
+- Examples:
+    - Test if 1 equals 2: 1 == 2
+    - Test if 1 equals 2 or 2 equals 2: (1 == 2) | (2 == 2)
+    - Opposite of 1 equals 2: !(1 == 2)
+    - Test equality of strings: "A" == "B"
+    
+## Special numeric
+- R's way to handle invalid mathematical operations
+- Two special numerics:
+    - `Inf`: infinity. Defined as any nonzero number divided by zero 
+        - one way this can occur is division by a very small number that R rounds to zero!
+    - `NaN`: not a number. Defined as 0/0
+
+## Special logical
+- R's way to handle missing data
+- `NA`: missing data
+- R is essentially saying "I don't know what is supposed to go here"
+
+## The null object
+- `NULL`: the null object
+- Improperly defined functions or expressions can sometimes return `NULL`
+
+## Factors
+- Store character strings (names) and numerical values
+- Sometimes useful for keeping data organized
+- Example: `male`, coded as 1 for female and 2 for male
+    - a factor has these numeric values assigned to "Female" and "Male", or "F" and "M"
+    
+## Functions to check data types
+- The `str` function returns the data type of a variable
+- The "Environment" tab has information like data type and size of arrays/matrices
+- Example: `age` from the `mri` data
+```{r, echo = TRUE}
+str(mri$age)
+```
+- The class of `is.` functions perform logical comparisons
+    - `is.numeric()` tests whether the variable is numeric or not
+    - `is.character()` tests whether the variable is a character or not
+    - `is.logical()` tests whether the variable is logical or not
+    - `is.finite()` and `is.infinite()` test whether each value is finite or infinite
+    - `is.na()` tests whether each value is `NA` or not
+- Example: `age` from the `mri` data
+```{r, echo = TRUE}
+is.numeric(mri$age)
+sum(is.na(mri$age))
+```
+
+## Exercise: data types
+1. What is the data type of:
+    1. 1?
+    2. 2.5?
+    3. `TRUE`
+    4. "Seattle"
+2. What do the following comparisons return?
+    1. "A" == "B"
+    2. ("A" == "A") & (1 == 1)
+3. What does `is.na(1)` return?
+
+## Solution: data types
+1. Solutions are:
+    1. Numeric, integer, `int`
+    2. Numeric, double, `num`
+    3. Logical, `logi`
+    4. Character, `chr`
+2. Solutions:
+    1. `FALSE`
+    2. `TRUE`
+3. `FALSE`
+
+## Data structures
+- Equally important to what type of data we have is how it is stored
+- *Data structures* are the various ways that R stores data
+- We have been working with data structures implicitly already - each variable is part of a data structure
+- Five basic data structures in R:
+    - Vectors
+    - Matrices
+    - Arrays
+    - Data frames
+    - Lists
+
+## Vectors
+- Store any number of individual values
+- All values must be the same data type
+    - If not, R will force all values to be the same type (with perhaps varying results)
+- Create vectors with `c()`
+- Examples:
+    - vector of strings: `c("Mary", "had", "a", "little", "lamb")`
+    - vector of integers: `c(1, 2, 3, 4, 5)`
+    
+```{r, echo = TRUE}
+## same string as before
+c("Mary", "had", "a", "little", "lamb")
+
+## trying two data types
+c("Hello", "number", 1)
+c(1, "2", 3)
+```
+
+## Matrices
+- Tables, or two-dimensional vectors
+- All values must be the same data type
+- Must be rectangular: number of rows in each column is equal, and number of columns in each row is equal 
+- Create matrices with `matrix(vector, nrow, ncol, byrow, dimnames)`
+    1. Create a vector inside this call with `c()`
+    2. Specify how many rows (`nrow`) and/or columns (`ncol`)
+    3. Specify whether to read in values across rows (`byrow = TRUE`) or down columns (`FALSE`)
+    4. (optional) Specify the names of the dimensions, in a list
+
+## Matrices: examples
+```{r, echo = TRUE}
+## create a matrix from a vector of numbers
+matrix(c(1, 0, 0, 1), nrow = 2, ncol = 2, byrow = TRUE)
+
+## matrix from a vector of words (matrices can be non-square)
+matrix(c("This", "is", "a", "matrix"), nrow = 1, byrow = TRUE)
+```
+
+## Matrices: when might we use them?
+- Storing data of one type (like all numerics)
+- Tables of output
+- Some functions only take matrices as input (see documentation)
+- My default data structure
+
+## Arrays
+- Higher-order matrices (a matrix is also a 2-D array)
+- All values must be the same data type
+- Must be rectangular, like matrices
+- Create with `array(vector, dim)`
+    1. Create a vector with `c()`
+    2. Use `dim` to specify an integer vector with the maximum number of indices in each dimension
+    3. (optional) Specify the names of the dimensions, in a list
+
+## Arrays: examples
+```{r, echo = TRUE}
+## 1-D array, or vector
+array(c(1, 2, 3, 4), dim = 4)
+
+## 2-D array, or matrix
+array(c(1, 0, 0, 1), dim = c(2, 2))
+
+## 3-D array 
+## first create sex variable, repeating 1/2 for M/F
+sex <- factor(rep(c(1, 2), 20), levels = c(1, 2), labels = c("Male", "Female"))
+## create race variable, 1-4 representing white, black, asian, other
+race <- factor(rep(c(1, 2, 3, 4), 10), levels = c(1, 2, 3, 4), labels = c("white", "black", "asian", "other"))
+## create indicator of whether the participant has diabetes or not
+diabetes <- rep(c(0,1), 20)
+
+table(sex, race, diabetes)
+```
+
+## Arrays: when might we use them?
+- High dimensional tables (stratification on multiple variables)
+
+## Data frames
+- A table, like a matrix
+- Columns may have different data types
+    - For this reason, data frames are a common storage mode in R
+- Each column must have the same number of rows
+- Create with `data.frame(..., row.names, stringsAsFactors)`
+    1. `...` is a special object, meaning that we can put anything here: a comma separated list of vectors, matrices etc., or many other objects
+    2. (optional) Specify the names of the columns using `=`, with the name on the left and the object on the right
+    3. (optional) Specify the names of the rows using `row.names`
+    4. (optional) Convert strings to factors if possible (`stringsAsFactors = TRUE`)
+- The `names()` function returns all variable names
+
+## Data frames: examples
+```{r, echo = TRUE}
+data.frame(c(1,2,3), c("UW", "is", "awesome")) ## data frame with no column names
+data.frame(nums = c(1,2,3), words = c("UW", "is", "awesome")) ## data frame with column names
+data.frame(nums = c(1,2,3), words = c("UW", "is", "awesome"), mat = matrix(c(1, 0, 0, 0, 0, 1), nrow = 3)) ## input vectors and matrices
+```
+
+## Data frames: when might we use them?
+- Storing multiple data types in one object
+- Some functions only take data frames as input (like `lm()`; see documentation for others)
+- Want to name the columns and reference them using `$`
+
+## Lists
+- An ordered collection of objects
+- Each object can have a different data type, or can be any data structure
+- Created by `list(...)`
+    - Again the `...`! So lots of things can go here!
+    - We can also name objects using `=`, like in `data.frame()`
+    
+## Lists: examples
+```{r, echo = TRUE}
+list(1, "UW", 2, "is", 3, "awesome") ## list with single characters and strings
+list(df = data.frame(nums = c(1,2,3), words = c("UW", "is", "awesome")), mat = matrix(c(1, 0, 0, 0, 0, 1), nrow = 3)) ## list with named data frame and matrix
+```
+
+## Lists: when might we use them?
+- Store many different data types or structures in one object
+- Name each object and reference it easily
+- Honestly my least often used data structure
+
+## Exercise: data structures
+1. How does one create a vector?
+2. What will happen when we enter `c(1, 2, 3, 4, "a")`?
+3. Create the matrix
+
+```{r}
+matrix(c(1, 2, 3, 4, 5, 6), nrow = 2, byrow = TRUE)
+```
+
+4. Can each column have a different data type in a data frame?
+
+## Solution: data structures
+1. `c()` creates a vector
+2. The numeric values will be coerced into character values, yielding 
+
+```{r, echo = TRUE}
+c(1, 2, 3, 4, "a")
+```
+
+3. 
+```{r, echo = TRUE}
+matrix(c(1, 2, 3, 4, 5, 6), nrow = 2, byrow = TRUE) # this is one way, specifying ncol = 3 works too
+```
+
+4. Yes!!
+
+## Assigning values to variables
+- So far, we have not been saving values - we have just been looking at them in the console
+- Saving values makes manipulation easier
+- The assignment operator, `<-`, allows us to save values to objects/variables (Note: `=` works as well)
+- Choosing names that we describe what the object is will save us time later on!
+- Examples:
+```{r, echo = TRUE}
+junk <- 1 ## create an object called "junk", assign it value of 1
+vec <- c(1, 2, 3, 4, 5) ## create a vector called "vec", assign it the vector 1-5
+mat <- matrix(c(1, 0, 0, 1), ncol = 2, byrow = TRUE) ## matrix called "mat"
+
+junk ## prints out the value of junk
+vec ## prints out the value of vec
+mat ## prints out the value of mat
+```
+
+## Returning a single value from a data structure
+- Three main ways to access data
+- These deal with data in vector or matrix form, list form, and data frame form
+- Accessing data in vectors, matrices, and data frames is most simple
+
+## The `[]` operator
+- Allows us to access values in vectors, matrices, or data frames; use depends on the data structure
+- For vectors, we access one or multiple values using a single index or a vector of indices, e.g. `c(1, 2, 3)`
+- For matrices or data frames, we can access values in rows or columns, using `[row indices, col indices]`
+- Examples:
+```{r, echo = TRUE}
+vec[1] ## get the first element from vec
+vec[c(1, 3, 5)] ## get the first, third, and fifth elements from vec
+vec[2:4] ## shortcut to get the second, third, and fourth elements from vec
+mat[1, 1] ## the element in the first row and first column of mat
+mat[1, ] ## all columns of the first row of mat
+```
+
+## The `$` operator
+- Allows us to extract columns from a data frame
+- Once we extract a column, we can access values using `[]`
+- Examples:
+```{r, echo = TRUE}
+df <- data.frame(nums = c(1,2,3), words = c("UW", "is", "awesome")) ## create a data frame with two columns
+df$nums[1] ## access the first value in the "nums" column
+df[1, "nums"] ## another way to get the first value in the "nums" column
+df[1, 1] ## another way to get the first value in the "nums" column
+df$words[3] ## access the third value in the "words" column
+```
+
+## Indexing values in a data structure
+- Accessing more than one value is often useful
+- As easy as accessing a single value!
+
+## The `[]` operator: revisited
+- Returning multiple elements from a vector: give `[]` a vector of indices to return, e.g. `vec[2:4]`
+- Returning multiple elements from a matrix:
+    - For entire rows, give a vector of row indices with no column indices, e.g. `mat[1, ]`
+    - For entire columns, give a vector of column indices with no row indices, e.g. `mat[, 1]`
+    - Only selecting one row or column from a matrix returns a vector by default (there are ways around this)
+- Examples:
+```{r, echo = TRUE}
+mat.2 <- matrix(c(1, 2, 3, 4, 5, 6), nrow = 2, byrow = TRUE)
+mat.2[1, ] ## return the first row from mat.2
+mat.2[, c(2,3)] ## return the second and third columns from mat
+```
+
+## The `$` operator: revisited
+- `$` works with data frames and lists
+- Data frames: 
+    - We can only access one variable at a time using `$`
+    - However, we can access multiple values within each variable (or column) using vectors of indices
+- Lists:
+    - `$` returns one object from the list, as long as that object is named
+    - We can then access multiple values using the rules for that object
+- Examples:
+```{r, echo = TRUE}
+df$nums ## access all values from the "nums" column of df
+lst <- list(df = data.frame(nums = c(1,2,3), words = c("UW", "is", "awesome")), mat = matrix(c(1, 0, 0, 0, 0, 1), nrow = 3)) ## list with named data frame and matrix
+lst$df ## return the data frame from lst
+lst$df[1, 1] ## first element from df
+lst$df$nums ## "nums" variable from df
+```
+
+## The `[[]]` operator
+- Access objects in a list
+- Use `[[#]]` to extract the \# th object
+- Examples:
+```{r, echo = TRUE}
+lst[[1]] ## first object in lst
+lst[[2]][1, ] ## first row from the second object in lst
+```
+
+## Advanced indexing and subsetting
+- So far we have only indexed using vectors or single indices
+- Other types of indexing:
+    - Negative numbers or vectors of indices: exclude elements
+    - Logicals: include only elements for which the expression is `TRUE`
+- Subsetting: using logicals to return subsets of a dataset
+    - Can use indexing operators or the `subset()` function
+- Examples:
+```{r, echo = TRUE}
+vec[-1] ## all elements from vec except the first
+mat[-1, ] ## all elements except the first row of mat
+df[-c(1, 2), ] ## all elements except the first and second rows of df
+df[df$nums == 1, ] ## all rows from df where df$nums equals 1
+subset(df, df$nums == 1) ## same as previous command
+```
+
+
+## Exercise: accessing values and indexing
+For these exercises, load the `mri` data from `uwIntroStats` using `data(mri)`
+
+1. Return the `age` variable from this dataset
+2. Return the first five values from the `age` variable
+3. Count the number of people greater than 75 years old (Hint: use logicals)
+4. For those people less than 75 years old, return their height, weight, and sex
+
+## Solution: accessing values and indexing
+```{r, echo = TRUE}
+## load the data
+data(mri)
+
+## 1. Return the age variable. Note: I am using head() to display only the first 6 values to save space
+head(mri$age) ## alternatively, could use mri[, "age"] or mri[, 3]
+
+## 2. first five values from age
+mri$age[1:5]
+
+## 3. Number of people > 75 years old
+sum(mri$age > 75) ## alternatively, could use dim(mri[mri$age > 75, ])
+
+## 4. Return height, weight, sex for those > 75 (again using head() to save space)
+head(mri[mri$age > 75, c("height", "weight", "male")])
+```
+
+## Summary
+- R has five data types: numeric, character, logical, factor, special numerics and logicals
+- Each data type stores different information
+- R has five basic data structures: vector, matrix, array, data frame, list
+- Some of these can only contain one data type, others can contain multiple
+- We can access data using vectors of indices, logicals, or both
+- The operator we use depends on the data structure (`[]`, `$`, or `[[]]`)

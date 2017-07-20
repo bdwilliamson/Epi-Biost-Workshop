@@ -1,0 +1,31 @@
+---
+title: 'Day 3: Practice'
+subtitle: "EPI/BIOST Bootcamp 2016"
+author: "Brian D. Williamson"
+date: "27 September 2016"
+output: slidy_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Putting it all together
+- So far we have learned a bit of what R can accomplish
+- Now it's time to try it out!
+
+## Practice
+- Taking another look at the `mri` data
+- Want to do the following
+    1. Create a new variable, BMI, and add it to the `mri` dataset
+    2. Take a quick look for any missing values, describe the people missing data
+    3. Create some descriptive tables and plots
+- Remember that BMI is mass (kg) divided by squared height in meters
+    - We will have to do some conversions!
+    
+## Your turn
+1. Create a dataset with only females by subsetting the `analysis` data
+2. Create a table of descriptive statistics of the whole analysis sample
+3. Create a table of descriptive statistics for females only
+4. Create a scatterplot exploring the relationship between cerebral atrophy (`atrophy`) and age (`age`) in the whole sample
+5. Create a scatterplot exploring whether the above relationship differs by sex

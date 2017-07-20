@@ -1,0 +1,67 @@
+---
+title: "Day 3: Using and managing the workspace"
+subtitle: "EPI/BIOST Bootcamp 2016"
+author: "Brian D. Williamson"
+date: "27 September 2016"
+output: slidy_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## What is the workspace?
+- The workspace holds all data, functions, and objects created in a specific R session
+- Can be saved as a `.Rdata` file upon quitting R
+- Can be loaded at the start of a new R session
+
+## Managing the workspace
+Function | Purpose
+|---|---|
+`getwd()` | print the current working directory
+`ls()` | list the objects in the current workspace
+`setwd(mydir)` | change working directory to `mydir`
+`history()` | display the last 25 commands used in the console
+
+
+## Managing the workspace
+Function | Purpose
+|---|---|
+`savehistory(file = "myfile")` | save command history to file `"myfile"` in the current working directory
+`loadhistory(file = "myfile")` | load previous history
+`save.image()` | save workspace to a `.Rdata` file
+`q()` | quit R
+
+## Saving and loading the workspace
+- RStudio should ask to save the workspace when you exit the program
+- Whether to save or not depends on how large your files are
+- Also depends on whether you need all of your objects
+- Can get around this by using scripts, and saving individual objects
+
+## Saving and loading data
+- Smaller file size than saving the entire workspace
+- Faster to both save and load
+- Save: `save(myobj, file = "myobjfile")`
+- Load: `load(file = "myobjfile")`
+
+## Projects
+- RStudio opens in a default "project"
+- Organize work on specific projects/assignments/tasks using projects
+- To create a new project:
+    - Go to "File", "New Project"
+    - Choose where to place the project. "New working directory" creates a new folder, "Existing working directory" places the object in an existing folder, "Version control" allows you to use git/Github
+    - Name the project
+- Projects save some aspects of the workspace by default, like which scripts are open
+- Automatically associated with a specific working directory
+
+## Running scripts
+- Scripts help to organize commands
+- You can also write programs in scripts
+- Two options to run a script:
+    1. Click "Source" when the script is open
+    2. Run `source("myscript")` from the console or another script
+    
+## Summary
+- The workspace holds all objects and functions for a given session
+- Projects each have their own workspace, and can help to organize different tasks
+- Scripts help organize commands for specific tasks

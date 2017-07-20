@@ -1,0 +1,25 @@
+\frametitle{Slope-intercept form: determining a line}
+%\includegraphics[width = .75\textwidth]{line_example_point_only.png}
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines=middle,
+    xmin=-10, xmax=10,
+    ymin=-10, ymax=10,
+    xtick=\empty, ytick=\empty,
+    xlabel=$x$, ylabel=$y$
+]
+%\addplot [black,
+%    thick,
+%    mark=*,
+%    nodes near coords, % place nodes near coordinates
+%] table [meta index=2 % meta is in second column
+%]{
+%x  y label
+%0 1 Intercept
+%};
+%\node[label={180:{Intercept}},circle,fill,inner sep=2pt] at (axis cs:0,1) {};
+\addplot[mark=*] coordinates {(0,1)} node[pin=150:{Intercept}]{} ;
+%\addplot [domain=-10:10, samples=2, dashed] {1*x+1};
+\end{axis}
+\end{tikzpicture}
