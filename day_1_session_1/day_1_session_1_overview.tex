@@ -1,0 +1,315 @@
+\documentclass[12pt]{beamer}
+\usetheme{default} 
+
+\setbeamertemplate{navigation symbols}{} %gets rid of navigation symbols
+\setbeamertemplate{footline}{} %gets rid of bottom navigation bars
+\setbeamertemplate{footline}[page number]{} %use this for page numbers
+
+\setbeamertemplate{footline}{%
+  \raisebox{5pt}{\makebox[\paperwidth]{\hfill\makebox[10pt]{\scriptsize\insertframenumber~~}}}}
+
+\setbeamertemplate{itemize items}[circle] %round bullet points
+\setlength\parskip{10pt} % white space between paragraphs
+
+\usepackage{wrapfig}
+\usepackage{subfig}
+\usepackage{setspace}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[UKenglish]{isodate}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{natbib}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true, 
+    urlcolor=blue
+}
+\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;} 
+
+% allow drawing arrows
+\usetikzlibrary{arrows}
+\tikzstyle{arrow}=[draw, -latex] 
+
+% bracketing shortcuts
+\newcommand{\paren}[1]{\left(#1\right)}
+\newcommand{\sqbracket}[1]{\left[#1\right]}
+\newcommand{\cbracket}[1]{\left\{#1\right\}}
+\newcommand{\abs}[1]{\left\lvert#1\right\rvert}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+% set up the argmin operator, argmax
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+\newcommand{\myframe}[1]{\begin{frame} \frametitle{#1}}
+% the preamble
+\title{Day 1, Session 1: Overview}
+\author{Gillian Tarr and Brian D. Williamson}
+\institute{EPI/BIOST Bootcamp 2016}
+\date{23 September 2016}
+
+% Start the document
+\begin{document}
+% The title page
+\begin{frame}
+\titlepage
+\end{frame}
+
+\myframe{Welcome!}
+\begin{itemize}
+\item Welcome to the first EPI/BIOST Bootcamp!
+\item[]
+\item For today:
+\begin{itemize}
+\item Our backgrounds
+\item[]
+\item Introduction to course content for EPI 511 and BIOST 511
+\item[]
+\item Overview of this course
+\item[]
+\item Some skills and resources for success in graduate school
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\myframe{Our backgrounds: Gillian}
+\begin{itemize}
+\item Fourth year PhD student, Epidemiology
+\item[]
+\item Past TA for EPI 512/513, 554
+\item[]
+\item Research interests: Zoonotic infectious diseases and One Health
+\item[]
+\item RAs: HIV and tobacco intervention modeling
+\end{itemize}
+\end{frame}
+
+\myframe{Our backgrounds: Brian}
+\centering
+%\includegraphics[width = .25\textwidth]{yellowstone-min.jpg}
+\begin{itemize}
+\item Third year PhD student, Biostatistics
+\item[]
+\item Past TA for R in BIOST 511, 512, 517, 518
+\item[]
+\item Research interests: High-dimensional statistics and inference
+\item[]
+\item RA: HIV prevention clinical trials
+\end{itemize}
+\end{frame}
+
+\myframe{Intro to course content: BIOST 511 (from Jim Hughes, PhD)}
+\begin{itemize}
+\item Objective: provide students with an understanding of basic concepts and methods of statistical inference in the health sciences
+\item Some major topics:
+\begin{itemize}
+\item Data description, exploratory data analysis
+\item[]
+\item Basic issues in study design
+\item[]
+\item Probability concepts and models
+\item[]
+\item Statistical inference - estimation and hypothesis testing
+\item[]
+\item Categorical data analysis
+\item[]
+\item Introduction to regression analysis
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\myframe{Intro to course content: BIOST 511}
+\begin{itemize}
+\item Only pre-requisite is basic algebra
+\item[]
+\item However, R will be used to teach some of the concepts and analyze data
+\item[]
+\item Depending on the instructor, will cover logs/exponents in data analysis
+\end{itemize}
+\end{frame}
+
+
+\myframe{Intro to course content: EPI 511/512}
+\begin{itemize}
+\item Objective: provide students with an understanding of basic epidemiologic concepts and methods in the health sciences 
+\item Some major topics:
+\begin{itemize}
+\item Defining and calculating major measures of disease frequency
+\item[]
+\item Describe major sources of bias in epidemiologic research (e.g. confounding or selection bias), and ways to evaluate and reduce bias
+\item[]
+\item Interpret results of an epidemiologic study
+\item[]
+\item Evaluate integrity and comparability of data
+\item[]
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\myframe{Intro to course content: EPI 511/512}
+\begin{itemize}
+\item Describe major epidemiologic research study designs
+\item[]
+\item Define and calculate measures of association, and modifications of association
+\end{itemize}
+\end{frame}
+\myframe{Overview of the bootcamp}
+\begin{itemize}
+\item Today: overview, etc
+\item[]
+\item 26 September: Algebra and more! (Room change: T-625)
+\begin{itemize}
+\item Order of operations and negative numbers
+\item[]
+\item Fractions
+\item[]
+\item Algebra
+\item[]
+\item Graphs
+\item[]
+\item Logs and exponents
+\item[]
+\item Word problems etc
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\myframe{Overview of the bootcamp}
+\begin{itemize}
+\item 27 September: R! (Back here, K-069)
+\begin{itemize}
+\item Using scripts, the console, and simple tasks
+\item[]
+\item Installing and loading packages. Case study: \texttt{uwIntroStats}
+\item[]
+\item Data types, data structures
+\item[]
+\item Loading data and running scripts
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\myframe{Skills for success: class preparation}
+\begin{itemize}
+\item Do readings (lecture notes, textbook) before coming to class
+\item[]
+\item Start homework early
+\item[]
+\item Go to class, and participate if possible!
+\end{itemize}
+\end{frame}
+
+\myframe{Skills for success: study groups}
+\begin{itemize}
+\item Start early
+\item[]
+\item Try to form study groups with people of mixed backgrounds and programs
+\item[]
+\item Keep tabs on how members of the group are performing
+\item[]
+\item Be careful not to plagiarize
+\end{itemize}
+\end{frame}
+
+\myframe{Skills for success: office hours}
+\begin{itemize}
+\item Not just for homework help!
+\item[]
+\item Bring corrected tests and homework to review
+\item[]
+\item Go over concepts in the reading
+\end{itemize}
+\end{frame}
+
+\myframe{Skills for success: bolstering basic skills}
+\begin{itemize}
+\item We're providing a refresher, but you may need outside help
+\item[]
+\item Seek tutoring (early!)
+\item[]
+\item Use online resources (e.g. Khan Academy)
+\end{itemize}
+\end{frame}
+
+\myframe{Skills for success: quarters move fast!}
+\begin{itemize}
+\item Don't put off homework/reading/studying
+\item[]
+\item The first midterm tends to be a wake-up call, but the pace picks up after it --- no time to catch up
+\item[]
+\item Second quarter assumes mastery of the first quarter's material
+\item[]
+\item Seek out disability accommodation early (\url{http://depts.washington.edu/uwdrs/})
+\end{itemize}
+\end{frame}
+
+\myframe{Skills for success: language and wording}
+\begin{itemize}
+\item Epi, particularly, is very language-heavy
+\item[]
+\item Pay attention to how specific words are used
+\item[]
+\item If you are not fluent in English, consider setting up additional help early
+\end{itemize}
+\end{frame}
+
+\myframe{Skills for success: tips on coming recently from undergrad}
+\begin{itemize}
+\item If coming from semester school: quarters are much faster!
+\item[]
+\item Imposter syndrome --- remember that the UW chose you!
+\item[]
+\item Balancing an RA/TA with coursework will likely be an adjustment
+\item[]
+\item UW's approach may be different from that of your undergrad
+\end{itemize}
+\end{frame}
+
+\myframe{Skills for success: tips if you've been out of school for a while}
+\begin{itemize}
+\item Schedule yourself more time at first than you might expect you need to complete work
+\item[]
+\item The field may have advanced since you were in school
+\item[]
+\item UW's approach may be different than where you worked or earned your Master's/undergraduate degree
+\end{itemize}
+\end{frame}
+
+\myframe{Homework for the weekend}
+\begin{itemize}
+\item Visit the R project page at \url{https://cran.r-project.org/} and download R
+\item[]
+\item Visit the RStudio page at \url{https://www.rstudio.com/} and download RStudio
+\item[]
+\item Visit the GitHub page for this bootcamp at \url{https://github.com/UW-EPI-BIOST-PREP/Epi-Biost-Workshop2016}
+\begin{itemize}
+\item Download the slides and other materials using the green ``Clone or Download'' button (choose download)
+\end{itemize}
+\item[]
+\end{itemize}
+\end{frame}
+
+\myframe{Homework for the weekend}
+\begin{itemize}
+\item If you have trouble with any of the steps (besides GitHub), there are help videos on the \texttt{uwIntroStats} website, \url{http://uwintrostats.org/index.asp}
+\item[]
+\item Install the \texttt{uwIntroStats} package:
+\begin{enumerate}
+\item Open RStudio once it and R are installed
+\item[]
+\item Go to the ``Tools'' menu, and select ``Install Packages...''
+\item[]
+\item In the dropdown menu for ``Install from:'', select ``Repository (CRAN)''
+\item[]
+\item Type ``uwIntroStats'' in the ``Packages'' text box
+\item[]
+\item Click ``Install'' 
+\end{enumerate}
+\end{itemize}
+\end{frame}
+
+\end{document}
