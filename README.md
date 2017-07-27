@@ -5,6 +5,6 @@ This is the GitHub page for the second annual Math and R Skills Bootcamp, taught
 The 2016-materials/ folder contains lecture notes from the 2016 version of this workshop. 
 
 The lecture notes for this year are organized by day and session number. The general outline is:
-Day 1 --- Introduction and Skills for Success, Math Skills I
-Day 2 --- Math Skills II
-Day 3 --- Introduction to R and RStudio
+* Day 1: Introduction and Skills for Success, Math Skills I
+* Day 2: Math Skills II
+* Day 3: Introduction to R and RStudio
