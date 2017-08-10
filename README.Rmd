@@ -46,19 +46,17 @@ and
 
 ## Day 1, 22 September 2017, 8am-12pm
 
-**Lecture 0: Overview and Skills for Success, Jessica and Brian, 45 min**
+**Lecture 0: Overview and Skills for Success, Jessica and Brian, 45 min** [pdf](day_1_session_1/day_1_session_1_overview.pdf)
 
-[pdf](day_1_session_1/day_1_session_1_overview.pdf),
 * Introduction to the workshop, EPI/BIOST courses
 * Some skills for success in graduate school
 
-**Lecture 1, Order of operations, Brian, XX min**
+**Lecture 1, Order of operations, Brian, XX min** [pdf](day_1_session_1/day_1_session_1_order-of-ops_negatives.pdf)
 
-[pdf](day_1_session_1/day_1_session_1_order-of-ops_negatives.pdf),
 * Placeholder list 
 
-**Lecture 2: Fractions, Percentages, and Decimals, Jessica, XX min**
-[pdf](placeholder),
+**Lecture 2: Fractions, Percentages, and Decimals, Jessica, XX min** [pdf](placeholder)
+
 * Another placeholder list
 
 **Lecture 3: Algebra, Jessica, XX min**
@@ -66,13 +64,9 @@ and
 
 ## Day 2, 25 September 2017, 2-5:30pm
 
-**Lecture 4: Graphs, Brian, XX min**
+**Lecture 4: Graphs, Brian, XX min** [pdf](day_2_session_1/day_2_session_1_graphs.pdf)
 
-[pdf](day_2_session_1/day_2_session_1_graphs.pdf)
-
-**Lecture 5: Logarithms and Exponents, Brian, XX min**
-
-[pdf](day_2_session_1/day_2_session_1_log.pdf)
+**Lecture 5: Logarithms and Exponents, Brian, XX min** [pdf](day_2_session_1/day_2_session_1_log.pdf)
 
 **Lecture 6: Word Problems, Jessica, XX min**
 
