@@ -27,6 +27,7 @@ Prepare participants for the UW's introductory Epidemiology and Biostatistics co
 # Cheat Sheets
 
 [RStudio](https://www.rstudio.com/resources/cheatsheets/).
+
 R style guides (useful for making code easy to read):
 * [Google's](https://google.github.io/styleguide/Rguide.xml).
 * [Hadley Wickham's](http://adv-r.had.co.nz/Style.html).
