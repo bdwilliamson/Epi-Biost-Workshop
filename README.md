@@ -62,13 +62,13 @@ R style guides (useful for making code easy to read):
 
 ## Day 3, 26 September 2017, 8-10:30am
 
-**Lecture 7: Installing R and RStudio, Brian, XX min (much live demo)**
+**Lecture 7: Installing R and RStudio, Brian, XX min (much live demo)** [pdf](day_3_session_1/day_3_session_1_install.pdf)
 
-**Lecture 8: R basics, Brian, XX min (much live demo)**
+**Lecture 8: R basics, Brian, XX min (much live demo)** [pdf](day_3_session_1/day_3_session_1_basics.pdf)
 
-**Lecture 9: The RStudio environment, Brian, XX min (much live demo)**
+**Lecture 9: The RStudio environment, Brian, XX min (much live demo)** [pdf](day_3_session_1/day_3_session_1_rstudio.pdf)
 
-**Lecture 10: Accessing help, Brian, XX min (much live demo)**
+**Lecture 10: Accessing help, Brian, XX min (much live demo)** [pdf](day_3_session_1/day_3_session_1_help.pdf)
 
 # Recommended Reading/Browsing
 
