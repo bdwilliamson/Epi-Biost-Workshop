@@ -18,22 +18,18 @@ and
   [brianw26@uw.edu](mailto:brianw26@uw.edu)
 
 # Course Goals
+Prepare participants for the UW's introductory Epidemiology and Biostatistics courses through gaining/regaining familiarity with mathematical concepts, word problems, the R programming language, and the RStudio programming environment. Specifically, we will cover:
 
-- [pdf](RRcourse_goals.pdf)
-- [html](RRcourse_goals.html)
-- [MS Word](RRcourse_goals.docx)
-- [Rmd Source](RRcourse_goals.Rmd)
-
-# Homework
-
-- [pdf](homework.pdf)
-- [html](homework.html)
-- [MS Word](homework.docx)
-- [Rmd Source](homework.Rmd)
+* Core mathematical concepts (order of operations, fractions, algebra, logarithms)
+* Communicating and analyzing data (graphics and word problems)
+* R and RStudio basiscs, accessing R help
 
 # Cheat Sheets
 
 [RStudio](https://www.rstudio.com/resources/cheatsheets/).
+R style guides (useful for making code easy to read):
+* [Google's](https://google.github.io/styleguide/Rguide.xml).
+* [Hadley Wickham's](http://adv-r.had.co.nz/Style.html).
 
 # Course Syllabus and Lecture Materials
 
@@ -75,7 +71,11 @@ and
 
 # Recommended Reading/Browsing
 
-## General
+## R
+* [Lecture notes on data types and data structures](2016-materials/day_3_session_1_datatypes.html) (from 2016)
+* [Hadley Wickham's book](http://adv-r.had.co.nz/)
+
+## Reproducible Research
 
 * [Christopher Gandrud, Reproducible Research with R and Rstudio, (2015)](http://www.amazon.com/Reproducible-Research-Studio-Second-Chapman-ebook/dp/B010ACWGBI/ref=tmm_kin_title_0?_encoding=UTF8&sr=&qid=)
 * [Hadley Wickham, R Packages (2015)](http://www.amazon.com/R-Packages-Hadley-Wickham-ebook/dp/B00VAYCHL0/ref=pd_sim_351_6?ie=UTF8&refRID=1E8HS30WBHRCW45SEWXM)
