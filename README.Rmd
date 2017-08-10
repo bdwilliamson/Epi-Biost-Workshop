@@ -1,6 +1,13 @@
-# EPI/BIOSTAT Math and R Skills Preparatory Workshop
-Jessica Williams-Nguyen and Brian Williamson  
-22, 25, 26 September, 2017  
+---
+title: "EPI/BIOSTAT Math and R Skills Preparatory Workshop"
+author: "Jessica Williams-Nguyen and Brian Williamson"
+date: "22, 25, 26 September, 2017"
+output:
+  html_document:
+    keep_md: yes
+  pdf_document: default
+  word_document: default
+---
   
   This workshop is offered by the 
 [University of Washington School of Public Health](http://sph.washington.edu/).
