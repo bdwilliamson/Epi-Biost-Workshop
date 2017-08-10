@@ -1,0 +1,72 @@
+\documentclass[12pt]{beamer}
+\usetheme{default} 
+
+\setbeamertemplate{navigation symbols}{} %gets rid of navigation symbols
+\setbeamertemplate{footline}{} %gets rid of bottom navigation bars
+\setbeamertemplate{footline}[page number]{} %use this for page numbers
+
+\setbeamertemplate{footline}{%
+  \raisebox{5pt}{\makebox[\paperwidth]{\hfill\makebox[10pt]{\scriptsize\insertframenumber~~}}}}
+
+\setbeamertemplate{itemize items}[circle] %round bullet points
+\setlength\parskip{10pt} % white space between paragraphs
+
+\usepackage{wrapfig}
+\usepackage{subfig}
+\usepackage{setspace}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[UKenglish]{isodate}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{natbib}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true, 
+    urlcolor=blue
+}
+\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;} 
+
+% allow drawing arrows
+\usetikzlibrary{arrows}
+\tikzstyle{arrow}=[draw, -latex] 
+
+% bracketing shortcuts
+\newcommand{\paren}[1]{\left(#1\right)}
+\newcommand{\sqbracket}[1]{\left[#1\right]}
+\newcommand{\cbracket}[1]{\left\{#1\right\}}
+\newcommand{\abs}[1]{\left\lvert#1\right\rvert}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+% set up the argmin operator, argmax
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+\newcommand{\myframe}[1]{\begin{frame} \frametitle{#1}}
+
+% New itemize environment, with spaces
+\newenvironment{spaceitemize}
+{ \begin{itemize}
+    \setlength{\itemsep}{10pt}
+    \setlength{\parskip}{0pt}
+    \setlength{\parsep}{0pt}     }
+{ \end{itemize}                  } 
+
+
+% the preamble
+\title{Day 3, Session 1: Accessing R help}
+\author{Jessica Williams-Nguyen and Brian D. Williamson}
+\institute{EPI/BIOST Bootcamp 2017}
+\date{26 September 2017}
+
+% Start the document
+\begin{document}
+% The title page
+\begin{frame}
+\titlepage
+\end{frame}
+
+\end{document}
