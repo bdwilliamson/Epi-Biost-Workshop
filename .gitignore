@@ -1,5 +1,6 @@
 ## R files
 .Rproj.user
+*.Rproj
 .Rhistory
 *.RData
 .Ruserdata
@@ -18,6 +19,7 @@
 *.cb
 *.cb2
 *.nav
+*.snm
 
 ## Intermediate documents:
 *.dvi

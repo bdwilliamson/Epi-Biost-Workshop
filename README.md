@@ -9,7 +9,7 @@ Taught by
 
 Jessica Williams-Nguyen
 <br/>
-  [placeholder](mailto:placeholder)
+  [jswn@uw.edu](mailto:jswn@uw.edu)
 
 and
 
@@ -40,12 +40,14 @@ and
 ## Day 1, 22 September 2017, 8am-12pm
 
 **Lecture 0: Overview and Skills for Success, Jessica and Brian, 45 min**
-[pdf](placeholder),
+
+[pdf](day_1_session_1/day_1_session_1_overview.pdf),
 * Introduction to the workshop, EPI/BIOST courses
 * Some skills for success in graduate school
 
 **Lecture 1, Order of operations, Brian, XX min**
-[pdf](placeholder),
+
+[pdf](day_1_session_1/day_1_session_1_order-of-ops_negatives.pdf),
 * Placeholder list 
 
 **Lecture 2: Fractions, Percentages, and Decimals, Jessica, XX min**
@@ -59,7 +61,11 @@ and
 
 **Lecture 4: Graphs, Brian, XX min**
 
+[pdf](day_2_session_1/day_2_session_1_graphs.pdf)
+
 **Lecture 5: Logarithms and Exponents, Brian, XX min**
+
+[pdf](day_2_session_1/day_2_session_1_log.pdf)
 
 **Lecture 6: Word Problems, Jessica, XX min**
 
