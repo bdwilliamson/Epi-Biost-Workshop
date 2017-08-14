@@ -69,17 +69,29 @@
 \titlepage
 \end{frame}
 
-\myframe{R}
-
+\myframe{\includegraphics[width = 0.2\textwidth]{../Rlogo.png}}
+R is a free software package that can be used for data analysis, graphics, and programming. 
 \end{frame}
 
 \myframe{Why R?}
+R has many advantages, including:
+\begin{spaceitemize}
+\item Free!
+\item Active group of contributors (anyone!)
+\item Flexible
+\end{spaceitemize}
 
+However, this comes with some challenges:
+\begin{spaceitemize}
+\item Sometimes packages don't do what they say they do...
+\begin{itemize}
+\item ...but you can trust basically anything written by the R Core Team, the \href{https://www.rstudio.com/products/rpackages/}{RStudio Team}, \href{http://hadley.nz/}{Hadley Wickham}, or \href{https://github.com/yihui}{Yihui Xie}
+\end{itemize}
+\end{spaceitemize}
 \end{frame}
 
 
-\myframe{RStudio}
-
+\myframe{\includegraphics[width = 0.2\textwidth]{../RStudiologo.png}}
 \end{frame}
 
 \myframe{Why RStudio?}
@@ -88,15 +100,48 @@
 
 
 \myframe{Why two programs?}
+R is a programming software, prepackaged with a graphical user interface (GUI). However, R programs can be executed from the command line without an interactive interface.
 
+RStudio is a GUI, and is a helpful tool for working in R. Using RStudio makes it easier to:
+\begin{spaceitemize}
+\item write R scripts to save your work, along with comments for what your code does
+\item write reports with code embedded (using Rmarkdown)
+\item organize your data analysis workflow (e.g., reading in data, access help files)
+\end{spaceitemize}
+\end{frame}
+
+\myframe{Why two programs?}
+At the end of the day: you are executing commands/programs in R, but using RStudio as an intuitive interface to the software (much like your operating system is a GUI to the machine language that your computer understands).
 \end{frame}
 
 \myframe{Installing R}
+\begin{enumerate}
+\item Go to \url{https://cran.r-project.org/}
+\item[]
+\item Choose the correct link under \textcolor{blue}{\underline{\texttt{Download and Install R}}}
+\begin{spaceitemize}
+\item Windows users, select \textcolor{blue}{\underline{\texttt{install R for the first time}}}
+\item Mac users, click the \textcolor{blue}{\underline{\texttt{R-[replace with most recent version number].pkg}}} link and install
+\item Linux users, I assume you know what you are doing
+\end{spaceitemize}
+\end{enumerate}
 
 \end{frame}
 
 \myframe{Installing RStudio}
-
+\begin{enumerate}
+\item Go to \url{https://www.rstudio.com/}
+\item[]
+\item Scroll down until you see the headers for \textcolor{blue}{\texttt{RStudio}}, \textcolor{blue}{\texttt{Shiny}}, and \textcolor{blue}{\texttt{R Packages}}  (see figure)
+\item[]
+\item Click \textcolor{blue}{\underline{Download}}
+\item[] 
+\item Click the green download button in the column for \texttt{RStudio Desktop}
+\item[]
+\item Choose the correct installer for your operating system and click the link
+\end{enumerate}
+\centering
+\includegraphics[width = 0.5\textwidth]{../rstudio_download.png}
 \end{frame}
 
 \myframe{R and Windows}
