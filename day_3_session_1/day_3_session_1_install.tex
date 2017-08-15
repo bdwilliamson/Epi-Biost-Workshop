@@ -1,4 +1,4 @@
-\documentclass[12pt]{beamer}
+\documentclass[11pt]{beamer}
 \usetheme{default} 
 
 \setbeamertemplate{navigation symbols}{} %gets rid of navigation symbols
@@ -70,15 +70,20 @@
 \end{frame}
 
 \myframe{\includegraphics[width = 0.2\textwidth]{../Rlogo.png}}
-R is a free software package that can be used for data analysis, graphics, and programming. 
+R is a \textcolor{blue}{free}, \textcolor{green}{open source} software package that can be used for data analysis, graphics, and programming. 
+
+At its core, R is an interactive, command-driven \textcolor{blue}{language}: you type a command and R executes it and returns results. 
+
+While R is sometimes said to have a steep learning curve, it is relatively easy to get set up with the basics and analyze some data.
 \end{frame}
 
 \myframe{Why R?}
 R has many advantages, including:
 \begin{spaceitemize}
-\item Free!
+\item Free and open source!
 \item Active group of contributors (anyone!)
 \item Flexible
+\item Large set of packages for data analysis
 \end{spaceitemize}
 
 However, this comes with some challenges:
@@ -92,15 +97,29 @@ However, this comes with some challenges:
 
 
 \myframe{\includegraphics[width = 0.2\textwidth]{../RStudiologo.png}}
+RStudio is both an integrated development environment (IDE) and a graphical user interface (GUI) for R programming and data analysis. The free version is also open source.
+
+It includes a console, text editor that allows for direct execution of code, as well as tools for importing/exporting data, plotting, file management, and debugging. (We will cover all of these terms later!)
 \end{frame}
 
 \myframe{Why RStudio?}
+The base R GUI is both light and functional. Sometimes, however, we want more than that!
 
+RStudio adds:
+\begin{spaceitemize}
+\item An improved layout of the console, text editor, and other tools
+\item Support for embedding reproducible research tools
+\item Support for building your own R packages
+\item Integrated R help and documentation
+\item A pretty good debugger
+\end{spaceitemize}
+
+The only downside to RStudio is that it takes a decent amount of memory to run... but for most purposes, this isn't a problem. 
 \end{frame}
 
 
 \myframe{Why two programs?}
-R is a programming software, prepackaged with a graphical user interface (GUI). However, R programs can be executed from the command line without an interactive interface.
+R is a programming software, prepackaged with a GUI. However, R programs can be executed from the command line without an interactive interface.
 
 RStudio is a GUI, and is a helpful tool for working in R. Using RStudio makes it easier to:
 \begin{spaceitemize}
@@ -112,6 +131,10 @@ RStudio is a GUI, and is a helpful tool for working in R. Using RStudio makes it
 
 \myframe{Why two programs?}
 At the end of the day: you are executing commands/programs in R, but using RStudio as an intuitive interface to the software (much like your operating system is a GUI to the machine language that your computer understands).
+
+The combination of R and RStudio makes reproducible research attainable by everyday users. The RStudio environment has many easy options to facilitate this through R, and a lot of support behind the scenes.
+
+
 \end{frame}
 
 \myframe{Installing R}
@@ -143,13 +166,4 @@ At the end of the day: you are executing commands/programs in R, but using RStud
 \centering
 \includegraphics[width = 0.5\textwidth]{../rstudio_download.png}
 \end{frame}
-
-\myframe{R and Windows}
-
-\end{frame}
-
-\myframe{R and Mac/Linux}
-
-\end{frame}
-
 \end{document}
