@@ -70,7 +70,13 @@
 \end{frame}
 
 % R intro
-\section{R and RStudio}
+\section{The R and RStudio interfaces}
+\myframe{The interface}
+We interact with both R and RStudio using an interface. For R, this is the command line. For RStudio, this is the graphical user interface.
+
+Both of these concepts deserve a bit of introduction, since familiarity with the interface makes using R and RStudio much easier!
+\end{frame}
+\subsection{R}
 \myframe{Command line R}
 The most basic form of R is from the command line (Terminal in Mac/Linux, Command Prompt in Windows). 
 
@@ -90,6 +96,7 @@ When you first open R, you have a limited number of functions available for use.
 The command line version of R is most useful (in my experience) for computing-intensive tasks. Data analyses are best done in RStudio.
 \end{frame}
 
+\subsection{RStudio}
 \myframe{RStudio}
 When you first open RStudio, you are met with a blank set of four \textcolor{blue}{panes}:
 \begin{center}
@@ -103,6 +110,7 @@ You can edit pane layout under \texttt{Tools > Global Options > Pane Layout}. My
 You'll notice that on the previous slide, there were only three panes visible: since we haven't opened or created any files to edit, the \textcolor{blue}{source} pane is not currently open.
 \end{frame}
 
+\subsubsection{The console}
 \myframe{RStudio: the console}
 Is it a coincidence that the screenshot has exactly the same text as we saw on the command line? No! 
 
@@ -155,7 +163,7 @@ For more complicated analyses, this can lead to a lot of confusion. Also, just t
 Organizing commands into \textcolor{blue}{scripts} allows us to save exactly what we did during a given data analysis, which makes reproducible research easy. This helps both your future self and your collaborators, so that you can share what you did!
 \end{frame}
 
-
+\subsubsection{The text editor}
 \myframe{RStudio: the text editor (``Source'')}
 The text editor (which RStudio calls the \textcolor{blue}{source}) is the second most powerful part of the IDE. This allows us to edit and save files, and to run commands directly from the text file into the console.
 
@@ -193,6 +201,18 @@ I like to include a preamble in all of my R scripts, which gives me information 
 \end{verbatim}
 \end{frame}
 
+\myframe{Running commands from R scripts}
+There are many options for running commands using your R script, either in individual lines or in blocks.
+
+You can run individual lines by placing your cursor on the line and
+\begin{spaceitemize}
+\item hitting the green \texttt{Run} button, or
+\item hitting \texttt{Ctrl+Enter} (Windows/Linux) or \texttt{Cmd+Enter} (Mac)
+\end{spaceitemize}
+
+Similarly, you run multiple lines by highlighting all desired lines and doing one of the two options described above.
+\end{frame}
+
 \begin{frame}[fragile]
 \frametitle{Example: heights and weights}
 We can now enter 
@@ -225,21 +245,96 @@ wt <- c(165,120,210,180,125)
 \end{verbatim}
 \end{frame}
 
-\myframe{RStudio: environment, file history, etc.}
+\subsubsection{The environment}
+\myframe{RStudio: environment, history, etc.}
+The basic environment pane allows us to do three things: 
+\begin{spaceitemize}
+\item view which objects (data sets, etc.) exist in the \textcolor{blue}{\texttt{Global Environment}}
+\item view the \textcolor{green}{history} of which commands were entered in the console
+\item import datasets (using the buttons on the top of the pane)
+\end{spaceitemize}
 
+The \textcolor{blue}{\texttt{Global Environment}} is where commands that are executed in the console typically live --- intermediate objects created within functions (but not returned) live within function-specific environments.
+
+The full command history for a given session is accessed in the \texttt{History} tab; this can be cycled through in the console using the up/down arrow keys.
 \end{frame}
 
+\myframe{Example: heights and weights}
+Execute the commands in \texttt{ht\_wt\_analysis.R} using one of the two options we described earlier (\texttt{Run} button or \texttt{Ctrl/Cmd+Enter}). 
+
+The environment pane then shows that \texttt{ht} and \texttt{wt} are \texttt{Values} (not data sets since they are vectors), and the history pane shows that we have input these two lines into the console. 
+
+\centering
+\includegraphics[width = 0.5\textwidth]{figs/environment.png}
+\includegraphics[width = 0.5\textwidth]{figs/history.png} 
+\end{frame}
+
+\subsubsection{The file viewer}
 \myframe{RStudio: files, plot viewer, packages, help}
+The final pane shows us a variety of files/plots:
+\begin{spaceitemize}
+\item files in the \textcolor{blue}{current working directory}
+\item plots generated from executed commands
+\item loaded \textcolor{green}{packages}
+\item \textcolor{cyan}{help files} that we access
+\end{spaceitemize}
 
+We will cover packages and help files later on. 
 \end{frame}
 
-\section{Introduction}
-\myframe{Functions}
+\myframe{The working directory}
+Folders on your computer are also known as \textcolor{cyan}{directories}. These can contain data, documents, and subdirectories, among many other objects.
 
+Your computer has a home directory, where all of your files (as the user) are stored, in different directories (e.g., \texttt{Documents}, \texttt{Pictures}, etc.). When you first log into your computer, you are in this directory.
+
+The \textcolor{blue}{current working directory} is the directory where you are currently working. To be a bit less obtuse, consider the following example:
+
+You have a file called \texttt{ht\_wt\_analysis.R}, located in the \texttt{Epi-Biost-Workshop} directory, which is a subdirectory of \texttt{UW}, which is a subdirectory of \texttt{Documents}, which is part of your home directory. If you double-click \texttt{ht\_wt\_analysis.R}, which opens RStudio to edit the document, your current working directory is \texttt{<your home>/Documents/UW/Epi-Biost-Workshop}.
+\end{frame}
+
+\myframe{Changing the working directory using RStudio}
+Generally, when you open RStudio, your current working directory will be your home directory. This can make loading data that you have saved on your computer somewhat difficult, as we will discuss later.
+
+One way to remedy this is to manually set your working directory using R/RStudio: either
+\begin{itemize}
+\item Using buttons:
+\begin{enumerate}
+\item In the file viewer, navigate to the folder where your dataset resides
+\item Click on the \texttt{More} button (with the settings-type wheel next to it) under the file viewer tab
+\item Click \texttt{Set as working directory} 
+\end{enumerate}
+\item Using code:
+\begin{enumerate}
+\item Find the path to the folder where your data resides (e.g., \texttt{/home/brian/Documents/UW/Epi-Biost-Workshop})
+\item Place the code \texttt{setwd("<path to your data>")} in your R script, or enter it at the command line
+\end{enumerate}
+\end{itemize}
+\end{frame}
+
+
+\section{Introduction to R programming}
+\myframe{Introduction to R programming}
+We have already seen some examples of R programming: in the heights and weights example, we learned about the special \texttt{<-} command, which assigns a value to an object; and we learned about the \texttt{c()} command, which creates a vector. 
+
+These commands relate \textcolor{blue}{functions} to \textcolor{green}{objects} --- both of these are fundamental concepts in R programming.
+\end{frame}
+
+\myframe{Functions}
+R functions take in \textcolor{blue}{arguments} and return \textcolor{green}{values}. A function is accessed by typing its name, followed by an open and closed set of parentheses: e.g., \texttt{quantile()}, a function to compute desired sample quantiles.
+
+\textcolor{blue}{Arguments} to functions go between the parentheses, and are separated by columns. You specify which object corresponds to which argument using \texttt{=}, e.g. \texttt{quantile(x = ht, probs = 0.5)} returns the median value of the \texttt{ht} object.
+
+\textcolor{green}{Values} are returned by functions, and are generally either a combination of objects, plots, and printout. The value of the result of entering \texttt{quantile(x = ht, probs = 0.5)} into the console is a vector containing the number 72.
 \end{frame}
 
 \myframe{Objects}
+R objects are (basically) the result of calling functions. However, there are two general ways this can be done:
+\begin{spaceitemize}
+\item \textcolor{blue}{loading data} (e.g., from a text or .csv file)
+\item \textcolor{green}{manipulating another object} using a function
+\end{spaceitemize}
 
+Both \texttt{ht} and \texttt{wt} are objects; we created them by manipulating raw numbers using the \texttt{c()} function.
 \end{frame}
 
 % Accessing and manipulating data
