@@ -41,7 +41,7 @@ R style guides (useful for making code easy to read):
 * Introduction to the workshop, EPI/BIOST courses
 * Some skills for success in graduate school
 
-**Lecture 1, Order of operations, Brian, XX min** [pdf](day_1_session_1/day_1_session_1_order-of-ops_negatives.pdf)
+**Lecture 1: Order of operations, Brian, XX min** [pdf](day_1_session_1/day_1_session_1_order-of-ops_negatives.pdf)
 
 * Placeholder list 
 
@@ -50,6 +50,7 @@ R style guides (useful for making code easy to read):
 * Another placeholder list
 
 **Lecture 3: Algebra, Jessica, XX min**
+
 * Another placeholder list
 
 ## Day 2, 25 September 2017, 2-5:30pm
@@ -62,11 +63,24 @@ R style guides (useful for making code easy to read):
 
 ## Day 3, 26 September 2017, 8-10:30am
 
-**Lecture 7: Installing R and RStudio, Brian, XX min (much live demo)** [pdf](day_3_session_1/day_3_session_1_install.pdf)
+**Lecture 7: Installing R and RStudio, Brian, 20 min (much live demo)** [pdf](day_3_session_1/day_3_session_1_install.pdf)
 
-**Lecture 8: R and RStudio basics, Brian, XX min (much live demo)** [pdf](day_3_session_1/day_3_session_1_basics.pdf)
+**Lecture 8: R and RStudio basics, Brian, 90 min (much live demo)** [pdf](day_3_session_1/day_3_session_1_basics.pdf)
 
-**Lecture 10: Accessing help, Brian, XX min (much live demo)** [pdf](day_3_session_1/day_3_session_1_help.pdf)
+* R interface
+* RStudio interface
+* R scripts
+* Intro to R programming
+    * Functions
+    * Objects
+    * Loading/saving data
+    * Manipulating data (indexing, subsetting)
+* R packages
+
+**Lecture 10: Accessing help, Brian, 40 min (much live demo)** [pdf](day_3_session_1/day_3_session_1_help.pdf)
+
+* Help files within R/on CRAN
+* Help on the web
 
 # Recommended Reading/Browsing
 
