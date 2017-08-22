@@ -44,6 +44,14 @@
 \DeclareMathOperator*{\argmax}{arg\,max}
 
 \newcommand{\myframe}[1]{\begin{frame} \frametitle{#1}}
+% New itemize environment, with spaces
+\newenvironment{spaceitemize}
+{ \begin{itemize}
+    \setlength{\itemsep}{10pt}
+    \setlength{\parskip}{0pt}
+    \setlength{\parsep}{0pt}     }
+{ \end{itemize}                  } 
+
 % the preamble
 \title{Day 2, Session 1: Graphs}
 \author{Brian D. Williamson}
@@ -71,14 +79,18 @@
 \end{itemize}
 \end{frame}
 
-\myframe{Example data analysis}
+\myframe{Example data analysis: FEV \small (from Scott Emerson, MD PhD)}
+Based on numerous studies, we believe that smoking tends to impair lung function. Much of the data to support this claim arises from studies of long-term adult smokers. A natural question is: can deleterious effects of smoking be detected in children who smoke?
+\begin{spaceitemize}
+\item Data on 654 children seen during routine check-up at pediatric clinic
+\item Outcome: forced expiratory volume (FEV)
 \begin{itemize}
-\item Data on 30 patients with leprosy
-\item[]
-\item Counts of leprosy bacilli measured at baseline and at a further time point
-\item[]
-\item Three treatments and an indicator of severity of the leprosy
+\item measures how much air you can blow out of your lungs in a short period of time
+\item higher FEV typically associated with better respiratory function
 \end{itemize}
+\item Predictor of interest: smoking status
+\item Other variables: sex, age, height
+\end{spaceitemize}
 \end{frame}
 
 \myframe{Common types of graphs in data analysis}
@@ -150,7 +162,6 @@
 
 \begin{frame}
 \frametitle{Slope-intercept form: determining a line}
-%\includegraphics[width = .75\textwidth]{line_example_point_only.png}
 \centering
 \begin{tikzpicture}
 \begin{axis}[
