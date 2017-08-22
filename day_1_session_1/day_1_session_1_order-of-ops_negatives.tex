@@ -1,4 +1,4 @@
-\documentclass[12pt]{beamer}
+\documentclass[11pt]{beamer}
 \usetheme{default} 
 
 \setbeamertemplate{navigation symbols}{} %gets rid of navigation symbols
@@ -41,6 +41,15 @@
 \DeclareMathOperator*{\argmax}{arg\,max}
 
 \newcommand{\myframe}[1]{\begin{frame} \frametitle{#1}}
+% New itemize environment, with spaces
+\newenvironment{spaceitemize}
+{ \begin{itemize}
+    \setlength{\itemsep}{10pt}
+    \setlength{\parskip}{0pt}
+    \setlength{\parsep}{0pt}     }
+{ \end{itemize}                  } 
+
+
 % the preamble
 \title{Day 1, Session 1: Order of operations and negative numbers}
 \author{Brian D. Williamson}
@@ -54,18 +63,101 @@
 \titlepage
 \end{frame}
 
+\section{Teaser: word problems}
+\myframe{Example: kidney stones \small(from Katie Kerr's BIOST 514, Autumn 2014)}
+A study compared the success rates of two different procedures for removing kidney stones:  open surgery (OS) and percutaneous nephrolithotomy (PCNL), a minimally invasive technique.  Here are the numbers of procedures that were successful or not at getting rid of patients’ kidney stones, by type of procedure.  The data are separated by patients with small kidney stones and large kidney stones.
+
+{\scriptsize
+\centering
+Patients with Small Stones: \hspace{0.5cm} Patients with Large Stones: 
+
+\hspace{1.3cm}
+\begin{tabular}{lcc}
+ & OS & PCNL \\
+ \hline
+ Success & 81 & 234 \\
+ Failure & 6 & 36 \\
+ \hline
+\end{tabular}
+\hspace{1cm}
+\begin{tabular}{lcc}
+ & OS & PCNL \\
+ \hline
+ S & 192 & 55 \\
+ F & 71 & 25 \\
+ \hline
+\end{tabular}
+}
+
+\end{frame}
+
+\myframe{Example: kidney stones}
+Combined data:
+\begin{tabular}{lcc}
+ & OS & PCNL \\
+ \hline
+ S & 273 & 289 \\
+ F & 77 & 61 \\
+ \hline
+\end{tabular}
+
+We can ask a few questions using these data:
+\begin{spaceitemize}
+\item What is the \textcolor{green}{percent} of kidney stones successfully removed for each procedure?
+\item What is the percent of \textcolor{purple}{small kidney stones} successfully removed? The percent of \textcolor{purple}{large kidney stones}? \textcolor{cyan}{Which type of stones seem easier to treat}?
+\item What is the percent of successful procedures of each type for small kidney stones only, and for large stones only?
+\end{spaceitemize}
+\end{frame}
+
+\myframe{Example: kidney stones}
+To solve these questions, we will need a variety of tools: 
+\begin{spaceitemize}
+\item \textcolor{green}{fraction manipulation}---percentages are fractions! 
+\item \textcolor{blue}{the order of operations}---make sure that we get correct denominators for the fractions
+\item \textcolor{purple}{reading 2x2 tables}---get the correct numbers for each question
+\item \textcolor{cyan}{parsing sentences}---which information is relevant?
+\end{spaceitemize}
+
+We will cover each of these tools in more detail!
+\end{frame}
+
+\myframe{Example: statistics in medical research \small (from Katie Kerr's BIOST 514, Autumn 2014)}
+Does involving a statistician to help with statistical methods improve the chance that a medical research paper will be published?  
+
+A study of a random sample of papers submitted to two medical journals found that 135 of 190 papers that lacked statistical assistance were rejected by the journal editors (without even being circulated for peer review).  In contrast 293 of the 514 papers with statistical help were rejected without review.  
+
+(Note:  a paper is ``submitted'' when it is sent to a journal for consideration for publication.  Not all submitted papers are accepted by the journal editors and published in the journal.)
+
+\end{frame}
+
+\myframe{Example: statistics in medical research}
+To find out if involving a statistician helps:
+\begin{spaceitemize}
+\item Determine the \textcolor{green}{proportion} of papers submitted to these journals that include help from a statistician.
+\item Give a 95\% \textcolor{cyan}{confidence interval (CI)} for this proportion, and \textcolor{cyan}{interpret it}.
+\item Determine the \textcolor{green}{proportion} of papers rejected without review when a \textcolor{purple}{statistician is and is not involved}.
+\item Give a 95\% CI for this proportion, and interpret it.
+\item Is this an \textcolor{purple}{observational study or a randomized trial}?
+\item Write a paragraph summarizing the conclusions of your analysis, making sure to comment on the ability of the study to address the question of interest and on any important limitations of the study.
+\end{spaceitemize}
+\end{frame}
+
+\myframe{Example: statistics in medical research}
+These questions also involve a variety of tools:
+\begin{spaceitemize}
+\item \textcolor{green}{fraction manipulation}
+\item \textcolor{purple}{parsing sentences}
+\item \textcolor{cyan}{interpreting results}
+\end{spaceitemize}
+\end{frame}
+
 \myframe{Outline for Session 1}
-\begin{itemize}
+\begin{spaceitemize}
 \item Order of operations
-\item[]
 \item Negative numbers 
-\item[]
 \item Fractions
-\item[]
 \item Algebra
-\item[]
-\item Graphs
-\end{itemize}
+\end{spaceitemize}
 \end{frame}
 
 \section{Order of operations}
@@ -149,16 +241,44 @@
 \end{frame}
 
 \myframe{Exercise: order of operations}
-\begin{itemize}
-\item Try to work out the following examples by yourself or in pairs:
+Kidney stone data:
+
+{\scriptsize
+Patients with Small Stones: \hspace{0.5cm} Patients with Large Stones: \hspace{0.5cm} Combined data:
+
+\hspace{-0.4cm}
+\begin{tabular}{lcc}
+ & OS & PCNL \\
+ \hline
+ Success & 81 & 234 \\
+ Failure & 6 & 36 \\
+ \hline
+\end{tabular}
+\hspace{0.8cm}
+\begin{tabular}{lcc}
+ & OS & PCNL \\
+ \hline
+ S & 192 & 55 \\
+ F & 71 & 25 \\
+ \hline
+\end{tabular}
+\hspace{0.7cm}
+\begin{tabular}{lcc}
+ & OS & PCNL \\
+ \hline
+ S & 273 & 289 \\
+ F & 77 & 61 \\
+ \hline
+\end{tabular}
+}
+
+Try to work out these examples alone or in pairs:
 \begin{enumerate}
-\item $(5 \times 6) + 4$
-\item[]
-\item $5(4 - 2)^2$
-\item[]
-\item $[(2+1)^2 + 1]^2$
+\item 273/(273+77) and 289/(289+61). What proportions do these correspond to?
+\item What is the percent of small kidney stones successfully removed? Large kidney stones?
+\item Which type of kidney stones seem easier to treat?
+\item PEMDAS example: $\{(2+1)^2 + 1\}^2$ 
 \end{enumerate}
-\end{itemize}
 \end{frame}
 
 \myframe{Note on exercises}
@@ -171,26 +291,29 @@
 
 \myframe{Solution: order of operations}
 \begin{enumerate}
-\item $(5 \times 6) + 4 = 34$. PEMDAS:
+\item These correspond to the proportion of kidney stones successfully removed in OS and PCNL, respectively. We find the proportions using PEMDAS:
 \begin{itemize}
-\item Parentheses: $5 \times 6$. Nested PEMDAS:
-\begin{itemize}
-\item Multiplication: $5 \times 6 = 30$
-\end{itemize}
-\item Addition: $30 + 4 = 34$
-\end{itemize}
-\item[]
-\item $5(4 - 2)^2 = 20$. PEMDAS:
-\begin{itemize}
-\item Parentheses: $4 - 2$. Nested PEMDAS:
-\begin{itemize}
-\item Subtraction: $4 - 2 = 2$
-\end{itemize}
-\item Exponents: $2^2 = 4$
-\item Multiplication: $5 \times 4 = 20$
+\item Parentheses: $273+77 = 350$
+\item Division: $273/350 = 0.78$, or 78\% (OS)
+\item Parentheses: $289+61 = 350$
+\item Division: $289/350 = 0.82$, or 82\% (PCNL)
 \end{itemize}
 \item[]
-\item $[(2+1)^2 + 1]^2 = 100$. PEMDAS:
+\item We first have to find the numbers of small and large kidney stones successfully removed, and then find the total number of both small and large kidney stones operated on.
+\begin{itemize}
+\item Small kidney stones removed: $81+234$; Large: $192+55$
+\item Total small stones operated on: $81+234+6+36$; Large: $192+55+71+25$
+\item Proportion small: $(81+234)/(81+234+6+36) = 0.88$, which is 88\%
+\item Proportion large: $(192+55)/(192+55+71+25) = 0.72$, which is 72\%
+\end{itemize}
+\end{enumerate}
+\end{frame}
+
+\myframe{Solution: order of operations}
+\begin{enumerate}
+\item[3.] Based on the numbers calculated in (1) and (2), it seems that small kidney stones are easier to treat.
+\item[]
+\item[4.] $[(2+1)^2 + 1]^2 = 100$. PEMDAS:
 \begin{itemize}
 \item Parentheses: $(2 + 1)^2 + 1$. Nested PEMDAS:
 \begin{itemize}
@@ -214,6 +337,12 @@
 \item[]
 \item Movement left on the number line
 \end{itemize}
+\item[]
+\item When might we see them?
+\begin{spaceitemize}
+\item Comparing two proportions
+\item Decreasing trend (e.g., lung capacity for smokers vs. non-smokers)
+\end{spaceitemize}
 \end{itemize}
 \end{frame}
 
