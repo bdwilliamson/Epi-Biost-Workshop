@@ -15,24 +15,25 @@
 ## UPDATES:
 ## MMDDYY INIT COMMENTS
 ## ------ ---- --------
-##
+## 220817 BDW  Set new working directory; remove line example; motivate all sections
+##             in slides using leprosy data
 #################################################################################
 
 ## set working directory, just to be sure
-setwd("P://Epi-Biost-Workshop2016-master//Epi-Biost-Workshop2016-master//Epi-Biost-Workshop2016")
+setwd("day_2_session_1")
 
 ## create a histogram, boxplot, scatterplot
 ## load in some sample data
-leprosy <- read.table("C://Users//brianw26//Dropbox//Courses//2015-2016 Second Year//Q2 Winter//BIOST 571//HW02//leprosy.txt", header = TRUE)
+leprosy <- read.table("data/leprosy.txt", header = TRUE)
 
 ## histogram of count1
-png("day_2_graphs_hist_example.png", width = 400, height = 300)
+png("figs/day_2_graphs_hist_example.png", width = 400, height = 300)
 par(mar=c(5.1, 4.1, 4.1, 0.1), cex.lab = 1.45)
 hist(leprosy$count1, main = "", xlab = "Baseline counts of leprosy bacilli", ylab = "Frequency")
 dev.off()
 
 ## boxplot of count1 by severe or not
-png("day_2_graphs_bplot_example.png", width = 400, height = 300)
+png("figs/day_2_graphs_bplot_example.png", width = 400, height = 300)
 par(mar=c(5.1, 4.1, 4.1, 0.1), cex.lab = 1.5, cex.axis = 1.25)
 boxplot(leprosy$count1 ~ leprosy$severe, xlab = "Severity", ylab = "Baseline counts of bacilli", axes = FALSE)
 axis(side = 2, at = seq(0, max(leprosy$count1) + 5, by = 5))
@@ -45,7 +46,7 @@ sub.1 <- subset(leprosy, leprosy$trt == 1)
 sub.2 <- subset(leprosy, leprosy$trt == 2)
 sub.3 <- subset(leprosy, leprosy$trt == 3)
 
-png("day_2_graphs_scatplot_example.png", width = 400, height = 300)
+png("figs/day_2_graphs_scatplot_example.png", width = 400, height = 300)
 par(mar = c(5.1, 4.1, 4.1, 0.1), cex.lab = 1.5)
 plot(sub.1$count1, sub.1$count2, main = "", ylab = "Count of bacilli at time 1", xlab = "Baseline count of bacilli",
      col = "black", pch = 19, xlim = c(min(leprosy$count1), max(leprosy$count1)),
@@ -57,20 +58,4 @@ legend(2.5, 23, legend = c("Treatment 1", "Treatment 2", "Treatment 3"), col = c
 lines(sub.1$count1, fitted(lm(sub.1$count2 ~ sub.1$count1)))
 lines(sub.2$count1, fitted(lm(sub.2$count2 ~ sub.2$count1)), col = "blue")
 lines(sub.3$count1, fitted(lm(sub.3$count2 ~ sub.3$count1)), col = "red")
-dev.off()
-
-######################################################################
-##
-## Plots for point and slope determining a line
-##
-######################################################################
-
-## plot a point only
-png("line_example_point_only.png")
-plot(0, 1, main = "", ylim = c(-4, 4), xlim = c(-4, 4), pch = 19, xlab = "x", ylab = "y", axes = FALSE,
-     cex.lab = 1.5)
-abline(h = 0)
-abline(v = 0)
-axis(side = 2, at = seq(-4, 4, by = 1))
-axis(side = 1, at = seq(-4, 4, by = 1))
 dev.off()
