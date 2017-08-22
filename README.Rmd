@@ -49,9 +49,14 @@ R style guides (useful for making code easy to read):
 * Introduction to the workshop, EPI/BIOST courses
 * Some skills for success in graduate school
 
-**Lecture 1: Order of operations, Brian, XX min** [pdf](day_1_session_1/day_1_session_1_order-of-ops_negatives.pdf)
+**Lecture 1: Order of operations and negative numbers, Brian, 35 min** [pdf](day_1_session_1/day_1_session_1_order-of-ops_negatives.pdf)
 
-* Placeholder list 
+* Teaser trailer: word problems
+    * Example: kidney stones
+    * Example: statistics in medical research
+* Order of operations
+* Negative numbers
+* Absolute value
 
 **Lecture 2: Fractions, Percentages, and Decimals, Jessica, XX min** [pdf](placeholder)
 

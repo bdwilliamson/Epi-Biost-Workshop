@@ -1,8 +1,10 @@
-README.html: README.Rmd
-	R -e "rmarkdown::render('README.Rmd', "html_document")"
+all: README.html README.pdf README.docx
 
-README.pdf: README.Rmd
-	R -e "rmarkdown::render('README.Rmd', "pdf_document")"
+README%html: README.Rmd
+	R -e 'rmarkdown::render("README.Rmd", "html_document")'
 
-README.docx: README.Rmd
-	R -e "rmarkdown::render('README.Rmd', "word_document")"
+README%pdf: README.Rmd
+	R -e 'rmarkdown::render("README.Rmd", "pdf_document")'
+
+README%docx: README.Rmd
+	R -e 'rmarkdown::render("README.Rmd", "word_document")'
