@@ -67,16 +67,15 @@
 
 \section{Types of graphs}
 \myframe{Graphs}
+Why do we use graphs?
 \begin{itemize}
-\item Why do we use graphs?
-\begin{itemize}
-\item Describe relationships in the data
+\item \textcolor{blue}{Describe relationships} in the data
 \item[]
 \item Visualize functions
 \end{itemize}
-\item[]
-\item Graphs are very useful in exploratory analyses, or for description
-\end{itemize}
+
+Graphs are very useful in exploratory analyses, or for description. Often a graph (or multiple graphs) provide \textcolor{blue}{visual evidence that supports a statistical analysis}.
+
 \end{frame}
 
 \myframe{Example data analysis: FEV \small (from Scott Emerson, MD PhD)}
@@ -130,16 +129,18 @@ Based on numerous studies, we believe that smoking tends to impair lung function
 
 \section{Linear trends}
 \myframe{Linear trends}
+\begin{spaceitemize}
+\item A common way to describe data---determine if the trend is increasing or decreasing
 \begin{itemize}
-\item A common way to describe data (think linear regression!)
-\item[]
+\item Example: test scores tend to increase with time spent studying
+\end{itemize} 
 \item Lines are easy to compute
 \begin{itemize}
 \item Only need a point and a slope
 \item[]
 \item Two common forms of linear equations
 \end{itemize}
-\end{itemize}
+\end{spaceitemize}
 \end{frame}
 
 \myframe{Slope-intercept form}
@@ -148,7 +149,7 @@ Based on numerous studies, we believe that smoking tends to impair lung function
 \item[]
 \item Slope: $m$
 \begin{itemize}
-\item Rate of change, i.e. how does $y$ change with each one unit change in $x$?
+\item Rate of change, i.e., how does $y$ change with each one unit change in $x$?
 \item[]
 \item Example: speed, the distance traveled with each unit change in time
 \end{itemize}
@@ -160,6 +161,21 @@ Based on numerous studies, we believe that smoking tends to impair lung function
 \end{itemize}
 \end{frame}
 
+\myframe{Example: FEV}
+Fitting a trend line to a scatter plot of the FEV data helps us understand the association between age and FEV. If we use the \emph{least squares} criterion to fit this line (you'll learn more about this when you cover linear regression), we obtain the plot below:
+
+{\centering
+\includegraphics[width = 0.7\textwidth]{figs/fevline.png}
+}
+
+\end{frame}
+
+\myframe{Example: FEV}
+The intercept, 0.43, is interpreted as the \textcolor{red}{mean FEV for children at age zero} (\textcolor{purple}{does this make sense?}). The slope, 0.22, is interpreted as the \textcolor{blue}{mean increase in FEV for each one year increase in age}, where older children tend to have higher mean FEV.
+
+How do the slope and intercept together determine a line? What happens to the interpretation of our regression coefficients (which is what the slope and intercept are in this example) if either one of these values is different?
+\end{frame}
+
 \begin{frame}
 \frametitle{Slope-intercept form: determining a line}
 \centering
@@ -171,7 +187,7 @@ Based on numerous studies, we believe that smoking tends to impair lung function
     xtick=\empty, ytick=\empty,
     xlabel=$x$, ylabel=$y$
 ]
-\addplot[mark=*] coordinates {(0,1)} node[pin=150:{Intercept $(0,1)$}]{} ;
+\addplot[mark=*] coordinates {(0,0.43)} node[pin=150:{\small Intercept $(0,0.43)$}]{} ;
 \end{axis}
 \end{tikzpicture}
 \end{frame}
@@ -187,11 +203,13 @@ Based on numerous studies, we believe that smoking tends to impair lung function
     xtick=\empty, ytick=\empty,
     xlabel=$x$, ylabel=$y$
 ]
-\addplot[mark=*] coordinates {(0,1)} node[pin=150:{Intercept $(0,1)$}]{} ;
-\addplot [domain=-15:15, samples=2] {1*x+1} node [pos=.7, below right] {$y = x + 1$} ;
-\addplot [domain=-15:15, samples=2] {2*x+1} node [pos=.7, below right] {$y = 2x + 1$};
+\addplot[mark=*] coordinates {(0,0.43)} node[pin=150:{\small Intercept $(0,0.43)$}]{} ;
+\addplot [domain=-15:15, samples=2] {0.22*x+0.43} node [pos=.6, below right] {\scriptsize $y = 0.22x + 0.43$} ;
+\addplot [domain=-15:15, samples=2] {1*x+0.43} node [pos=.7, below right] {\scriptsize $y = x + 0.43$};
 \end{axis}
 \end{tikzpicture}
+
+What is the difference between the two slopes? How does this affect our understanding of the association between age and FEV?
 \end{frame}
 
 
@@ -209,15 +227,18 @@ Based on numerous studies, we believe that smoking tends to impair lung function
 \item Same as in slope-intercept form!
 \end{itemize}
 \item[]
-\item Example: $y - 1 = 2(x - 0)$ is the same as $y = 2x + 1$ in slope-intercept form!
+\item Example: $y - 0.43 = 0.22(x - 0)$ is the same as $y = 0.22x + 0.43$ in slope-intercept form!
 \end{itemize}
 \end{frame}
 
 \myframe{Exercise: slopes and intercepts}
+Consider data examining inflammatory biomarkers and mortality. We are interested in the association between the the biomarker fibrinogen (related to inflammation) and prior history of cardiovascular disease (CVD). These data are described \href{https://www.emersonstatistics.com/datasets/inflamm.doc}{here}. Your collaborator ran a linear regression and obtained the following equation (using the estimated regression coefficients), where $y$ denotes fibrinogen (ranges from 109 mg/dl to 872 mg/dl) and $x$ denotes presence/absence of prior CVD (0/1): $y = 14.89x + 319.57$.
 \begin{enumerate}
-\item What is the slope of the line $y = 2x - 3$?
+\item What is the slope of the line $y = 14.89x + 319.57$?
 \item[]
-\item What is the $y-$intercept of the line $y = 2x - 3$?
+\item What is the $y-$intercept of the line $y = 14.89x + 319.57$?
+\item[]
+\item Does fibrinogen tend to increase or decrease with the presence of prior CVD compared to the absence of prior CVD?
 \item[]
 \item What is the slope of the line $y + 1 = 2(x - 1)$?
 \item[]
@@ -227,9 +248,11 @@ Based on numerous studies, we believe that smoking tends to impair lung function
 
 \myframe{Solution: slopes and intercepts}
 \begin{enumerate}
-\item The equation is in slope-intercept form, so the slope is 2
+\item The equation is in slope-intercept form, so the slope is 14.89
 \item[]
-\item The equation is in slope-intercept form, so the intercept is $-3$
+\item The equation is in slope-intercept form, so the intercept is $319.57$
+\item[]
+\item The slope estimate is positive, so fibrinogen tends to increase with presence of prior CVD
 \item[]
 \item The equation is in point-slope form, so the slope is 2
 \item[]
@@ -255,11 +278,11 @@ Based on numerous studies, we believe that smoking tends to impair lung function
 \myframe{Example: creating a graph using an equation}
 \centering
 \begin{itemize}
-\item Equation $y = 2x - 3$
+\item Equation $y = 0.22x + 0.43$ (from linear regression of FEV on age, in the FEV data)
 \item[]
-\item Slope: 2, Intercept: $-3$
+\item Slope: 0.22, Intercept: $0.43$
 \item[]
-\item[1.] Draw a point at $(0, -3)$
+\item[1.] Draw a point at $(0, 0.43)$
 \end{itemize}
 \begin{tikzpicture}
 \begin{axis}[
@@ -269,7 +292,7 @@ Based on numerous studies, we believe that smoking tends to impair lung function
     xtick=\empty, ytick=\empty,
     xlabel=$x$, ylabel=$y$
 ]
-\addplot[mark=*] coordinates {(0,-3)} node[pin=120:{Intercept $(0,-3)$}]{} ;
+\addplot[mark=*] coordinates {(0,0.43)} node[pin=120:{\small Intercept $(0,0.43)$}]{} ;
 \end{axis}
 \end{tikzpicture}
 \end{frame}
@@ -277,11 +300,11 @@ Based on numerous studies, we believe that smoking tends to impair lung function
 \myframe{Example: creating a graph using an equation}
 \centering
 \begin{itemize}
-\item Equation $y = 2x - 3$
+\item Equation $y = 0.22x + 0.43$
 \item[]
-\item Slope: 2, Intercept: $-3$
+\item Slope: 0.22, Intercept: $0.43$
 \item[]
-\item[2.] Increase $x$ to 1, increase $y$ by 2. New point at $(1, -1)$
+\item[2.] Increase $x$ to 1, increase $y$ by 0.22. New point at $(1, 0.65)$
 \end{itemize}
 \begin{tikzpicture}
 \begin{axis}[
@@ -291,8 +314,8 @@ Based on numerous studies, we believe that smoking tends to impair lung function
     xtick=\empty, ytick=\empty,
     xlabel=$x$, ylabel=$y$
 ]
-\addplot[mark=*] coordinates {(0,-3)} node[pin=120:{Intercept $(0,-3)$}]{} ;
-\addplot[mark=*] coordinates {(1,-1)} node[pin=90:{New point $(1,-1)$}]{} ;
+\addplot[mark=*] coordinates {(0,0.43)} node[pin=140:{\small Intercept $(0,0.43)$}]{} ;
+\addplot[mark=*] coordinates {(1,0.65)} node[pin=90:{\small New point $(1,0.65)$}]{} ;
 \end{axis}
 \end{tikzpicture}
 \end{frame}
@@ -300,9 +323,9 @@ Based on numerous studies, we believe that smoking tends to impair lung function
 \myframe{Example: creating a graph using an equation}
 \centering
 \begin{itemize}
-\item Equation $y = 2x - 3$
+\item Equation $y = 0.22x + 0.43$
 \item[]
-\item Slope: 2, Intercept: $-3$
+\item Slope: 0.22, Intercept: $0.43$
 \item[]
 \item[3.] Draw a line!
 \end{itemize}
@@ -314,9 +337,9 @@ Based on numerous studies, we believe that smoking tends to impair lung function
     xtick=\empty, ytick=\empty,
     xlabel=$x$, ylabel=$y$
 ]
-\addplot[mark=*] coordinates {(0,-3)} node[pin=120:{Intercept $(0,-3)$}]{} ;
-\addplot[mark=*] coordinates {(1,-1)} node[pin=90:{New point $(1,-1)$}]{} ;
-\addplot [domain=-15:15, samples=2] {2*x-3} node [pos=.7, below right] {$y = 2x - 3$};
+\addplot[mark=*] coordinates {(0,0.43)} node[pin=140:{\small Intercept $(0,0.43)$}]{} ;
+\addplot[mark=*] coordinates {(1,0.65)} node[pin=90:{\small New point $(1,0.65)$}]{} ;
+\addplot [domain=-15:15, samples=2] {0.22*x+0.43} node [pos=.6, below right] {\scriptsize $y = 0.22x + 0.43$};
 \end{axis}
 \end{tikzpicture}
 \end{frame}
@@ -338,6 +361,10 @@ Based on numerous studies, we believe that smoking tends to impair lung function
 \end{enumerate}
 \end{enumerate}
 \end{itemize}
+
+Example: age (years) and height (inches)
+
+Say we have a random sample of 100 pre-school aged-children (age 3--5) from the Seattle area. We expect height to increase with increasing age. We fit the best fitting line to these data to try to better understand these data, and get the plot on the next slide... what are the slope and intercept, and what do they tell us about this association?
 \end{frame}
 
 \myframe{Example: reading an equation from a graph}
@@ -346,12 +373,12 @@ Based on numerous studies, we believe that smoking tends to impair lung function
 \begin{axis}[
     axis lines=middle,
     xmin=-5, xmax=5,
-    ymin=-5, ymax=5,
+    ymin=0, ymax=50,
     xtick={-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5}, 
-    ytick={-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5},
+    ytick={0, 5, 10, 15, 20, 25, 30, 35, 40, 41, 42, 43, 44, 45, 50},
     xlabel=$x$, ylabel=$y$
 ]
-\addplot [domain=-15:15, samples=2] {3*x-2} node [pos=.7, below right] {};
+\addplot [domain=-15:15, samples=2] {1.5*x+40} node [pos=.7, below right] {};
 \end{axis}
 \end{tikzpicture}
 \end{frame}
@@ -362,77 +389,76 @@ Based on numerous studies, we believe that smoking tends to impair lung function
 \begin{axis}[
     axis lines=middle,
     xmin=-5, xmax=5,
-    ymin=-5, ymax=5,
+    ymin=0, ymax=50,
     xtick={-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5}, 
-    ytick={-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5},
+    ytick={0, 5, 10, 15, 20, 25, 30, 35, 40, 41, 42, 43, 44, 45, 50},
     xlabel=$x$, ylabel=$y$
 ]
-\addplot [domain=-15:15, samples=2] {3*x-2} node [pos=.7, below right] {};
-\addplot [mark=*] coordinates {(0,-2)} node[pin=0:{Intercept}]{} ;
-\end{axis}
-\end{tikzpicture}
-\end{frame}
-
-\myframe{Example: reading an equation from a graph}
-\begin{enumerate}
-\item[1.] Find the intercept. Here it is $-2$
-\end{enumerate}
-\centering
-\begin{tikzpicture}
-\begin{axis}[
-    axis lines=middle,
-    xmin=-5, xmax=5,
-    ymin=-5, ymax=5,
-    xtick={-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5}, 
-    ytick={-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5},
-    xlabel=$x$, ylabel=$y$
-]
-\addplot [domain=-15:15, samples=2] {3*x-2} node [pos=.7, below right] {};
-\addplot [mark=*] coordinates {(0,-2)} node[pin=0:{Intercept}]{} ;
-\addplot [mark=*] coordinates {(1,1)} node[pin=0:{$x+1$}]{} ;
+\addplot [domain=-15:15, samples=2] {1.5*x+40} node [pos=.7, below right] {};
+\addplot [mark=*] coordinates {(0,40)} node[pin=0:{Intercept}]{} ;
 \end{axis}
 \end{tikzpicture}
 \end{frame}
 
 \myframe{Example: reading an equation from a graph}
 \begin{enumerate}
-\item[2.] Increase $x$ by one to find the slope. The $y$ value at $x = 1$ is $1$, so $y$ changed by $3$
+\item[1.] Find the intercept. Here it is $40$
 \end{enumerate}
 \centering
 \begin{tikzpicture}
 \begin{axis}[
     axis lines=middle,
     xmin=-5, xmax=5,
-    ymin=-5, ymax=5,
+    ymin=0, ymax=50,
     xtick={-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5}, 
-    ytick={-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5},
+    ytick={0, 5, 10, 15, 20, 25, 30, 35, 40, 41, 42, 43, 44, 45, 50},
     xlabel=$x$, ylabel=$y$
 ]
-\addplot [domain=-15:15, samples=2] {3*x-2} node [pos=.7, below right] {};
-\addplot [mark=*] coordinates {(0,-2)} node[pin=0:{Intercept}]{} ;
-\addplot [mark=*] coordinates {(1,1)} node[pin=0:{$x+1$}]{} ;
+\addplot [domain=-15:15, samples=2] {1.5*x+40} node [pos=.7, below right] {};
+\addplot [mark=*] coordinates {(0,40)} node[pin=0:{Intercept}]{} ;
+\addplot [mark=*] coordinates {(1,41.5)} node[pin=0:{$x+1$}]{} ;
 \end{axis}
 \end{tikzpicture}
 \end{frame}
 
 \myframe{Example: reading an equation from a graph}
 \begin{enumerate}
-\item[3.] Slope-intercept: $y = 3x - 2$, point-slope: $y + 2 = 3(x-0)$
+\item[2.] Increase $x$ by one to find the slope. The $y$ value at $x = 1$ is $41.5$ (a bit hard to read), so $y$ changed by $1.5$
 \end{enumerate}
 \centering
 \begin{tikzpicture}
 \begin{axis}[
     axis lines=middle,
     xmin=-5, xmax=5,
-    ymin=-5, ymax=5,
+    ymin=0, ymax=50,
     xtick={-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5}, 
-    ytick={-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5},
+    ytick={0, 5, 10, 15, 20, 25, 30, 35, 40, 41, 42, 43, 44, 45, 50},
     xlabel=$x$, ylabel=$y$
 ]
-\addplot [domain=-15:15, samples=2] {3*x-2} node [pos=.7, below right] {};
-\addplot [mark=*] coordinates {(0,-2)} node[pin=0:{Intercept}]{} ;
-\addplot [mark=*] coordinates {(1,1)} node[pin=0:{$x+1$}]{} ;
+\addplot [domain=-15:15, samples=2] {1.5*x+40} node [pos=.7, below right] {};
+\addplot [mark=*] coordinates {(0,40)} node[pin=0:{Intercept}]{} ;
+\addplot [mark=*] coordinates {(1,41.5)} node[pin=0:{$x+1$}]{} ;
 \end{axis}
+\end{tikzpicture}
+\end{frame}
+
+\myframe{Example: reading an equation from a graph}
+\begin{enumerate}
+\item[3.] Slope-intercept: $y = 1.5x + 40$, point-slope: $y + 40 = 1.5(x-0)$
+\end{enumerate}
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines=middle,
+    xmin=-5, xmax=5,
+    ymin=0, ymax=50,
+    xtick={-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5}, 
+    ytick={0, 5, 10, 15, 20, 25, 30, 35, 40, 41, 42, 43, 44, 45, 50},
+    xlabel=$x$, ylabel=$y$
+]
+\addplot [domain=-15:15, samples=2] {1.5*x+40} node [pos=.7, below right] {};
+\addplot [mark=*] coordinates {(0,40)} node[pin=0:{Intercept}]{} ;
+\addplot [mark=*] coordinates {(1,41.5)} node[pin=0:{$x+1$}]{} ;\end{axis}
 \end{tikzpicture}
 \end{frame}
 
@@ -528,6 +554,9 @@ Based on numerous studies, we believe that smoking tends to impair lung function
 \myframe{Quadratics}
 \begin{itemize}
 \item Sometimes we believe a trend is higher order than linear
+\begin{itemize}
+\item For example, height might increase more quickly with age at a younger age, and then level off at older ages
+\end{itemize}
 \item[]
 \item Higher order terms allow more flexibility in modeling
 \item[]
@@ -695,6 +724,11 @@ Based on numerous studies, we believe that smoking tends to impair lung function
 
 \section{Transformations}
 \myframe{Transforming graphs}
+In the example of the association between FEV and age, we obtained the line $y = 0.22x + 0.43$; this means that \textcolor{red}{children at age 0 have a mean FEV of 0.43 L/sec}, and that \textcolor{blue}{mean FEV tends to be 0.22 L/sec higher for each one year increase in age}.
+
+How can we make the \textcolor{red}{intercept} interpretable? What would the association be if the slope were different, and what would this look like? What would happen if we changed the units on FEV (to, say, mL/sec)? 
+
+These are all examples of \textcolor{green}{transformations}:
 \begin{itemize}
 \item Once we have one graph, how do we get another?
 \item[]
@@ -705,6 +739,9 @@ Based on numerous studies, we believe that smoking tends to impair lung function
 \myframe{Shifting graphs}
 \begin{itemize}
 \item Sometimes we want to change the interpretation of the intercept
+\begin{itemize}
+\item FEV data: e.g., we could make the intercept the mean FEV at the \textcolor{blue}{average age} in the data
+\end{itemize}
 \item[]
 \item Once we know the properties of a graph, shifting doesn't change much!
 \item[]
@@ -721,7 +758,7 @@ Based on numerous studies, we believe that smoking tends to impair lung function
 \end{frame}
 
 \myframe{Example: shifting graphs}
-\centering
+{\centering
 \begin{tikzpicture}
   \begin{axis}[
     axis lines=middle,
@@ -731,16 +768,28 @@ Based on numerous studies, we believe that smoking tends to impair lung function
     ytick=\empty,
     xlabel=$x$, ylabel=$y$
   ]
-  \addplot [domain=-5:5, samples=2] {2*(x+1) + 2} node [pos=.5, above left] {$y = 2(x+1) + 2$};
-  \addplot [domain=-5:5, samples=2] {2*x + 2} node (a) [pos=.5] {};
-  \addplot [domain=-5:5, samples=2] {2*(x-1) + 2} node [pos=.5, below right] {$y = 2(x-1) + 2$};
+  \addplot [domain=-5:5, samples=2] {0.22*(x+1) + 0.43} node [pos=.7, above left] {\small $y = 0.22(x+1) + 0.43$};
+  \addplot [domain=-5:5, samples=2] {0.22*x + 0.43} node (a) [pos=.5] {};
+  \addplot [domain=-5:5, samples=2] {0.22*(x-1) + 0.43} node [pos=.4, below right] {\small $y = 0.22(x-1) + 0.43$};
   \end{axis}
-  \node[draw=none] (b) at (0,3) {$y = 2x + 2$}; 
+  \node[draw=none] (b) at (0,3) {\small $y = 0.22x + 0.43$}; 
   \draw [->] (b) -- (a); 
  \end{tikzpicture}
+}
+
+\scriptsize
+Interpretations (from top to bottom): 
+\begin{spaceitemize}
+\item mean FEV in $-1$ year olds is 0.21 L/sec
+\item mean FEV in zero year olds is 0.43 L/sec
+\item mean FEV in one year olds is 0.65 L/sec
+\end{spaceitemize} 
 \end{frame}
 
 \myframe{Stretching graphs}
+If we change the units on our predictor of interest, we will change the slope (and hence the interpretation). We also might want to see how the graph would change if the slope were larger or smaller, using the same units---this helps to understand the estimated association between our predictor and the outcome.
+
+These are examples of \textcolor{green}{stretching}:
 \begin{itemize}
 \item Make the graph steeper, or shrink it: make $|m|$ larger in a linear equation, and make $|a|$ larger in a quadratic equation
 \item[]

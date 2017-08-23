@@ -17,6 +17,7 @@
 ## ------ ---- --------
 ## 220817 BDW  Set new working directory; remove line example; motivate all sections
 ##             in slides using FEV data, not leprosy data
+## 230817 BDW  Added examples, data for exercises
 #################################################################################
 
 ## set working directory, just to be sure
@@ -30,6 +31,11 @@ fevdat <- read.table("data/fev.txt", header = TRUE)
 fevdat$smoke <- (-1)*(fevdat$smoke - 2)
 fevdat$female <- fevdat$sex - 1
 
+############################################################################
+##
+## Example plots
+##
+############################################################################
 ## histogram of fev
 png("figs/day_2_graphs_hist_example.png", width = 400, height = 300)
 par(mar=c(5.1, 4.1, 4.1, 0.1), cex.lab = 1.45)
@@ -68,3 +74,32 @@ legend("topleft", legend = c("Male", "Female"), col = c("black", "blue"),
 lines(sub.1$age, fitted(lm(sub.1$fev ~ sub.1$age)))
 lines(sub.2$age, fitted(lm(sub.2$fev ~ sub.2$age)), col = "blue")
 dev.off()
+
+############################################################################
+##
+## Motivate determining a line
+##
+############################################################################
+lm(fev ~ age, data = fevdat)
+
+## plot a scatterplot of all age vs FEV, with trend line
+set.seed(1024)
+plotdata <- fevdat
+plotdata$age <- fevdat$age + runif(length(fevdat$age), -0.05, 0.05)
+mod <- lm(fevdat$fev ~ fevdat$age)
+
+png("figs/fevline.png", width = 600, height = 400)
+plot(plotdata$age, plotdata$fev, xlim = c(-1, max(plotdata$age)),
+     ylim = c(-1, max(fevdat$fev)), pch = 19, col = "black",
+     ylab = "FEV", xlab = "Age (years)", main = "FEV vs age")
+abline(mod$coefficients[1], mod$coefficients[2], lwd = 2, col = "blue")
+text(x = -1, y = 1, pos = 4, labels = paste("Intercept: ", round(mod$coefficients[1], 2), sep = ""))
+text(x = 2, y = 4, pos = 4, labels = paste("Slope: ", round(mod$coefficients[2], 2), sep = ""))
+dev.off()
+
+############################################################################
+##
+## Slopes and intercepts exercise
+##
+############################################################################
+
