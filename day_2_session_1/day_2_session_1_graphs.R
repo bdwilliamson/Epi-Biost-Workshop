@@ -103,3 +103,22 @@ dev.off()
 ##
 ############################################################################
 
+## read in the inflamm data
+inflamm <- read.table("data/inflamm.txt", header = TRUE, stringsAsFactors = FALSE)
+summary(inflamm$fib)
+lm(fib ~ prevdis, data = inflamm)
+
+############################################################################
+##
+## Reasonable slope and intercept for age vs height
+##
+############################################################################
+lm(height ~ age, data = fevdat)
+
+############################################################################
+##
+## Shifting the intercept
+##
+############################################################################
+lm(fev ~ I(age + 1), data = fevdat)
+lm(fev ~ I(age - 1), data = fevdat)

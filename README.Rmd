@@ -68,7 +68,12 @@ R style guides (useful for making code easy to read):
 
 ## Day 2, 25 September 2017, 2-5:30pm
 
-**Lecture 4: Graphs, Brian, XX min** [pdf](day_2_session_1/day_2_session_1_graphs.pdf)
+**Lecture 4: Graphs, Brian, 50 min** [pdf](day_2_session_1/day_2_session_1_graphs.pdf)
+
+* Slope-intercept and point slope form
+* Drawing graphs based on an equation for a line
+* Determining the equation from a graph
+* Transformations: shifting and stretching
 
 **Lecture 5: Logarithms and Exponents, Brian, XX min** [pdf](day_2_session_1/day_2_session_1_log.pdf)
 
