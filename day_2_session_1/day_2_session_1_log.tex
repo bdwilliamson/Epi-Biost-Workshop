@@ -1,4 +1,4 @@
-\documentclass[12pt]{beamer}
+\documentclass[11pt]{beamer}
 \usetheme{default} 
 
 \setbeamertemplate{navigation symbols}{} %gets rid of navigation symbols
@@ -44,11 +44,19 @@
 \DeclareMathOperator*{\argmax}{arg\,max}
 
 \newcommand{\myframe}[1]{\begin{frame} \frametitle{#1}}
+% New itemize environment, with spaces
+\newenvironment{spaceitemize}
+{ \begin{itemize}
+    \setlength{\itemsep}{10pt}
+    \setlength{\parskip}{0pt}
+    \setlength{\parsep}{0pt}     }
+{ \end{itemize}                  } 
+
 % the preamble
-\title{Day 2, Session 2: Logs/Exponentiation}
+\title{Day 2, Session 1: Logs/Exponentiation}
 \author{Brian D. Williamson}
-\institute{EPI/BIOST Bootcamp 2016}
-\date{26 September 2016}
+\institute{EPI/BIOST Bootcamp 2017}
+\date{25 September 2017}
 
 % Start the document
 \begin{document}
@@ -57,47 +65,96 @@
 \titlepage
 \end{frame}
 
-\section{Exponentiation}
-\myframe{Exponentiation}
+\section{Introduction}
+\myframe{Motivation}
+Generally, our goal in a statistical analysis is to \textcolor{blue}{assess an association} between two variables (e.g., smoking and lung cancer). We can do this by investigating whether a \textcolor{green}{summary measure} (e.g., mean, median) of our outcome (e.g., lung cancer) is \textcolor{cyan}{unequal between two groups} differing in our predictor of interest (e.g., smoking).
+
+There are two simple ways to tell if two numbers are unequal: 
 \begin{itemize}
-\item A mathematical operation corresponding to repeated multiplication
+\item their difference is not equal to 0, or
 \item[]
-\item The second in the order of operations! (P{\textbf E}MDAS)
-\item[]
-\item Composed of two numbers: a base, $b$, and an exponent, $n$
-\item[]
-\item $b^n = \underbrace{b\times b \times \cdots \times b}_\text{$n$ times}$
-\item[]
-\item Represented as $b^n$ or as $b \wedge n$
+\item their ratio is not equal to 1.
 \end{itemize}
+
+We choose between these based on a variety of criteria, which fall into two general categories: (1) adequately address the scientific question, and (2) gain desirable statistical properties.
 \end{frame}
 
-\myframe{Positive vs negative exponents}
+\myframe{Motivation}
+Differences:
+\vspace{-0.5cm}
+\begin{spaceitemize}
+\item are \textcolor{blue}{generally easier to understand}, and 
+\item are better for describing the \textcolor{cyan}{scientific importance} of many comparisons
 \begin{itemize}
-\item Exponents correspond to multiplication
-\item[]
-\item Positive exponent: multiplication, e.g. $2^2 = 2\times 2$
-\item[]
-\item Negative exponent: multiplication of reciprocals, i.e. $2^{-2} = \dfrac{1}{2^2} = \frac{1}{2}\times \frac{1}{2}$
+\item You probably always want \$1,000,000 more than me, even if I have \$10,000,000 (a ratio of 1.1)
 \end{itemize}
+\end{spaceitemize}
+Ratios work well when working with \textcolor{green}{small numbers} (disclaimer: these numbers are probably only correct to the order of magnitude, but get the point across); for example:
+{\fontsize{10pt}{7.2}\selectfont
+\begin{itemize}
+\item In the US, 60--64 year old current or former smokers have a probability of 0.00296 of being diagnosed with lung cancer during the next year
+\item In the US, 60--64 year old never smokers have a probability of 0.000148 of being diagnosed with lung cancer during the next year
+\item Difference in incidence rates: 0.002812; ratio of incidence rates: 20!
+\end{itemize}
+}
+\end{frame}
+
+\myframe{Motivation}
+Sometimes, the \textcolor{cyan}{scientific mechanism} dictates that \textcolor{blue}{ratios are more generalizeable}:
+{\fontsize{10pt}{7.2}\selectfont
+\begin{itemize}
+\item Interventions or risk factors that affect a rate over time (e.g., HIV incidence)
+\item[]
+\item Biochemical processes (e.g., rates of absorption, where the rate is proportional to drug concentration) 
+\end{itemize}
+}
+
+When ratios are scientifically preferred, we can use the \textcolor{red}{logarithm of the ratio} to get back to \textcolor{purple}{comparing differences} (more on this later).
+\end{frame}
+
+\myframe{Examples}
+Some variables are almost always log transformed:
+\begin{itemize}
+\item Acidity/alkalinity of an aqueous solution: measured as hydrogen ion concentration, but pH usually reported [$-\log_{10}(\text{H ion conc.})$]
+\item[]
+\item Concentrations of antibodies or mRNA: these differ by orders of magnitude across people, and within people over time
+\end{itemize}
+
+Properties of exponentiation and logarithms come in handy throughout statistics and data analysis; a solid understanding of the basics goes a long way.
+\end{frame}
+
+\section{Exponentiation}
+\myframe{Exponentiation}
+Exponentiation corresponds to repeated multiplication, and is:
+\begin{itemize}
+\item the second in the order of operations! (P\textcolor{blue}{{\textbf E}}MDAS)
+\item[]
+\item composed of two numbers: a base, $b$, and an exponent, $n$
+\begin{itemize}
+\item represented as $b^n = \underbrace{b\times b \times \cdots \times b}_\text{$n$ times}$
+\end{itemize}
+\end{itemize}
+
+\textcolor{green}{Positive exponents multiply the base} $b$ a number of times given by $n$; \textcolor{cyan}{negative exponents multiply the reciprocal of the base} $b$ $n$ times. For example, $2^2 = 2\times 2$, and $2^{-2} = \left(\frac{1}{2}\right)^2 = \frac{1}{2}\times \frac{1}{2}$.
 \end{frame}
 
 \myframe{Properties of exponents}
 \begin{itemize}
-\item For any base $b$ and any $n$ an integer:
+\item If we multiply two numbers with the same base, we add their exponents
 \begin{itemize}
-\item $b^0 = 1$
-\item[]
-\item $b^1 = b$
-\item[]
-\item $b^{n+1} = b^n \times b$
+\item $10^3 \times 10^2 = 10^5$; $10^3 \times 10^{-2} = 10^1$
 \end{itemize}
 \item[]
-\item For $b \neq 0$ and any $n$ an integer:
-\begin{itemize}
-\item $b^n = b^{n+1}/b$
+\item If we raise an exponentiated number to a power, we multiply the exponents; $(b^n)^m = b^{n\times m}$
 \item[]
-\item $b^{-n} = 1/b^n$
+\item The exponent can be a fraction (like $\frac{1}{2}$), which gives us the root of the base
+\begin{itemize}
+\item $4^{1/2} = \sqrt{4} = 2$; $81^{1/4} = \sqrt[4]{81} = 3$
+\end{itemize}
+\item[]
+\item Multiplying different bases: first manipulate the exponent so the bases are equal, then add exponents
+\begin{itemize}
+\item $2^3 \times 4^5 = 2^3 \times (2^2)^5 = 2^3 \times 2^{10} = 2^{13}$
 \end{itemize}
 \end{itemize}
 \end{frame}
