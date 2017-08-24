@@ -112,7 +112,7 @@ Sometimes, the \textcolor{cyan}{scientific mechanism} dictates that \textcolor{b
 When ratios are scientifically preferred, we can use the \textcolor{red}{logarithm of the ratio} to get back to \textcolor{purple}{comparing differences} (more on this later).
 \end{frame}
 
-\myframe{Examples}
+\myframe{Common variables}
 Some variables are almost always log transformed:
 \begin{itemize}
 \item Acidity/alkalinity of an aqueous solution: measured as hydrogen ion concentration, but pH usually reported [$-\log_{10}(\text{H ion conc.})$]
@@ -121,6 +121,10 @@ Some variables are almost always log transformed:
 \end{itemize}
 
 Properties of exponentiation and logarithms come in handy throughout statistics and data analysis; a solid understanding of the basics goes a long way.
+\end{frame}
+
+\myframe{Example: }
+
 \end{frame}
 
 \section{Exponentiation}
@@ -139,6 +143,7 @@ Exponentiation corresponds to repeated multiplication, and is:
 \end{frame}
 
 \myframe{Properties of exponents}
+\fontsize{9pt}{7.2}\selectfont
 \begin{itemize}
 \item If we multiply two numbers with the same base, we add their exponents
 \begin{itemize}
@@ -147,7 +152,7 @@ Exponentiation corresponds to repeated multiplication, and is:
 \item[]
 \item If we raise an exponentiated number to a power, we multiply the exponents; $(b^n)^m = b^{n\times m}$
 \item[]
-\item The exponent can be a fraction (like $\frac{1}{2}$), which gives us the root of the base
+\item The exponent can be a fraction (like $\frac{1}{2}$), which gives us the root of the base (if the base is positive)
 \begin{itemize}
 \item $4^{1/2} = \sqrt{4} = 2$; $81^{1/4} = \sqrt[4]{81} = 3$
 \end{itemize}
@@ -156,52 +161,8 @@ Exponentiation corresponds to repeated multiplication, and is:
 \begin{itemize}
 \item $2^3 \times 4^5 = 2^3 \times (2^2)^5 = 2^3 \times 2^{10} = 2^{13}$
 \end{itemize}
-\end{itemize}
-\end{frame}
-
-\myframe{Exponent identities}
-\begin{itemize}
-\item For all $b,c \neq 0$:
-\begin{itemize}
-\item $b^{m+n} = b^m \times b^n$
 \item[]
-\item $b^{m \times n} = (b^m)^n$
-\item[]
-\item $(b\times c)^n = b^n \times c^n$
-\end{itemize}
-\end{itemize}
-\end{frame}
-
-\myframe{Example: integer exponent properties and identities}
-\begin{itemize}
-\item Take $b = 2$
-\item[]
-\item $2^0 = 1$
-\item[]
-\item $2^1 = 2$
-\item[]
-\item $2^2 = 2 \times 2$
-\item[]
-\item $2^3 = 2^2 \times 2 = 8$
-\item[]
-\item $(2 \times 3)^2 = 2^2 \times 3^2 = 4 \times 9 = 36$ (check: $2 \times 3 = 6, 6^2 = 36$)
-\end{itemize}
-\end{frame}
-
-\myframe{Rational exponents (roots)}
-\begin{itemize}
-\item $n$th root of $b$: the number $x$ such that $x^n = b$ 
-\item[]
-\item Written as $b^{1/n}$ or $\sqrt[n]{b}$
-\item[]
-\item Some identities (for $b$ positive):
-\begin{itemize}
-\item $b = (b^n)^{1/n}$
-\item[]
-\item $b^{m/n} = (b^m)^{1/n} = \sqrt[n]{b^m}$
-\end{itemize}
-\item[]
-\item Example: $\sqrt{1/(36 x^2)} = \dfrac{\sqrt{1}}{\sqrt{36x^2}} = \dfrac{1}{\sqrt{36}\sqrt{x^2}} = \dfrac{1}{6x}$
+\item For any $b, c \neq 0$: $b^0 = 1$, $(b \times c)^n = b^n \times c^n$
 \end{itemize}
 \end{frame}
 
@@ -211,9 +172,7 @@ Exponentiation corresponds to repeated multiplication, and is:
 \item[]
 \item Useful as a base for powers
 \item[]
-\item Define $\exp(x) = e^x$
-\item[]
-\item Useful identity: $\exp(x+y) = e^{x+y} =  \exp(x)\times \exp(y)$
+\item Define $\exp(x) = e^x$ as the \textcolor{blue}{exponential function}
 \end{itemize}
 \end{frame}
 
@@ -239,37 +198,54 @@ Exponentiation corresponds to repeated multiplication, and is:
 
 \section{Logs}
 \myframe{Logarithms}
-\begin{itemize}
-\item Exponents correspond to multiplication
-\item[]
-\item Addition is easier than multiplication
-\item[]
-\item Logarithms (logs) transform multiplication into addition!
-\end{itemize}
+Logarithms (logs) \textcolor{blue}{transform multiplication into addition}. This leads to many of their mathematical properties. 
+
+Before calculators, to multiply two large numbers (e.g., 1234 and 4747), you would:
+{\fontsize{10pt}{7.2}\selectfont
+\begin{enumerate}
+\item choose a common base (e.g., 10)
+\item convert each number into exponentiated form with this base (e.g., $10^{3.091315}$ and $10^{3.676419}$) using a table of logarithms (usually base 10)
+\item add the exponents (e.g., $3.091315 + 3.676419 = 6.767734$)
+\item convert back to un-exponentiated form (e.g., $10^{6.767734} = 5857798$)
+\end{enumerate}
+}
+
+The \textcolor{green}{logarithm} base 10 of a number is just the exponent of the number expressed as a power of 10; the logarithm base 10 of 100 is 2, because $10^2 = 100$.
 \end{frame}
 
 \myframe{Logs: definition}
+More generally, we can define the \textcolor{blue}{logarithm base $k$ of a number $x$}, written $\log_k(x)$. If $\log_k(x) = y$, then $k^y = x$.
+
+Common convention in early math courses: 
+\vspace{-0.4cm}
 \begin{itemize}
-\item Defined as the inverse operation of exponentiation
+\item ``log(x)'' is $\log_{10}(x)$, and
+\item ``ln(x)'' is the \emph{natural log} $\log_e(x)$.
+\end{itemize}  
+
+In many scientific applications, ``log(x)'' is $\log_e(x)$!
+\vspace{-0.3cm}
+\begin{itemize}
+\item This is also true in most biostatistics courses and software
+\end{itemize}
+
+Some basic properties of logarithms:
+\vspace{-0.3cm}
+\begin{itemize}
+\item undefined for $x \leq 0$
 \item[]
-\item Takes a base $b$ and a number $x$
+\item increasing: as $x$ increases, $\log_k(x)$ increases
 \item[]
-\item The log of $x$ to base $b$ is the number $y$ such that $b^y = x$
-\item[]
-\item Written as $\log_b(x) = y$
-\item[]
-\item Natural log: $\log_e(x)$, commonly written $\log(x)$
+\item $\log_k(k) = 1$
 \end{itemize}
 \end{frame}
 
-\myframe{Logs: definition}
-\begin{itemize}
-\item Undefined for $x \leq 0$
-\item[]
-\item Log is an increasing function: as $x$ increases, $\log_b(x)$  increases
-\item[]
-\item $\log_b(b) = 1$
-\end{itemize}
+\myframe{Changing bases}
+Using different bases for logarithms is similar to measuring length in different units (e.g., inches, centimeters). No matter what base you use, $\log(1) = 0$. 
+
+This implies that we can convert between bases! This is often useful in science: if you transform a variable using log base $e$, you can change the base to 10 for a (potentially) more interpretable answer.
+
+We can find the base $k$ logarithm of any number using the most common bases ($e$ and 10): $\log_k(x) = \frac{\log_e(x)}{\log_e(k)} = \frac{\log_{10}(x)}{\log_{10}(k)}$.
 \end{frame}
 
 \myframe{Logs: identities}
@@ -286,28 +262,8 @@ Exponentiation corresponds to repeated multiplication, and is:
 \end{itemize}
 \end{frame}
 
-\myframe{Example: log identities}
-\begin{itemize}
-\item Multiplication: $\log (2 \times 3) = \log (2) + \log (3) = \log (6)$
-\item[]
-\item Logs of numbers $< 1$ are negative: $\log (2/3) = \log (2) - \log (3) < 0$
-\item[]
-\item Power: $\log (x^2) = 2\log (x)$
-\end{itemize}
-\end{frame}
+\myframe{Log world}
 
-\myframe{Common bases, changing base}
-\begin{itemize}
-\item The three most common bases: $e$, $10$, and $2$
-\item[]
-\item $e$ --- common in mathematics
-\item[]
-\item 10 --- common for calculating numbers in the decimal system
-\item[]
-\item 2 --- common in computer science
-\item[]
-\item Changing between bases: $\log_b(x) = \dfrac{\log_k(x)}{\log_k(b)}$
-\end{itemize}
 \end{frame}
 
 \myframe{$\exp(\cdot)$ and $\log(\cdot)$}
@@ -342,16 +298,6 @@ Exponentiation corresponds to repeated multiplication, and is:
 \item[]
 \item $\exp[\log(x^2)] = \exp[2\log(x)] = \exp(2)\exp[\log(x)] = x\exp(2)$
 \end{enumerate}
-\end{frame}
-
-\myframe{Uses of logarithms in statistics}
-\begin{itemize}
-\item Transformation of the data --- look at a multiplicative relationship rather than an additive relationship
-\item[]
-\item Logistic regression, Poisson regression
-\item[]
-\item For more, see BIOST 512/513!
-\end{itemize}
 \end{frame}
 
 \myframe{Summary}
