@@ -75,7 +75,7 @@ R style guides (useful for making code easy to read):
 * Determining the equation from a graph
 * Transformations: shifting and stretching
 
-**Lecture 5: Logarithms and Exponents, Brian, XX min** [pdf](day_2_session_1/day_2_session_1_log.pdf)
+**Lecture 5: Logarithms and Exponents, Brian, 40 min** [pdf](day_2_session_1/day_2_session_1_log.pdf)
 
 **Lecture 6: Word Problems, Jessica, XX min**
 
