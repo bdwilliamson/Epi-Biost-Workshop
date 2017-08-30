@@ -69,6 +69,11 @@ R style guides (useful for making code easy to read):
 
 **Lecture 5: Logarithms and Exponents, Brian, 40 min** [pdf](day_2_session_1/day_2_session_1_log.pdf)
 
+* Why transform our data?
+* Exponentiation
+* Logarithms
+* Example: gender bias in salaries
+
 **Lecture 6: Word Problems, Jessica, XX min**
 
 ## Day 3, 26 September 2017, 8-10:30am
