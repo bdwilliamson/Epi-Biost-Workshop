@@ -28,7 +28,17 @@
 
 % allow drawing arrows
 \usetikzlibrary{arrows}
+\usetikzlibrary{shapes.arrows}
 \tikzstyle{arrow}=[draw, -latex] 
+
+\tikzset{
+    myarrow/.style={
+        draw,
+        single arrow,
+        minimum height=5ex,
+        single arrow head extend=1ex
+    }
+}
 
 % skips
 \setlength{\abovecaptionskip}{15pt plus 3pt minus 2pt}
@@ -123,8 +133,20 @@ Some variables are almost always log transformed:
 Properties of exponentiation and logarithms come in handy throughout statistics and data analysis; a solid understanding of the basics goes a long way.
 \end{frame}
 
-\myframe{Example: }
+\myframe{Example: gender bias in salary {\small (from Scott Emerson, MD PhD)}}
+We want to investigate the differences in salaries between male and female faculty members at the University of Washington for the years 1976--1995. The main question is \textcolor{red}{does discrimination in salaries exist in 1995}, based on a retrospective cohort study of 1,597 faculty members at the University of Washington.
 
+The average monthly salary for female faculty in 1995 was \$5,396.91; for male faculty, the average monthly salary in 1995 was \$6,731.64.
+
+There are a variety of potential confounding factors that we will consider: start year at UW, year of degree, field of study, highest degree, administrative duties, rank.
+\end{frame}
+
+\myframe{Example: gender bias in salary}
+For our statistical analysis, we need to decide which is more meaningful: reporting \textcolor{green}{differences in mean salary}, or \textcolor{blue}{ratios of geometric mean salary}.
+
+Since salaries are expected to be somewhat comparable, perhaps with small differences, comparing salary on a multiplicative scale (i.e., ratios of geometric means) makes sense. Also, we expect the difference between people who make \$1,000 and \$2,000 per month is more similar to the difference between \$10,000 and \$20,000 than the difference between \$2,000 and \$3,000. This means we have to \textcolor{red}{log transform} the outcome!
+
+It also turns out that transforming the salary may give us more statistical precision, if the geometric mean is the correct comparison to make.
 \end{frame}
 
 \section{Exponentiation}
@@ -262,10 +284,6 @@ We can find the base $k$ logarithm of any number using the most common bases ($e
 \end{itemize}
 \end{frame}
 
-\myframe{Log world}
-
-\end{frame}
-
 \myframe{$\exp(\cdot)$ and $\log(\cdot)$}
 \begin{itemize}
 \item Recall $\exp(x) = e^x$
@@ -275,6 +293,186 @@ We can find the base $k$ logarithm of any number using the most common bases ($e
 \item So $x = \log [\exp(x)]$! And $x = \exp[\log(x)]$!
 \end{itemize}
 \end{frame}
+
+% setup
+\myframe{Real world vs Log world}
+\begin{columns}
+\begin{column}{0.45\textwidth}
+\textcolor{blue}{Real world (real numbers)}
+
+Example: weights $X = (X_1, X_2, \dots, X_n)$
+
+\begin{center}
+\tikz [baseline=-0.5ex]{\node [myarrow,rotate=-90] {Summary statistics};}
+\end{center}
+
+\centering
+mean of $X$
+
+median of $X$
+
+SD of $X$
+\end{column}
+\begin{column}{0.1\textwidth}
+\vspace{-5cm}
+\begin{center}
+\tikz [baseline=-0.5ex]{\node [myarrow,rotate=0] {log};}
+\end{center}
+\end{column}
+\begin{column}{0.45\textwidth}
+\textcolor{red}{Log world (log numbers)}
+
+Example: {\fontsize{9pt}{7.2}\selectfont $Z = (Z_1, Z_1, \dots, Z_n)$, where $Z_i = \log(X_i)$ for} {\tiny $i = 1, 2, \dots, n$}
+
+\begin{center}
+\tikz [baseline=-0.5ex]{\node [myarrow,rotate=-90] {Summary statistics};}
+\end{center}
+
+\centering
+mean of $Z$ 
+
+median of $Z$ 
+
+SD of $Z$
+\end{column}
+\end{columns}
+\end{frame}
+
+
+% exp as back transformation
+\myframe{Real world vs Log world}
+\begin{columns}
+\begin{column}{0.45\textwidth}
+\textcolor{blue}{Real world (real numbers)}
+
+Example: weights $X = (X_1, X_2, \dots, X_n)$
+
+\begin{center}
+\tikz [baseline=-0.5ex]{\node [myarrow,rotate=-90] {Summary};}
+\end{center}
+
+\centering
+mean of $X$
+
+\textcolor{white}{nothing here}
+
+median of $X$
+
+\textcolor{white}{nothing here}
+
+SD of $X$
+\end{column}
+
+\begin{column}{0.1\textwidth}
+%\begin{center}
+\tikz [baseline=-0.5ex]{\node [myarrow,rotate=0] {log};}
+
+\vspace{5cm}
+
+\tikz [baseline=-0.5ex]{\node [myarrow,shape border rotate=180] {exp (?)};}
+%\end{center}
+\end{column}
+
+\begin{column}{0.45\textwidth}
+\textcolor{red}{Log world (log numbers)}
+
+Example: {\fontsize{9pt}{7.2}\selectfont $Z = (Z_1, Z_1, \dots, Z_n)$, where $Z_i = \log(X_i)$ for} {\tiny $i = 1, 2, \dots, n$}
+
+\begin{center}
+\tikz [baseline=-0.5ex]{\node [myarrow,rotate=-90] {Summary};}
+\end{center}
+
+\centering
+mean of $Z$
+
+\textcolor{white}{nothing here}
+
+median of $Z$
+
+\textcolor{white}{nothing here}
+
+SD of $Z$
+\end{column}
+\end{columns}
+\end{frame}
+
+% geometric mean, median, nonsense sd
+\myframe{Real world vs Log world}
+\begin{columns}
+\begin{column}{0.45\textwidth}
+\textcolor{blue}{Real world (real numbers)}
+
+Example: weights $X = (X_1, X_2, \dots, X_n)$
+
+\begin{center}
+\tikz [baseline=-0.5ex]{\node [myarrow,rotate=-90] {Summary};}
+\end{center}
+
+\centering
+mean of $X$ 
+
+\textcolor{white}{nothing here}
+
+\textcolor{blue}{geometric mean} of $X$ 
+
+\textcolor{white}{nothing here}
+
+median of $X$
+
+\textcolor{white}{nothing here}
+
+SD of $X$
+\end{column}
+
+\begin{column}{0.1\textwidth}
+%\begin{center}
+\tikz [baseline=-0.5ex]{\node [myarrow,rotate=0] {log};}
+
+\vspace{3.75cm}
+
+\tikz [baseline=-0.5ex]{\node [myarrow,shape border rotate=180] {\textcolor{blue}{exp}};}
+
+\vspace{0.25cm}
+
+\tikz [baseline=-0.5ex]{\node [myarrow,shape border rotate=180] {\textcolor{green}{exp}};}
+%\end{center}
+\end{column}
+
+\begin{column}{0.45\textwidth}
+\textcolor{red}{Log world (log numbers)}
+
+Example: {\fontsize{9pt}{7.2}\selectfont $Z = (Z_1, Z_1, \dots, Z_n)$, where $Z_i = \log(X_i)$ for} {\tiny $i = 1, 2, \dots, n$}
+
+\begin{center}
+\tikz [baseline=-0.5ex]{\node [myarrow,rotate=-90] {Summary};}
+\end{center}
+
+\centering
+\textcolor{white}{nothing here}
+
+\textcolor{blue}{mean} of $Z$ 
+
+\textcolor{white}{nothing here}
+
+\textcolor{green}{median} of $Z$
+
+\textcolor{white}{nothing here}
+
+SD of $Z$
+\end{column}
+\end{columns}
+\end{frame}
+
+\myframe{$\exp(\cdot)$, $\log(\cdot)$, and summary statistics}
+It turns out, as we saw on the previous slides, that for a summary statistic function $f$ (e.g., $f(\cdot) = \text{mean}(\cdot)$), $\exp\{f(\log x)\}$ is not, in general, equal to $f(x)$.
+
+Both $\exp$ and $\log$ preserve \textcolor{green}{order}; thus the median (the middle value) stays the median after being back-transformed.
+
+In contrast, the mean of a log-transformed variable, when back-transformed, is the \textcolor{blue}{geometric mean} of the original variable. Rather than talking about a difference in means, we talk about a \textcolor{blue}{ratio of geometric means}.
+
+The standard deviation has no meaningful interpretation when back-transformed---typically, if we need to report a standard deviation, we report it on the log scale.
+\end{frame}
+
 
 \myframe{Exercise: logarithms}
 \begin{enumerate}
@@ -300,15 +498,30 @@ We can find the base $k$ logarithm of any number using the most common bases ($e
 \end{enumerate}
 \end{frame}
 
+\myframe{Example: gender bias in salary}
+After running a linear regression analysis on the log-transformed monthly salaries, we find that (adjusted for confounders) the average difference in log monthly salary between women and men in 1995 is $-0.067$, with women having the lower average salary.
+
+After exponentiating, we estimate that \textcolor{blue}{geometric mean monthly salary} for females in 1995 is \textcolor{red}{6.53\% less} than the geometric mean monthly salary for men in 1995 in groups with the same degree, field, administrative duties, starting year and year of degree.
+
+Based on a 95\% confidence interval, this difference in geometric mean salary would not be surprising if the true difference in monthly geometric mean salary were between \textcolor{red}{8.87\% and 4.12\% less} for women compared to men. A two-sided p-value of $< 0.0001$ indicates that we \textcolor{green}{reject the null hypothesis of no association between sex and monthly salary in 1995}, in groups with similar degrees, field, administrative duties, starting year, and year of degree.
+\end{frame}
+
 \myframe{Summary}
 \begin{itemize}
+\item The comparison that \textcolor{blue}{makes the most scientific sense} is often \textcolor{green}{ratios}
+\item[]
+\item Logarithms are the typical way to compare ratios
+\item[]
 \item Exponentiation: can create terms of higher order (larger exponent) than linear terms (exponent 1)
 \item[]
-\item Logarithms: turn multiplication into addition, using a base
+\item Logarithms: \textcolor{green}{turn multiplication into addition}, using a base
 \item[]
-\item Most common base: $e$
-\item[]
-\item Useful for transforming data or different types of regression (logistic, Poisson)
+\item $\exp$ \textcolor{cyan}{back-transforms} $\log$; however:
+\begin{itemize}
+\item $\exp\{\text{mean}(\log x)\}$ is the geometric mean of $x$
+\item $\exp\{\text{median}(\log x)\}$ is the median of $x$
+\item $\exp\{\text{SD}(\log x)\}$ doesn't make sense!
+\end{itemize}
 \end{itemize}
 \end{frame}
 \end{document}

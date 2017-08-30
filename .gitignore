@@ -20,6 +20,7 @@
 *.cb2
 *.nav
 *.snm
+*.vrb
 
 ## Intermediate documents:
 *.dvi
