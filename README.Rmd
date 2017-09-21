@@ -111,7 +111,7 @@ R style guides (useful for making code easy to read):
     * Manipulating data (indexing, subsetting)
 * R packages
 
-**Lecture 10: Accessing help, Brian, 40 min (much live demo)** [pdf](day_3_session_1/day_3_session_1_help.pdf)
+**Lecture 9: Accessing help, Brian, 40 min (much live demo)** [pdf](day_3_session_1/day_3_session_1_help.pdf)
 
 * Help files within R/on CRAN
 * Help on the web
