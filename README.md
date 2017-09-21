@@ -50,13 +50,19 @@ R style guides (useful for making code easy to read):
 * Negative numbers
 * Absolute value
 
-**Lecture 2: Fractions, Percentages, and Decimals, Jessica, XX min** [pdf](placeholder)
+**Lecture 2: Fractions, Percentages, and Decimals, Jessica, 60 min** [pdf](day_1_session_1/day_1_session_1_2proportions.pdf)
 
-* Another placeholder list
+* Introducing proportions
+* Fractions
+* Other ways to represent proportions
+* Proportions and other mathematical constructs in epidemiology
 
-**Lecture 3: Algebra, Jessica, XX min**
+**Lecture 3: Algebra, Jessica, 75 min** [pdf](day_1_session_1/day_1_session_1_3algebra_crosstab.pdf)
 
-* Another placeholder list
+* Solving for an unknown quantity
+* Variables
+* Weighted averages
+* Cross-tabulation
 
 ## Day 2, 25 September 2017, 2-5:30pm
 
@@ -74,7 +80,12 @@ R style guides (useful for making code easy to read):
 * Logarithms
 * Example: gender bias in salaries
 
-**Lecture 6: Word Problems, Jessica, XX min**
+**Lecture 6: Word Problems, Jessica, 45 min** [pdf](day_2_session_1/day_2_session_1_6word_problems.pdf)
+
+* Using units
+* Steps for solving word problems
+* Example
+* Exercises
 
 ## Day 3, 26 September 2017, 8-10:30am
 
