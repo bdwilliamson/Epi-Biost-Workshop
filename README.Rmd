@@ -72,6 +72,17 @@ R style guides (useful for making code easy to read):
 * Weighted averages
 * Cross-tabulation
 
+** Extra practice **
+Khan Academy offers interactive online units for most of the topics we covered today. (It may ask for a donation, but this not required to use it.) For each unit, you can take a quiz to check if you need more practice in a particular area. If so, it will direct you to areas of the site where you can review and practice those skills.
+ 
+* [Order of operations](https://www.khanacademy.org/math/pre-algebra/pre-algebra-arith-prop/pre-algebra-order-of-operations/e/order_of_operations_2)
+* [Negative numbers](https://www.khanacademy.org/math/arithmetic/arith-review-negative-numbers)
+* [Fractions](https://www.khanacademy.org/math/arithmetic/fraction-arithmetic)
+* [Decimals](https://www.khanacademy.org/math/arithmetic/arith-decimals)
+* [Relationship of fractions, decimals and percentages](https://www.khanacademy.org/math/cc-seventh-grade-math/cc-7th-fractions-decimals)
+* [Algebra foundations (variables and substitution)](https://www.khanacademy.org/math/algebra/introduction-to-algebra)
+* [Functions](https://www.khanacademy.org/math/algebra/algebra-functions)
+
 ## Day 2, 25 September 2017, 2-5:30pm
 
 **Lecture 4: Graphs, Brian, 50 min** [pdf](day_2_session_1/day_2_session_1_graphs.pdf)
