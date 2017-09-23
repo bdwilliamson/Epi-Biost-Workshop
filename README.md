@@ -64,7 +64,8 @@ R style guides (useful for making code easy to read):
 * Weighted averages
 * Cross-tabulation
 
-** Extra practice **
+**Extra practice**
+
 Khan Academy offers interactive online units for most of the topics we covered today. (It may ask for a donation, but this not required to use it.) For each unit, you can take a quiz to check if you need more practice in a particular area. If so, it will direct you to areas of the site where you can review and practice those skills.
  
 * [Order of operations](https://www.khanacademy.org/math/pre-algebra/pre-algebra-arith-prop/pre-algebra-order-of-operations/e/order_of_operations_2)
