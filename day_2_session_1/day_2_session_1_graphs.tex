@@ -1,4 +1,4 @@
-\documentclass[11pt]{beamer}
+\documentclass[11pt, hyperref={colorlinks, urlcolor=blue}]{beamer}
 \usetheme{default} 
 
 \setbeamertemplate{navigation symbols}{} %gets rid of navigation symbols
@@ -25,7 +25,6 @@
 \usepackage{pgfplots}
 \usepackage{natbib}
 \def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;} 
-
 % allow drawing arrows
 \usetikzlibrary{arrows}
 \tikzstyle{arrow}=[draw, -latex] 
@@ -232,7 +231,7 @@ What is the difference between the two slopes? How does this affect our understa
 \end{frame}
 
 \myframe{Exercise: slopes and intercepts}
-Consider data examining inflammatory biomarkers and mortality. We are interested in the association between the the biomarker fibrinogen (related to inflammation) and prior history of cardiovascular disease (CVD). These data are described \href{https://www.emersonstatistics.com/datasets/inflamm.doc}{here}. Your collaborator ran a linear regression and obtained the following equation (using the estimated regression coefficients), where $y$ denotes fibrinogen (ranges from 109 mg/dl to 872 mg/dl) and $x$ denotes presence/absence of prior CVD (0/1): $y = 14.89x + 319.57$.
+Consider data examining inflammatory biomarkers and mortality. We are interested in the association between the biomarker fibrinogen (related to inflammation) and prior history of cardiovascular disease (CVD). These data are described \href{https://www.emersonstatistics.com/datasets/inflamm.doc}{here}. Your collaborator ran a linear regression and obtained the following equation (using the estimated regression coefficients), where $y$ denotes fibrinogen (ranges from 109 mg/dl to 872 mg/dl) and $x$ denotes presence/absence of prior CVD (0/1): $y = 14.89x + 319.57$.
 \begin{enumerate}
 \item What is the slope of the line $y = 14.89x + 319.57$?
 \item[]
@@ -444,7 +443,7 @@ Say we have a random sample of 100 pre-school aged-children (age 3--5) from the 
 
 \myframe{Example: reading an equation from a graph}
 \begin{enumerate}
-\item[3.] Slope-intercept: $y = 1.5x + 40$, point-slope: $y + 40 = 1.5(x-0)$
+\item[3.] Slope-intercept: $y = 1.5x + 40$, point-slope: $y - 40 = 1.5(x-0)$
 \end{enumerate}
 \centering
 \begin{tikzpicture}
@@ -745,15 +744,15 @@ These are all examples of \textcolor{green}{transformations}:
 \item[]
 \item Once we know the properties of a graph, shifting doesn't change much!
 \item[]
-\item Shift left: add to $x$
+\item Shift left: add to $x$, get $z$
 \item[]
-\item Shift right: subtract from $x$
+\item Shift right: subtract from $x$, get $w$
 \item[]
 \item Shift up: add to intercept
 \item[]
 \item Shift down: subtract from intercept
 \item[]
-\item Why? Adding to $x$: smaller $x$'s now have the same $y$. Subtracting from $x$: larger $x$'s now have the same $y$.
+\item Why? Adding to $x$: smaller $z$'s now have the same $y$ as $x$. Subtracting from $x$: larger $w$'s now have the same $y$ as $x$.
 \end{itemize}
 \end{frame}
 
@@ -768,9 +767,9 @@ These are all examples of \textcolor{green}{transformations}:
     ytick=\empty,
     xlabel=$x$, ylabel=$y$
   ]
-  \addplot [domain=-5:5, samples=2] {0.22*(x+1) + 0.43} node [pos=.7, above left] {\small $y = 0.22(x+1) + 0.43$};
+  \addplot [domain=-5:5, samples=2] {0.22*(x+1) + 0.43} node [pos=.7, above left] {\small $y = 0.22z + 0.43$};
   \addplot [domain=-5:5, samples=2] {0.22*x + 0.43} node (a) [pos=.5] {};
-  \addplot [domain=-5:5, samples=2] {0.22*(x-1) + 0.43} node [pos=.4, below right] {\small $y = 0.22(x-1) + 0.43$};
+  \addplot [domain=-5:5, samples=2] {0.22*(x-1) + 0.43} node [pos=.4, below right] {\small $y = 0.22w + 0.43$};
   \end{axis}
   \node[draw=none] (b) at (0,3) {\small $y = 0.22x + 0.43$}; 
   \draw [->] (b) -- (a); 
@@ -780,9 +779,9 @@ These are all examples of \textcolor{green}{transformations}:
 \scriptsize
 Interpretations (from top to bottom): 
 \begin{spaceitemize}
-\item mean FEV in $-1$ year olds is 0.21 L/sec
+\item mean FEV in $-1$ year olds is 0.21 L/sec ($z = x+1$)
 \item mean FEV in zero year olds is 0.43 L/sec
-\item mean FEV in one year olds is 0.65 L/sec
+\item mean FEV in one year olds is 0.65 L/sec ($w = x-1$)
 \end{spaceitemize} 
 \end{frame}
 
