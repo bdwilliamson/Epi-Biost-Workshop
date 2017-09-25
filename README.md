@@ -103,8 +103,8 @@ Khan Academy offers interactive online units for most of the topics we covered t
 
 * [Graphs](https://www.khanacademy.org/math/algebra-basics/alg-basics-graphing-lines-and-slope)
 * Transforming functions:
-** [Stretching](https://www.khanacademy.org/math/algebra2/manipulating-functions#shifting-functions)
-** [Shrinking](https://www.khanacademy.org/math/algebra2/manipulating-functions#stretching-functions)
+ * [Stretching](https://www.khanacademy.org/math/algebra2/manipulating-functions#shifting-functions)
+ * [Shrinking](https://www.khanacademy.org/math/algebra2/manipulating-functions#stretching-functions)
 * [Logarithms and exponents](https://www.khanacademy.org/math/algebra2/exponential-and-logarithmic-functions)
 
 ## Day 3, 26 September 2017, 8-10:30am
