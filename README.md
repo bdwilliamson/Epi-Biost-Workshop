@@ -1,14 +1,3 @@
----
-title: "EPI/BIOSTAT Math and R Skills Preparatory Workshop"
-author: "Jessica Williams-Nguyen and Brian Williamson"
-date: "21, 24, 25 September, 2018"
-output:
-  html_document:
-    keep_md: yes
-  pdf_document: default
-  word_document: default
-  
----
 # EPI/BIOSTAT Math and R Skills Preparatory Workshop
 21, 24, 25 September, 2018
   
