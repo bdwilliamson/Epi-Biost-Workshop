@@ -9,21 +9,12 @@ output:
   word_document: default
   
 ---
+# EPI/BIOSTAT Math and R Skills Preparatory Workshop
+21, 24, 25 September, 2018
   
-  This workshop is offered by the 
-[University of Washington School of Public Health](http://sph.washington.edu/).
+This workshop is offered by the [University of Washington School of Public Health](http://sph.washington.edu/).
   
-Taught by
-
-Jessica Williams-Nguyen
-<br/>
-  [jswn@uw.edu](mailto:jswn@uw.edu)
-
-and
-
-[Brian D. Williamson](http://bdwilliamson.github.io)
-<br/>
-  [brianw26@uw.edu](mailto:brianw26@uw.edu)
+Taught by Jessica Williams-Nguyen [jswn@uw.edu](mailto:jswn@uw.edu) and [Brian D. Williamson](http://bdwilliamson.github.io) [brianw26@uw.edu](mailto:brianw26@uw.edu)
 
 # Course Goals
 Prepare participants for the UW's introductory Epidemiology and Biostatistics courses through gaining/regaining familiarity with mathematical concepts, word problems, the R programming language, and the RStudio programming environment. Specifically, we will cover:
