@@ -1,7 +1,7 @@
 ---
 title: "EPI/BIOSTAT Math and R Skills Preparatory Workshop"
 author: "Jessica Williams-Nguyen and Brian Williamson"
-date: "22, 25, 26 September, 2017"
+date: "21, 24, 25 September, 2018"
 output:
   html_document:
     keep_md: yes
@@ -42,7 +42,7 @@ R style guides (useful for making code easy to read):
 
 # Course Syllabus and Lecture Materials
 
-## Day 1, 22 September 2017, 8am-12pm
+## Day 1: 21 September 2018, 8am--12pm, T-739
 
 **Lecture 0: Overview and Skills for Success, Jessica and Brian, 45 min** [pdf](day_1_session_1/day_1_session_1_overview.pdf)
 
@@ -84,7 +84,7 @@ Khan Academy offers interactive online units for most of the topics we covered t
 * [Algebra foundations (variables and substitution)](https://www.khanacademy.org/math/algebra/introduction-to-algebra)
 * [Functions](https://www.khanacademy.org/math/algebra/algebra-functions)
 
-## Day 2, 25 September 2017, 2-5:30pm
+## Day 2: 24 September 2018, 8am--12pm, T-625
 
 **Lecture 4: Graphs, Brian, 50 min** [pdf](day_2_session_1/day_2_session_1_graphs.pdf)
 
@@ -115,7 +115,7 @@ Khan Academy offers interactive online units for most of the topics we covered t
     * [Shrinking](https://www.khanacademy.org/math/algebra2/manipulating-functions#stretching-functions)
 * [Logarithms and exponents](https://www.khanacademy.org/math/algebra2/exponential-and-logarithmic-functions)
 
-## Day 3, 26 September 2017, 8-10:30am
+## Day 2: 24 September 2018, 8am--12pm, T-625
 
 **Lecture 7: Installing R and RStudio, Brian, 20 min (much live demo)** [pdf](day_3_session_1/day_3_session_1_install.pdf)
 
