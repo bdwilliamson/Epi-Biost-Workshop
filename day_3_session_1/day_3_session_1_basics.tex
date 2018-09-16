@@ -1,4 +1,4 @@
-\documentclass[11pt]{beamer}
+\documentclass[11pt,dvipsnames]{beamer}
 \usetheme{default} 
 
 \setbeamertemplate{navigation symbols}{} %gets rid of navigation symbols
@@ -81,42 +81,93 @@ By the end of this session, you should be able to
 \end{itemize}
 \end{frame}
 
+\begin{frame}
+\frametitle{Goals}
+R and RStudio are \textcolor{blue}{powerful} tools that make analyzing data and doing reproducible research easier (in the long run). 
+
+However, before you become familiar with these tools, they may be frustrating to use.
+
+\pause
+This module is meant to give you a space to engage with R and RStudio prior to diving into coursework. \textbf{All R functions required for your courses will be introduced in the specific course}.
+\end{frame}
+
+\section{Organizing your workspace}
+\begin{frame}
+\frametitle{Organization: helping future you}
+The first step in a data analysis isn't opening R or RStudio -- instead, you should create a \textcolor{blue}{workspace} for your analysis. \pause
+
+This workspace is a \textbf{folder} on your computer that: \vspace{-0.3cm}\pause
+\begin{itemize}
+\item is \textcolor{ForestGreen}{easy for you to find \textbf{now}} \pause
+\item will be \textcolor{cyan}{easy for you to find in the \textbf{future}} \pause
+\item will hold \textbf{all relevant files} for your analysis (e.g., the data file, R code, plots, results)
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Organization: developing your workflow}
+It is important that you develop your own workflow, since \textit{easy to find} means different things to everyone.
+
+My workflow looks something like this: \vspace{-0.3cm} \pause
+\begin{enumerate}
+\item get involved in a new project \pause
+\item set up a new folder for the project 
+\begin{itemize}
+\item under \textit{Courses} if it relates to a course, e.g., \texttt{Courses/BIOST511}
+\item under \textit{the name of the project} if not, e.g., \texttt{Projects/HPTN063} refers to a clinical trial I have worked on
+\end{itemize} \pause
+\item store all documents, data, code, and output in this folder (with subfolders for each of these)
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{Downloading data}
+The datasets you need for your coursework will typically be found either \vspace{-0.3cm}
+\begin{itemize}
+\item on \textbf{Canvas}, the UW's file-hosting site for courses, or
+\item on \textcolor{ForestGreen}{your professor's webpage}, or
+\item on the \textcolor{cyan}{webpage for a textbook}
+\end{itemize}
+
+Your instructor will tell you \textbf{exactly where} to find the datasets necessary for your coursework.
+
+Once you have set up a folder (workspace) for your project, download the data into this folder.
+\end{frame}
+
+\begin{frame}
+\frametitle{Exercise: downloading data}
+Create a new folder titled \texttt{fev\_analysis} in the folder you are using for the files for this workshop.
+
+Next, go to the Canvas webpage for this workshop and download the file \texttt{fev.txt}, located in the \texttt{Data} folder under the \texttt{Files} tab. Download these data into the \texttt{fev\_analysis} folder.
+\end{frame}
+
 % R intro
 \section{The R and RStudio interfaces}
-\myframe{The interface}
+\begin{frame}
+\frametitle{Using R and RStudio}
+Once you have set up a workspace on your computer for your new project, and downloaded your data, it's time to use R!
+
+R is a \textcolor{blue}{statistical programming language}, and does all of the computing for your analysis (e.g., plots, summaries). 
+
+RStudio is a \textcolor{ForestGreen}{program} that makes it easier to interact with R to perform your analysis.
+
+I suggest that you \textbf{only interact with R through RStudio} -- this is all you need for your Biostatistics coursework.
+\end{frame}
+
+\myframe{Using R and RStudio: the interface}
 We interact with both R and RStudio using an interface. For R, this is the command line. For RStudio, this is the graphical user interface.
 
 Both of these concepts deserve a bit of introduction, since familiarity with the interface makes using R and RStudio much easier!
 \end{frame}
-\subsection{R}
-\myframe{Command line R}
-The most basic form of R is from the command line (Terminal in Mac/Linux, Command Prompt in Windows). 
 
-After installing R, typing R in the command line will open an R session:
-\begin{center}
-\includegraphics[width = .6\textwidth]{figs/command_line_r.png}
-\end{center}
-
-The text gives you the version number (here, 3.4.1) and some other (not necessary for our purposes) information. 
-\end{frame}
-
-\myframe{Command line R}
-You also get a prompt, the \texttt{>}, where you can enter commands. 
-
-When you first open R, you have a limited number of functions available for use. These include things like \texttt{mean()}, \texttt{median()}, and \texttt{read.table()}. 
-
-The command line version of R is most useful (in my experience) for computing-intensive tasks. Data analyses are best done in RStudio.
-\end{frame}
-
-\subsection{RStudio}
-\myframe{RStudio}
+\myframe{Using R and RStudio: RStudio}
 When you first open RStudio, you are met with a blank set of four \textcolor{blue}{panes}:
 \begin{center}
 \includegraphics[width = 0.8\textwidth]{figs/rstudio.png}
 \end{center}
 \end{frame}
 
-\myframe{RStudio}
+\myframe{Using R and RStudio: RStudio}
 You can edit pane layout under \texttt{Tools > Global Options > Pane Layout}. My preference is to have the \textcolor{blue}{source} in the upper left, \textcolor{green}{console} in the upper right, \textcolor{cyan}{environment} in the lower left, and \textcolor{purple}{viewer} in the lower right.
 
 You'll notice that on the previous slide, there were only three panes visible: since we haven't opened or created any files to edit, the \textcolor{blue}{source} pane is not currently open.
@@ -124,9 +175,9 @@ You'll notice that on the previous slide, there were only three panes visible: s
 
 \subsubsection{The console}
 \myframe{RStudio: the console}
-Is it a coincidence that the screenshot has exactly the same text as we saw on the command line? No! 
+The \textcolor{green}{console} is our interface to the R command line. 
 
-The \textcolor{green}{console} performs identically to the command line. Any commands that we wish to enter go through the console, and any results that are output by these commands will appear in the console. 
+Any commands that we wish to enter go through the console, and any results that are output by these commands will appear in the console. 
 
 \end{frame}
 
@@ -147,32 +198,30 @@ Since R is a \textcolor{blue}{functional} programming language, typing \texttt{4
 The output is displayed as a \textcolor{green}{vector}, one of the fundamental \textcolor{cyan}{data structures} in R. The \texttt{[1]} helps to tell which element of the vector we are looking at (which is most useful if the vector spans multiple lines in the console).
 \end{frame}
 
-\myframe{Example: heights and weights}
-The console is the workhorse of RStudio. If we wanted, we could work exclusively here, but then reproducibility is difficult...
-
-Let's say we have data on the height and weight of five (imaginary) individuals. A simple way of reading the data into R is by creating two \textcolor{blue}{objects}, \texttt{ht} and \texttt{wt}, and assigning the numerical values that we have collected for each individual; in the console, type
+\begin{frame}
+\frametitle{Exercise: the console}
+Use the RStudio console to perform the following computations. Write down your answers and your process for arriving at your answers.
 \begin{enumerate}
-\item \texttt{ht <- c(72,65,84,73,68)}, followed by hitting the \texttt{Enter} key, (creates the \texttt{ht} object)
-\item \texttt{wt <- c(165,120,210,180,125)}, followed by hitting the \texttt{Enter} key (creates the \texttt{wt} object)
+\item Multiply 55 and 389
+\item Divide 500 by 15
+\item Add 1525 and 3225
 \end{enumerate}
-
-Each of these commands assigns a \textcolor{green}{value} to an \textcolor{blue}{object}, using the special \texttt{<-} command. \textcolor{green}{Values} go on the right-hand side, and \textcolor{blue}{objects} go on the left.
 \end{frame}
 
-\myframe{Example: heights and weights}
-Both \texttt{ht} and \texttt{wt} are also vectors! We create vectors using the \texttt{c()} function, which concatenates scalars (single numbers, or single strings like \texttt{"Hello"}) into vectors.
+\begin{frame}
+\frametitle{Exercise: the console}
+You just used your first R functions! 
 
-In words, \texttt{ht <- c(72,65,84,73,68)} means: concatenate the numbers 72, 65, 84, 73, and 68 into a vector, and assign that vector to a variable (or object) called \texttt{ht}.
-
-Typing these commands into the console allows us to manipulate both \texttt{ht} and \texttt{wt}; in particular, they can be used as arguments into many R functions.
+The \texttt{*}, \texttt{+} and \texttt{-}, and \texttt{/} symbols on your keyboard operate (unsurprisingly) as R functions to multiply, add and subtract, and divide.
 \end{frame}
 
-\myframe{Example: heights and weights}
-However, these objects are part of the \textcolor{red}{current} R environment: this means that we can only use them while the current session of R is open. If we exit RStudio, we will have to re-enter the two lines defining both \texttt{ht} and \texttt{wt}.
+\begin{frame}
+\frametitle{RStudio: using the console}
+Anything that you type into the console is a part of the \textbf{current} R session -- if you close RStudio and reopen it, these commands are not saved.
 
-For more complicated analyses, this can lead to a lot of confusion. Also, just typing in the console can lead us to forget what steps we took to get a certain figure or table.
+For more complicated analyses, this can lead to a lot of confusion. Also, typing only in the console can lead you to forget what steps you took to get a certain figure or table.
 
-Organizing commands into \textcolor{blue}{scripts} allows us to save exactly what we did during a given data analysis, which makes reproducible research easy. This helps both your future self and your collaborators, so that you can share what you did!
+Organizing commands into \textcolor{blue}{scripts} allows you to save exactly what you did during a given data analysis, which makes reproducible research easy. This helps both your future self and your collaborators, so that you can share what you did!
 \end{frame}
 
 \subsubsection{The text editor}
@@ -227,12 +276,14 @@ Similarly, you run multiple lines by highlighting all desired lines and doing on
 
 \begin{frame}[fragile]
 \frametitle{Example: heights and weights}
-We can now enter 
+Enter some data on made-up heights and weights of five individuals: \vspace{-0.5cm}
 \begin{verbatim}
 ht <- c(72,65,84,73,68)
 wt <- c(165,120,210,180,125)
-\end{verbatim}
-into a new R script. Saving this as \texttt{ht\_wt\_analysis.R} is a start to analyzing these data! The script now looks like:
+\end{verbatim} \vspace{-0.5cm}
+into a new R script. The \texttt{c()} function \textcolor{blue}{concatenates} data together, creating an object called a \textcolor{ForestGreen}{vector}. 
+
+Saving this R script as \texttt{ht\_wt\_analysis.R} is a start to analyzing these data! The script now looks like this: \vspace{-0.5cm}
 \tiny
 \begin{verbatim}
 ##############################################################################################
@@ -424,16 +475,10 @@ File extension & Package & Function \\
 \end{tabular}
 \end{frame}
 
-\myframe{Saving data}
-Once you have manipulated data to your satisfaction, you can also save data --- often, this is a helpful part of the data analysis pipeline from raw data, through pre-processing, to the final analysis data.
-
-To save data, you specify the path to the new file you wish to create, and use this as the first argument in the saving function. The appropriate save function simply replaces \texttt{read} with \texttt{save} in the functions on the previous page.
-\end{frame}
-
 \begin{frame}[fragile]
-\frametitle{Example: heights and weights}
+\frametitle{Exercise: Reading in data}
 
-We can load the height and weight data using the following code (replace \texttt{<path to here>} with the path to your folder):
+Load the height and weight data by placing the following code in your R script \texttt{ht\_wt\_analysis.R} (replace \texttt{<path to here>} with the path to your folder):
 
 {\small
 \begin{verbatim}
@@ -443,9 +488,20 @@ dat <- read.table("<path to here>/Epi-Biost-Workshop/
 \end{verbatim}
 }
 
-If we look at the data (typing \texttt{dat} into the console and hitting \texttt{Enter}), we see that this is the same as the two vectors, \texttt{ht} and \texttt{wt}, combined into a dataset! Each row is an imaginary person, and the columns contain their height and weight.
+Look at the data by typing \texttt{View(dat)} on a new line in your R script, and executing the line in R. 
 
-Add this code to your R script, beneath the code assigning values to \texttt{ht} and \texttt{wt}.
+What do you notice about this new dataset? How does it relate to the two vectors \texttt{ht} and \texttt{wt} that we created earlier?
+\end{frame}
+
+\begin{frame}
+\frametitle{Exercise: reading data}
+Now read in the FEV data, again using the function \texttt{read.table}. \textit{Hint: you may copy the code from the height and weight example, but you will have to change the path to the data}.
+
+Again, use the \texttt{View()} function to take a look at the data, and answer the following questions:
+\begin{enumerate}
+\item How many columns do the data have?
+\item Write down what you think the meaning of at least 3 of the variables is, based on the column names.
+\end{enumerate}  
 \end{frame}
 
 \myframe{Manipulating data}
@@ -521,6 +577,69 @@ dat[dat$weight < 160, ]
 
 \end{verbatim}
 }
+\end{frame}
+
+\begin{frame}
+\frametitle{Exercise: manipulating data}
+These questions all pertain to the \texttt{fev} data. 
+
+\begin{enumerate}
+\item The logical expression \texttt{fev\$age <= 8} returns \texttt{TRUE} for those individuals who are less than or equal to 8 years old, and \texttt{FALSE} for those who are older than 8 years old. Create a new dataset called \texttt{sub\_less\_equal\_8} that contains the data for all participants with age less than or equal to 8 years old.
+\item What does \texttt{fev\$sex == 1} return?
+\item The \texttt{\$} allows you to both access variables and create new variables within a dataset. Create a new variable called \texttt{fev\$female} that takes value 0 if the participant is male and 1 if the participant is female, using the command \texttt{fev\$female <- ifelse(fev\$sex == 1, 0, 1)}. What is the sex of the participant with \texttt{fev\$subjid == 451}?
+\end{enumerate}
+\end{frame}
+
+\section{Summarizing data}
+\begin{frame}
+\frametitle{Summarizing data}
+The first part of my data analysis workflow (after reading in the data) is typically \textbf{exploratory}. Here, I investigate whether I can find any trends in the data that support my initial hypothesis.
+
+Two powerful ways of summarizing the data are:
+\begin{itemize}
+\item summary statistics (e.g., mean, median)
+\item graphical summaries (e.g., boxplots, scatterplots)
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Computing summary statistics}
+Quick summary statistics are available in R using the \texttt{summary()} function. This function automatically computes the minimum, mean, maximum, and 25th, 50th (median) and 75th percentile values of \textcolor{blue}{each variable} in your data.
+
+Example: heights and weights
+\begin{verbatim}
+summary(dat)
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Plotting data}
+Quick plots are also powerful ways to convey information and get a glimpse at trends in the data.
+
+The most common type of plot that I use is a scatterplot. You create a scatterplot using the \texttt{plot()} function.
+
+The two main arguments, \texttt{x} and \texttt{y}, tell R the data to plot on the x- and y-axis, respectively. Other arguments help to make the plot understandable by adding informative labels and titles.
+
+Example: heights and weights
+\begin{verbatim}
+# plot of height (on x-axis) vs weight
+plot(dat$height, dat$weight)
+\end{verbatim}
+\end{frame}
+
+\begin{frame}
+\frametitle{Exercise: summarizing data}
+All of these questions involve either the full \texttt{fev} data, or the subset of participants with age less than or equal to eight years old \texttt{sub\_less\_equal\_8}.
+
+\begin{enumerate}
+\item What is the average age of participants in the \texttt{fev} data?
+\item What is the proportion of subjects that are female? That are male?
+\item What is the average FEV measurement in the full data?
+\item What is the average FEV measurement in those who are less than or equal to eight years old?
+\item If your answers to 3 and 4 are different, why do you think that is?
+\item Plot FEV on the y-axis versus age on the x-axis for the full data. What do you notice about the trend between age and FEV? Does that help you answer 5?
+\end{enumerate}
 \end{frame}
 
 \section{R packages}

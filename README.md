@@ -99,7 +99,9 @@ Khan Academy offers interactive online units for most of the topics we covered t
 
 **Lecture 7: Installing R and RStudio, Brian, 20 min (much live demo)** [pdf](day_3_session_1/day_3_session_1_install.pdf)
 
-**Lecture 8: R and RStudio basics, Brian, 90 min (much live demo)** [pdf](day_3_session_1/day_3_session_1_basics.pdf)
+10 minute break
+
+**Lecture 8: R and RStudio basics, Brian, 120 min (much live demo, with breaks)** [pdf](day_3_session_1/day_3_session_1_basics.pdf)
 
 * R interface
 * RStudio interface
@@ -110,6 +112,8 @@ Khan Academy offers interactive online units for most of the topics we covered t
     * Loading/saving data
     * Manipulating data (indexing, subsetting)
 * R packages
+
+10 minute break
 
 **Lecture 9: Accessing help, Brian, 40 min (much live demo)** [pdf](day_3_session_1/day_3_session_1_help.pdf)
 
