@@ -38,14 +38,14 @@ R style guides (useful for making code easy to read):
 * Negative numbers
 * Absolute value
 
-**Lecture 2: Fractions, Percentages, and Decimals, Jessica, 60 min** [pdf](day_1_session_1/day_1_session_1_2proportions.pdf)
+**Lecture 2: Fractions, Percentages, and Decimals, Jessica, 60 min** [pdf](day_1_session_1/day_1_session_1_proportions_nosolutions.pdf)
 
 * Introducing proportions
 * Fractions
 * Other ways to represent proportions
 * Proportions and other mathematical constructs in epidemiology
 
-**Lecture 3: Algebra, Jessica, 75 min** [pdf](day_1_session_1/day_1_session_1_3algebra_crosstab.pdf)
+**Lecture 3: Algebra, Jessica, 75 min** [pdf](day_1_session_1/day_1_lecture_3_algebra_crosstab_nosolutions.pdf)
 
 * Solving for an unknown quantity
 * Variables
@@ -66,7 +66,7 @@ Khan Academy offers interactive online units for most of the topics we covered t
 
 ## Day 2: 24 September 2018, 8am--12pm, T-625
 
-**Lecture 4: Graphs, Brian, 50 min** [pdf](day_2_session_1/day_2_session_1_graphs.pdf)
+**Lecture 4: Graphs, Jessica, 50 min** [pdf](day_2_session_1/day_2_session_1_graphs.pdf)
 
 * Slope-intercept and point slope form
 * Drawing graphs based on an equation for a line
@@ -80,7 +80,7 @@ Khan Academy offers interactive online units for most of the topics we covered t
 * Logarithms
 * Example: gender bias in salaries
 
-**Lecture 6: Word Problems, Jessica, 45 min** [pdf](day_2_session_1/day_2_session_1_6word_problems.pdf)
+**Lecture 6: Word Problems, Jessica, 45 min** [pdf](day_2_session_1/day_2_lecture_6_nosolutions.pdf)
 
 * Using units
 * Steps for solving word problems
