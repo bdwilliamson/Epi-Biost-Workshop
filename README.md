@@ -94,6 +94,7 @@ Khan Academy offers interactive online units for most of the topics we covered t
     * [Stretching](https://www.khanacademy.org/math/algebra2/manipulating-functions#shifting-functions)
     * [Shrinking](https://www.khanacademy.org/math/algebra2/manipulating-functions#stretching-functions)
 * [Logarithms and exponents](https://www.khanacademy.org/math/algebra2/exponential-and-logarithmic-functions)
+* [Ratio and rate word problems](https://www.khanacademy.org/math/pre-algebra/pre-algebra-ratios-rates/modal/test/pre-algebra-ratios-rates-unit-test)
 
 ## Day 2: 24 September 2018, 8am--12pm, T-625
 
