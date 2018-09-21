@@ -38,14 +38,14 @@ R style guides (useful for making code easy to read):
 * Negative numbers
 * Absolute value
 
-**Lecture 2: Fractions, Percentages, and Decimals, Jessica, 60 min** [pdf](day_1_session_1/day_1_session_1_proportions_nosolutions.pdf)
+**Lecture 2: Fractions, Percentages, and Decimals, Jessica, 60 min** [pdf](day_1_session_1/day_1_lecture_2_proportions_solutions.pdf)
 
 * Introducing proportions
 * Fractions
 * Other ways to represent proportions
 * Proportions and other mathematical constructs in epidemiology
 
-**Lecture 3: Algebra, Jessica, 75 min** [pdf](day_1_session_1/day_1_lecture_3_algebra_crosstab_nosolutions.pdf)
+**Lecture 3: Algebra, Jessica, 75 min** [pdf](day_1_session_1/day_1_lecture_3_algebra_crosstab_solutions.pdf)
 
 * Solving for an unknown quantity
 * Variables
