@@ -124,7 +124,7 @@ Khan Academy offers interactive online units for most of the topics we covered t
 # Recommended Reading/Browsing
 
 ## R
-* [Lecture notes on data types and data structures](2016-materials/day_3_session_1_datatypes.html) (from 2016)
+* [Lecture notes on data types and data structures](2016-materials/day_3_session_1/day_3_session_1_datatypes.html) (from 2016)
 * [Hadley Wickham's book](http://adv-r.had.co.nz/)
 
 ## Reproducible Research
